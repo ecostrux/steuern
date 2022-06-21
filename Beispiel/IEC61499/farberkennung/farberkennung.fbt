@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="37558962-d4b6-4854-bf12-4c233a2ff007" Name="farberkennung" Comment="Composite Function Block Type" Namespace="Main">
+  <Attribute Name="HMI.Alias" Value="" />
+  <Attribute Name="Configuration.FB.IDCounter" Value="4" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="labor" Date="12/04/2022" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="farbensor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="farbensor" Type="INT" />
+    </InputVars>
+  </InterfaceList>
+  <FBNetwork>
+    <FB ID="2" Name="IThis" Type="farberkennung_HMI" x="2560" y="380" Namespace="Main">
+      <Parameter Name="QI" Value="TRUE" />
+    </FB>
+    <FB ID="3" Name="FB1" Type="plcStart" x="1340" y="200" Namespace="SE.AppBase">
+      <Parameter Name="Prio" Value="15" />
+      <Parameter Name="Delay" Value="T#15ms" />
+    </FB>
+    <FB ID="4" Name="farbsensor" Type="farbzuordnung" x="1600" y="820" Namespace="Main" />
+    <Input Name="REQ" x="160" y="832" Type="Event" />
+    <Input Name="farbensor" x="860" y="912" Type="Data" />
+    <Output Name="CNF" x="3340" y="312" Type="Event" />
+    <EventConnections>
+      <Connection Source="REQ" Destination="farbsensor.REQ" />
+      <Connection Source="FB1.FIRST_INIT" Destination="IThis.INIT" dx1="48.08337" />
+      <Connection Source="farbsensor.CNF" Destination="IThis.REQ" dx1="51.16675" />
+      <Connection Source="IThis.INITO" Destination="FB1.ACK_FIRST" dx1="40.104" dx2="70" dy="-290" />
+      <Connection Source="IThis.CNF" Destination="CNF" dx1="70" />
+    </EventConnections>
+    <DataConnections>
+      <Connection Source="farbensor" Destination="farbsensor.farbsensor" dx1="49.83337" />
+      <Connection Source="farbensor" Destination="IThis.farbsensor">
+        <Points>
+          <Points>
+            <X>325.041626</X>
+            <Y>235</Y>
+          </Points>
+          <Points>
+            <X>337.5</X>
+            <Y>235</Y>
+          </Points>
+          <Points>
+            <X>337.5</X>
+            <Y>187.5</Y>
+          </Points>
+          <Points>
+            <X>517.5</X>
+            <Y>187.5</Y>
+          </Points>
+          <Points>
+            <X>517.5</X>
+            <Y>200</Y>
+          </Points>
+          <Points>
+            <X>635</X>
+            <Y>200</Y>
+          </Points>
+        </Points>
+      </Connection>
+      <Connection Source="farbsensor.farbe" Destination="IThis.farbe" dx1="71.16675" />
+    </DataConnections>
+  </FBNetwork>
+</FBType>

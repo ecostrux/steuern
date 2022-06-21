@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IEC61499Export2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="21.2.0.0" ProductGUID="2070E3AF-F72B-4F57-8CE0-A9AA69A047B7" HmiNamespaceName="HMI.Main" WebNamespaceName="WEB.Main" IecNamespaceName="Main" Platform="Any" xmlns="http://www.nxtcontrol.com/IEC61499.xsd">
+  <CATs Name="farberkennung" CATFile="farberkennung\farberkennung.fbt" SymbolDefFile="..\HMI\farberkennung\farberkennung.def.cs" SymbolEventFile="..\HMI\farberkennung\farberkennung.event.cs" DesignFile="..\HMI\farberkennung\farberkennung.Design.resx">
+    <HMIInterface Name="IThis" FileName="farberkennung\farberkennung_HMI.fbt" UsedInCAT="true" Usage="Private">
+      <Symbol Name="sDefault" FileName="..\HMI\farberkennung\farberkennung_sDefault.cnv.cs">
+        <DependentFiles>..\HMI\farberkennung\farberkennung_sDefault.cnv.Designer.cs</DependentFiles>
+        <DependentFiles>..\HMI\farberkennung\farberkennung_sDefault.cnv.resx</DependentFiles>
+        <DependentFiles>..\HMI\farberkennung\farberkennung_sDefault.cnv.xml</DependentFiles>
+      </Symbol>
+      <Symbol Name="mitEvent" FileName="..\HMI\farberkennung\farberkennung_mitEvent.cnv.cs">
+        <DependentFiles>..\HMI\farberkennung\farberkennung_mitEvent.cnv.Designer.cs</DependentFiles>
+        <DependentFiles>..\HMI\farberkennung\farberkennung_mitEvent.cnv.resx</DependentFiles>
+        <DependentFiles>..\HMI\farberkennung\farberkennung_mitEvent.cnv.xml</DependentFiles>
+      </Symbol>
+    </HMIInterface>
+    <Plugin Name="Plugin=OfflineParametrizationEditor;IEC61499Type=CAT_OFFLINE;$ItemType$=Content" Project="IEC61499" Value="farberkennung\farberkennung_CAT.offline.xml" />
+    <Plugin Name="Plugin=OPCUAConfigurator;IEC61499Type=CAT_OPCUA;$ItemType$=Content" Project="IEC61499" Value="farberkennung\farberkennung_CAT.opcua.xml" />
+    <Plugin Name="Plugin=OfflineParametrizationEditor;IEC61499Type=CAT_OFFLINE;$ItemType$=Content" Project="IEC61499" Value="farberkennung\farberkennung_HMI.offline.xml" />
+    <Plugin Name="Plugin=OPCUAConfigurator;IEC61499Type=CAT_OPCUA;$ItemType$=Content" Project="IEC61499" Value="farberkennung\farberkennung_HMI.opcua.xml" />
+    <HWConfiguration xsi:nil="true" />
+  </CATs>
+  <GUIDs>{"farberkennung\\farberkennung.fbt":"37558962-d4b6-4854-bf12-4c233a2ff007","farberkennung\\farberkennung_HMI.fbt":"8208811b-46da-45d2-82e3-bf4aa8c1a2e2"}</GUIDs>
+</IEC61499Export2>

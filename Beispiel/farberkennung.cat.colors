@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UsedColors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org">
+  <RefColors />
+  <Colors>
+    <item>
+      <key>
+        <string xmlns="">SE.AppAsset.FwdCoolingInner</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"SE.AppAsset.FwdCoolingInner"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_sDefault.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="SE.AppAsset.FwdCoolingInner" R="0" G="150" B="255" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">SE.AppAsset.ExtractAirInner</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"SE.AppAsset.ExtractAirInner"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_sDefault.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="SE.AppAsset.ExtractAirInner" R="255" G="246" B="0" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">LabelTextColor</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"LabelTextColor"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_sDefault.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="LabelTextColor" R="100" G="100" B="100" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">LedFrameColor</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"LedFrameColor"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_sDefault.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="LedFrameColor" R="200" G="200" B="200" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">LedDefaultColor</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"LedDefaultColor"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_sDefault.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="LedDefaultColor" R="200" G="200" B="200" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">ButtonInnerBorderColor</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"ButtonInnerBorderColor"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_mitEvent.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="ButtonInnerBorderColor" R="90" G="90" B="90" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">ButtonTextColor</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"ButtonTextColor"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_mitEvent.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="ButtonTextColor" R="255" G="255" B="255" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">ButtonTextColorFalse</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"ButtonTextColorFalse"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_mitEvent.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="ButtonTextColorFalse" R="255" G="255" B="255" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">ButtonTextColorTrue</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"ButtonTextColorTrue"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_mitEvent.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="ButtonTextColorTrue" R="255" G="255" B="255" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+    <item>
+      <key>
+        <string xmlns="">ButtonTextColorMouseDown</string>
+      </key>
+      <value>
+        <UsedNormalColor xmlns="">
+          <Usage xmlns="http://tempuri.org">
+            <item>
+              <key>
+                <string xmlns="">"ButtonTextColorMouseDown"</string>
+              </key>
+              <value>
+                <ArrayOfString xmlns="">
+                  <string>..\HMI\farberkennung\farberkennung_mitEvent.cnv.Designer.cs</string>
+                </ArrayOfString>
+              </value>
+            </item>
+          </Usage>
+          <Color Name="ButtonTextColorMouseDown" R="255" G="255" B="255" A="255" xmlns="http://tempuri.org" />
+        </UsedNormalColor>
+      </value>
+    </item>
+  </Colors>
+  <BlinkColors />
+</UsedColors>
