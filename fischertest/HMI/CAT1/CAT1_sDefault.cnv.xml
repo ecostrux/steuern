@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mapping>
+  <EventInputs>
+    <Event Name="REQ">farbsensor;farbe</Event>
+  </EventInputs>
+  <EventOutputs>
+    <Event Name="CNF" />
+  </EventOutputs>
+  <Inputs>
+    <Input Name="farbsensor" Type="INT" />
+    <Input Name="farbe" Type="INT" />
+  </Inputs>
+  <Outputs />
+</Mapping>

@@ -4,7 +4,7 @@
     <Interface Identifier="Ethernet Interface">
       <PhysicalAddress />
       <Endpoint Identifier="IP Address">
-        <IPAddress>192.168.0.1</IPAddress>
+        <IPAddress>192.168.0.10</IPAddress>
         <Domain>b02c09ef-19d4-4ce6-b3dc-feb8cebf3af0</Domain>
       </Endpoint>
     </Interface>
@@ -14,7 +14,7 @@
     <Interface Identifier="Ethernet Interface">
       <PhysicalAddress />
       <Endpoint Identifier="IP Address">
-        <IPAddress>192.168.0.2</IPAddress>
+        <IPAddress>192.168.0.11</IPAddress>
         <Domain>b02c09ef-19d4-4ce6-b3dc-feb8cebf3af0</Domain>
       </Endpoint>
     </Interface>

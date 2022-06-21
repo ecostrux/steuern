@@ -1063,6 +1063,10 @@ namespace NxtControl.Drawing {
         
         public static NxtControl.Drawing.Color RuntimeConnectionConnected;
         
+        public static NxtControl.Drawing.Color FwdCoolingInner;
+        
+        public static NxtControl.Drawing.Color ExtractAirInner;
+        
         static ProjectColors() {
             White = NxtControl.Drawing.SystemColors.White;
             Black = NxtControl.Drawing.SystemColors.Black;
@@ -1594,6 +1598,8 @@ namespace NxtControl.Drawing {
             InactiveHelpButton = new NxtControl.Drawing.Color("InactiveHelpButton", System.Drawing.Color.FromArgb(128, 128, 128), NxtControl.Drawing.DrawingObjectType.Project);
             RuntimeConnectionNotConnected = new NxtControl.Drawing.Color("RuntimeConnectionNotConnected", System.Drawing.Color.FromArgb(255, 255, 255), NxtControl.Drawing.DrawingObjectType.Project);
             RuntimeConnectionConnected = new NxtControl.Drawing.Color("RuntimeConnectionConnected", System.Drawing.Color.FromArgb(70, 70, 70), NxtControl.Drawing.DrawingObjectType.Project);
+            FwdCoolingInner = new NxtControl.Drawing.Color("FwdCoolingInner", System.Drawing.Color.FromArgb(0, 150, 255), NxtControl.Drawing.DrawingObjectType.Project);
+            ExtractAirInner = new NxtControl.Drawing.Color("ExtractAirInner", System.Drawing.Color.FromArgb(255, 246, 0), NxtControl.Drawing.DrawingObjectType.Project);
         }
     }
 }

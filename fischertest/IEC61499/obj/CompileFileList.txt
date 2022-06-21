@@ -8,6 +8,30 @@
     <Modified>2022-06-21T14:48:14</Modified>
     <Hash>5A03F112CD5D470</Hash>
   </FileItem>
+  <FileItem Name="Main#CAT1_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>151414C05DD57C523</Hash>
+  </FileItem>
+  <FileItem Name="Main#farbzuordnung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>18588463D3CAC05A8</Hash>
+  </FileItem>
+  <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>30D7EBA4D3DA247E</Hash>
+  </FileItem>
+  <FileItem Name="Main#Farbe.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>1859A88563D313015</Hash>
+  </FileItem>
+  <FileItem Name="Main#farberkennung_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>218271C2AC741A2FF</Hash>
+  </FileItem>
+  <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>166046908DAB8B15D</Hash>
+  </FileItem>
   <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
   <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />
   <LibraryItem Name="SE.AppCommonProcess" Version="21.2.0.10" />

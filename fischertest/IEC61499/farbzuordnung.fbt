@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="95637c11-76a1-4fc2-a741-408fb428c119" Name="farbzuordnung" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="SESA56976" Date="19/08/2021" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="farbsensor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="farbe" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="farbsensor" Type="INT" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="farbe" Type="INT" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="&#xD;&#xA;IF  farbsensor &lt;1000  &#xD;&#xA;THEN&#xD;&#xA;farbe := 0;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF  farbsensor &gt; 1000 AND farbsensor &lt;2000  &#xD;&#xA;THEN&#xD;&#xA;farbe := 1;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF  farbsensor &gt; 2000 AND farbsensor &lt;3000  &#xD;&#xA;THEN&#xD;&#xA;farbe := 2;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

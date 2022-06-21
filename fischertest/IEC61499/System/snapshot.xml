@@ -81,7 +81,7 @@
     </network_profile>
     <network_profile name="(Local Test)">
       <device id="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A">
-        <sref snapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" state="ACTIVE" />
+        <sref snapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" state="ACTIVE_MODIFIED" />
       </device>
     </network_profile>
   </deployment>

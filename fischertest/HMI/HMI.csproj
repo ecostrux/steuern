@@ -154,26 +154,88 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Canvas1.cnv.cs">
+      <Canvas>true</Canvas>
+    </Compile>
+    <Compile Include="Canvas1.cnv.Designer.cs">
+      <DependentUpon>Canvas1.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CAT1\CAT1.def.cs" />
+    <Compile Include="CAT1\CAT1.event.cs" />
+    <Compile Include="CAT1\CAT1_mitEvent.cnv.cs" />
+    <Compile Include="CAT1\CAT1_mitEvent.cnv.Designer.cs">
+      <DependentUpon>CAT1_mitEvent.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CAT1\CAT1_sDefault.cnv.cs" />
+    <Compile Include="CAT1\CAT1_sDefault.cnv.Designer.cs">
+      <DependentUpon>CAT1_sDefault.cnv.cs</DependentUpon>
+    </Compile>
     <Compile Include="Colors\ProjectColors.cs" />
     <Compile Include="Colors\ProjectDrawingObjects.cs" />
+    <Compile Include="farberkennung\farberkennung.def.cs" />
+    <Compile Include="farberkennung\farberkennung.event.cs" />
+    <Compile Include="farberkennung\farberkennung_mitEvent.cnv.cs" />
+    <Compile Include="farberkennung\farberkennung_mitEvent.cnv.Designer.cs">
+      <DependentUpon>farberkennung_mitEvent.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="farberkennung\farberkennung_sDefault.cnv.cs" />
+    <Compile Include="farberkennung\farberkennung_sDefault.cnv.Designer.cs">
+      <DependentUpon>farberkennung_sDefault.cnv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartCanvas_1.cnv.cs" />
+    <Compile Include="StartCanvas_1.cnv.Designer.cs">
+      <DependentUpon>StartCanvas_1.cnv.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Alarms\AlarmClasses.xml" />
+    <None Include="CAT1\CAT1.Design.resx" />
     <None Include="Colors\Default.color.theme" />
     <None Include="Colors\Default.do.theme" />
     <None Include="Colors\DefaultLight.color.theme" />
     <None Include="Colors\DefaultLight.do.theme" />
     <None Include="Colors\ProjectColors.xml" />
     <None Include="Colors\ProjectDrawingObjects.xml" />
+    <None Include="farberkennung\farberkennung.Design.resx" />
     <None Include="ImageStorage\ImageStorage.xml" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Alarms\AlarmClasses.xml" />
     <EmbeddedResource Include="Alarms\SystemAlarmClasses.xml" />
+    <EmbeddedResource Include="Canvas1.cnv.resx">
+      <DependentUpon>Canvas1.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAT1\CAT1_mitEvent.cnv.resx">
+      <DependentUpon>CAT1_mitEvent.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAT1\CAT1_mitEvent.cnv.xml">
+      <DependentUpon>CAT1_mitEvent.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAT1\CAT1_sDefault.cnv.resx">
+      <DependentUpon>CAT1_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAT1\CAT1_sDefault.cnv.xml">
+      <DependentUpon>CAT1_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configurations\HistoryTrend.xml" />
     <EmbeddedResource Include="Configurations\Journalling.xml" />
     <EmbeddedResource Include="Configurations\TagValueEditor.xml" />
+    <EmbeddedResource Include="farberkennung\farberkennung_mitEvent.cnv.resx">
+      <DependentUpon>farberkennung_mitEvent.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="farberkennung\farberkennung_mitEvent.cnv.xml">
+      <DependentUpon>farberkennung_mitEvent.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="farberkennung\farberkennung_sDefault.cnv.resx">
+      <DependentUpon>farberkennung_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="farberkennung\farberkennung_sDefault.cnv.xml">
+      <DependentUpon>farberkennung_sDefault.cnv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartCanvas_1.cnv.resx">
+      <DependentUpon>StartCanvas_1.cnv.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(SharpDevelopBinPath)\SharpDevelop.Build.CSharp.targets" />
 </Project>

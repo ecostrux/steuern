@@ -106,10 +106,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="CAT1\CAT1.cfg">
+      <DependentUpon>CAT1.fbt</DependentUpon>
+      <IEC61499Type>CAT</IEC61499Type>
+    </None>
     <None Include="Configuration\Certificates\Certificates.xml" />
     <None Include="IEC61499.iecproj" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
     <None Include="Project.doc.xml" />
+    <None Include="SnapshotCompiles\{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}\Default\IEC61499.snapshot" />
     <None Include="System\BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A.hcf">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
@@ -169,6 +174,28 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CAT1\CAT1.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="CAT1\CAT1_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>CAT1\CAT1.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="Farbe.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="farberkennung\farberkennung.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+    </Compile>
+    <Compile Include="farberkennung\farberkennung_HMI.fbt">
+      <IEC61499Type>CAT</IEC61499Type>
+      <DependentUpon>farberkennung\farberkennung.fbt</DependentUpon>
+      <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="farbzuordnung.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
     <Compile Include="System\System.sys">
       <IEC61499Type>System</IEC61499Type>
     </Compile>
@@ -178,11 +205,39 @@
     <Folder Include="Configuration\Certificates" />
     <Folder Include="License" />
     <Folder Include="Log" />
+    <Folder Include="SnapshotCompiles" />
+    <Folder Include="SnapshotCompiles\{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" />
+    <Folder Include="SnapshotCompiles\{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}\Default" />
     <Folder Include="System\Topology">
       <DependentUpon>System.sys</DependentUpon>
     </Folder>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CAT1\CAT1_CAT.offline.xml">
+      <DependentUpon>CAT1.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="CAT1\CAT1_CAT.opcua.xml">
+      <DependentUpon>CAT1.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="CAT1\CAT1_HMI.offline.xml">
+      <DependentUpon>CAT1.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
+    <Content Include="CAT1\CAT1_HMI.opcua.xml">
+      <DependentUpon>CAT1.fbt</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
+    <Content Include="farberkennung\farberkennung_CAT.offline.xml">
+      <DependentUpon>farberkennung.fbt</DependentUpon>
+      <Plugin>OfflineParametrizationEditor</Plugin>
+      <IEC61499Type>CAT_OFFLINE</IEC61499Type>
+    </Content>
     <Content Include="System\System.opcua.xml">
       <DependentUpon>System.sys</DependentUpon>
       <Plugin>OPCUAConfigurator</Plugin>

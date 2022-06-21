@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="317c35a5-bf7e-46dc-a6c8-360b0003a526" Name="Farbe" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="Lernfabrik" Date="21/06/2022" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="QI" />
+        <With Var="Analogwert" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="QO" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="QO" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="INT" Comment="Input event qualifier" />
+      <VarDeclaration Name="Analogwert" Type="INT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="INT" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="QO := QI / Analogwert;&#xD;&#xA;;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

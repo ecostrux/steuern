@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="8208811b-46da-45d2-82e3-bf4aa8c1a2e2" Name="CAT1_HMI" Comment="Service Interface Function Block Type" Namespace="Main">
+  <Attribute Name="Runtime.Persistence.Storage" Value="0" />
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="labor" Date="12/04/2022" Remarks="template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event ID="CFE79E2A66DA122C" Name="INIT">
+        <With Var="QI" />
+      </Event>
+      <Event ID="1F3F0490004AC417" Name="REQ">
+        <With Var="farbsensor" />
+        <With Var="farbe" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event ID="91706466D8FAE5D6" Name="INITO">
+        <With Var="QO" />
+        <With Var="STATUS" />
+      </Event>
+      <Event ID="255234088C9DF0EE" Name="CNF" />
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration ID="AC6617468BB12C7B" Name="QI" Type="BOOL" />
+      <VarDeclaration ID="D2A02CEDB869E0A4" Name="farbsensor" Type="INT" />
+      <VarDeclaration ID="9AD98D6A63FE4D22" Name="farbe" Type="INT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration ID="E542FC97E44F4CF7" Name="QO" Type="BOOL" Comment="Event Output Qualifier" />
+      <VarDeclaration ID="41932D4D7DE59BC6" Name="STATUS" Type="STRING" Comment="Service Status" />
+    </OutputVars>
+  </InterfaceList>
+  <Service RightInterface="" LeftInterface="">
+    <ServiceSequence Name="" />
+  </Service>
+</FBType>

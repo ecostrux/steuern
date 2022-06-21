@@ -10,7 +10,7 @@
         <Parameter Name="Prio" Value="10" />
         <Parameter Name="Delay" Value="T#0ms" />
       </FB>
-      <FB ID="5259483AAA7C2FE9" UID="77AA2A9EA65B0D3F" Name="DST_modbua" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="1480" y="280" Namespace="Main">
+      <FB ID="5259483AAA7C2FE9" UID="77AA2A9EA65B0D3F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="1480" y="280" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
         <Parameter Name="QI" Value="TRUE" />
         <Parameter Name="NAME1" Value="'$${PATH}Input'" />
@@ -21,10 +21,11 @@
         <Parameter Name="QI" Value="TRUE" />
         <Parameter Name="NAME1" Value="'$${PATH}Input'" />
       </FB>
+      <FB ID="BE9931CD106798B4" Name="CAT1" Type="CAT1" x="280" y="1040" Namespace="Main" />
       <EventConnections>
-        <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbua.INIT" dx1="48.08337" />
-        <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbua.INIT" dx1="70" />
-        <Connection Source="DST_modbua.INITO" Destination="PLC_start.ACK_FIRST" dx1="41.625" dx2="50" dy="-110" />
+        <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="48.08337" />
+        <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="70" />
+        <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="41.625" dx2="50" dy="-110" />
         <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="68.08337" />
         <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="48.08337" />
         <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="70" dy="-110" />
@@ -39,7 +40,7 @@
           <Parameter Name="Prio" Value="10" />
           <Parameter Name="Delay" Value="T#0ms" />
         </FB>
-        <FB ID="A37B8C67DFE0672F" Name="DST_modbua" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="2180" y="220" Namespace="Main">
+        <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="2180" y="220" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
           <Parameter Name="QI" Value="TRUE" />
           <Parameter Name="NAME1" Value="'$${PATH}Input'" />
@@ -54,7 +55,7 @@
           <Connection Source="START.COLD" Destination="FB1.INIT" />
           <Connection Source="START.WARM" Destination="FB1.INIT" dx1="70" />
           <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" dx1="90" />
-          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbua.INIT">
+          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT">
             <Points>
               <Points>
                 <X>200.479156</X>
@@ -82,8 +83,8 @@
               </Points>
             </Points>
           </Connection>
-          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbua.INIT" dx1="1028.083" />
-          <Connection Source="DST_modbua.INITO" Destination="PLC_start.ACK_FIRST">
+          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
+          <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST">
             <Points>
               <Points>
                 <X>682.09375</X>
@@ -136,6 +137,6 @@
     <FBNetwork />
   </Device>
   <Mapping From="APP1.PLC_start" To="EcoRT_0.RES0" />
-  <Mapping From="APP1.DST_modbua" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.DST_modbus" To="EcoRT_0.RES0" />
   <Mapping From="APP1.SRC_modbus" To="EcoRT_0.RES0" />
 </System>
