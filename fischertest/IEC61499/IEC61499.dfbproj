@@ -114,7 +114,7 @@
     <None Include="IEC61499.iecproj" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
     <None Include="Project.doc.xml" />
-    <None Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}\Default\IEC61499.snapshot" />
+    <None Include="SnapshotCompiles\{4660E866-96B7-4748-A5F1-29861B222720}\Default\IEC61499.snapshot" />
     <None Include="System\BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A.hcf">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
@@ -223,8 +223,11 @@
     <Compile Include="Motor.fbt">
       <IEC61499Type>Composite</IEC61499Type>
     </Compile>
-    <Compile Include="Pusher.fbt">
-      <IEC61499Type>Composite</IEC61499Type>
+    <Compile Include="Pusher_Element.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="Setup.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
     </Compile>
     <Compile Include="System\System.sys">
       <IEC61499Type>System</IEC61499Type>
@@ -236,9 +239,9 @@
     <Folder Include="License" />
     <Folder Include="Log" />
     <Folder Include="SnapshotCompiles" />
-    <Folder Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}" />
-    <Folder Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}\Default" />
-    <Folder Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}\Default\{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" />
+    <Folder Include="SnapshotCompiles\{4660E866-96B7-4748-A5F1-29861B222720}" />
+    <Folder Include="SnapshotCompiles\{4660E866-96B7-4748-A5F1-29861B222720}\Default" />
+    <Folder Include="SnapshotCompiles\{4660E866-96B7-4748-A5F1-29861B222720}\Default\{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" />
     <Folder Include="System\Topology">
       <DependentUpon>System.sys</DependentUpon>
     </Folder>

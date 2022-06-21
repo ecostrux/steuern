@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="5d5d4150-8953-4ad2-a1a0-50f1087cfefb" Name="Channels" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="Schulung" Date="30/11/2020" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="Motor" />
+        <With Var="Kompressor" />
+        <With Var="Pusher1" />
+        <With Var="Pusher2" />
+        <With Var="Pusher3" />
+        <With Var="IN5" />
+        <With Var="IN6" />
+        <With Var="IN7" />
+        <With Var="IN8" />
+        <With Var="IN9" />
+        <With Var="IN10" />
+        <With Var="IN11" />
+        <With Var="IN12" />
+        <With Var="IN13" />
+        <With Var="IN14" />
+        <With Var="IN15" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="OUT_INT" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="Motor" Type="BOOL" Comment="Input event qualifier" />
+      <VarDeclaration Name="Kompressor" Type="BOOL" />
+      <VarDeclaration Name="Pusher1" Type="BOOL" />
+      <VarDeclaration Name="Pusher2" Type="BOOL" />
+      <VarDeclaration Name="Pusher3" Type="BOOL" />
+      <VarDeclaration Name="IN5" Type="BOOL" />
+      <VarDeclaration Name="IN6" Type="BOOL" />
+      <VarDeclaration Name="IN7" Type="BOOL" />
+      <VarDeclaration Name="IN8" Type="BOOL" />
+      <VarDeclaration Name="IN9" Type="BOOL" />
+      <VarDeclaration Name="IN10" Type="BOOL" />
+      <VarDeclaration Name="IN11" Type="BOOL" />
+      <VarDeclaration Name="IN12" Type="BOOL" />
+      <VarDeclaration Name="IN13" Type="BOOL" />
+      <VarDeclaration Name="IN14" Type="BOOL" />
+      <VarDeclaration Name="IN15" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT_INT" Type="INT" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="OUT_INT :=&#xD;&#xA;	WORD_TO_INT(SHL(BOOL_TO_WORD(Motor),0)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(Kompressor),1)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(Pusher1),2)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(Pusher2),3)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(Pusher3),4)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN5),5)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN6),6)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN7),7)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN8),8)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN9),9)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN10),10)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN11),11)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN12),12)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN13),13)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN14),14)&#xD;&#xA;	+ SHL(BOOL_TO_WORD(IN15),15))&#xD;&#xA;	;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

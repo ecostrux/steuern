@@ -1,0 +1,43 @@
+{
+  "snapshot": {
+    "guid": "a7cfe2a5-69ef-4efc-a2c7-aa267aaf4a48",
+    "hash": "223E2799858A801CAB33EEEC6FF56840C08E218885BA4FB51EE9142B53B70BF8",
+    "app": {
+      "hash": "4728DA4C763BBB387DF5CA075B2803A185A613A82B238CC5E7DF287963E115A9",
+      "items": [
+        "SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin",
+        "SE.DPAC#DPAC_FULLINIT.bin",
+        "SE.AppBase#plcStart.bin",
+        "Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin",
+        "Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin",
+        "Main#INT_TO_BIT.bin",
+        "Main#BIT_TO_INT.bin",
+        "Standard.IoModbus#MODBUS_HMI.bin",
+        "Standard.IoModbus#IHwSlaveConfig.bin",
+        "Standard.IoModbus#MODBUS.bin",
+        "Standard.IoModbus#MODBUSGENTCPS_HMI.bin",
+        "Standard.IoModbus#IHwGenSlot.bin",
+        "Standard.IoModbus#ADD_2449E3A5F7EE2D347.bin",
+        "Standard.IoModbus#MODBUSGENTCPS.bin",
+        "Standard.IoModbus#MODBUSRREG1_HMI.bin",
+        "Standard.IoModbus#OCINIT.bin",
+        "Standard.IoModbus#SYMLINKMULTIVARSRC_18556BCA74EA878F1.bin",
+        "Standard.IoModbus#PD_ANY_IN_842F42743DE0B99A.bin",
+        "Standard.IoModbus#MODBUSRREG1.bin",
+        "Standard.IoModbus#MODBUSWREG1_HMI.bin",
+        "Standard.IoModbus#SYMLINKMULTIVARDST_5A03F112CD5D470.bin",
+        "Standard.IoModbus#PD_ANY_OUT_179B9F9364EF1EA9C.bin",
+        "Standard.IoModbus#MODBUSWREG1.bin",
+        "Standard.IoModbus#MODBUSSLOTEND.bin",
+        "Standard.IoModbus#MODBUSSLAVEND.bin",
+        "Device.bin"
+      ]
+    },
+    "hwconfig": [
+      {
+        "path": "MODBUS.xml",
+        "location": "HWConfig"
+      }
+    ]
+  }
+}

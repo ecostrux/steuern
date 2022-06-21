@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="a04ed360-19f7-4bb7-9c6c-198786864947" Name="INT_TO_BIT" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="Schneider Electric" Version="0.0" Author="Schulung" Date="27/11/2020" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="IN_INT" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="OUT0" />
+        <With Var="OUT1" />
+        <With Var="OUT2" />
+        <With Var="OUT3" />
+        <With Var="OUT4" />
+        <With Var="OUT5" />
+        <With Var="OUT6" />
+        <With Var="OUT7" />
+        <With Var="OUT8" />
+        <With Var="OUT9" />
+        <With Var="OUT10" />
+        <With Var="OUT11" />
+        <With Var="OUT12" />
+        <With Var="OUT13" />
+        <With Var="OUT14" />
+        <With Var="OUT15" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="IN_INT" Type="INT" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OUT0" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="OUT1" Type="BOOL" />
+      <VarDeclaration Name="OUT2" Type="BOOL" />
+      <VarDeclaration Name="OUT3" Type="BOOL" />
+      <VarDeclaration Name="OUT4" Type="BOOL" />
+      <VarDeclaration Name="OUT5" Type="BOOL" />
+      <VarDeclaration Name="OUT6" Type="BOOL" />
+      <VarDeclaration Name="OUT7" Type="BOOL" />
+      <VarDeclaration Name="OUT8" Type="BOOL" />
+      <VarDeclaration Name="OUT9" Type="BOOL" />
+      <VarDeclaration Name="OUT10" Type="BOOL" />
+      <VarDeclaration Name="OUT11" Type="BOOL" />
+      <VarDeclaration Name="OUT12" Type="BOOL" />
+      <VarDeclaration Name="OUT13" Type="BOOL" />
+      <VarDeclaration Name="OUT14" Type="BOOL" />
+      <VarDeclaration Name="OUT15" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="REQ" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="OUT0 := EQ(AND(IN_INT,16#0001),16#0001);&#xD;&#xA;OUT1 := EQ(AND(IN_INT,16#0002),16#0002);&#xD;&#xA;OUT2 := EQ(AND(IN_INT,16#0004),16#0004);&#xD;&#xA;OUT3 := EQ(AND(IN_INT,16#0008),16#0008);&#xD;&#xA;OUT4 := EQ(AND(IN_INT,16#0010),16#0010);&#xD;&#xA;OUT5 := EQ(AND(IN_INT,16#0020),16#0020);&#xD;&#xA;OUT6 := EQ(AND(IN_INT,16#0040),16#0040);&#xD;&#xA;OUT7 := EQ(AND(IN_INT,16#0080),16#0080);&#xD;&#xA;OUT8 := EQ(AND(IN_INT,16#0100),16#0100);&#xD;&#xA;OUT9 := EQ(AND(IN_INT,16#0200),16#0200);&#xD;&#xA;OUT10 := EQ(AND(IN_INT,16#0400),16#0400);&#xD;&#xA;OUT11 := EQ(AND(IN_INT,16#0800),16#0800);&#xD;&#xA;OUT12 := EQ(AND(IN_INT,16#1000),16#1000);&#xD;&#xA;OUT13 := EQ(AND(IN_INT,16#2000),16#2000);&#xD;&#xA;OUT14 := EQ(AND(IN_INT,16#4000),16#4000);&#xD;&#xA;OUT15 := EQ(AND(INT_TO_WORD(IN_INT),16#8000),16#8000);" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

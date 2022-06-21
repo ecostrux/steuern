@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompileFileList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <FileItem Name="Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin" Library="IEC61499.exe" BuildSnapshot="{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:42</Modified>
+    <Hash>245F63E78A1EAB7B1</Hash>
+  </FileItem>
+  <FileItem Name="Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin" Library="IEC61499.exe" BuildSnapshot="{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:42</Modified>
+    <Hash>5A03F112CD5D470</Hash>
+  </FileItem>
+  <FileItem Name="Main#CAT1_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>151414C05DD57C523</Hash>
+  </FileItem>
+  <FileItem Name="Main#farbzuordnung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>18588463D3CAC05A8</Hash>
+  </FileItem>
+  <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>30D7EBA4D3DA247E</Hash>
+  </FileItem>
+  <FileItem Name="Main#Farbe.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>1859A88563D313015</Hash>
+  </FileItem>
+  <FileItem Name="Main#farberkennung_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>218271C2AC741A2FF</Hash>
+  </FileItem>
+  <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T15:53:30</Modified>
+    <Hash>166046908DAB8B15D</Hash>
+  </FileItem>
+  <FileItem Name="Main#IntToBin.bin" Library="IEC61499.exe" BuildSnapshot="{5279D550-F94F-4CFD-A1D8-C5A0695CD357}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T19:26:00</Modified>
+    <Hash>1775DDE9B8B1D8F81</Hash>
+  </FileItem>
+  <FileItem Name="Main#BIT_TO_INT.bin" Library="IEC61499.exe" BuildSnapshot="{F935B567-6BCA-4CEC-BDCB-D32343703737}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T19:16:44</Modified>
+    <Hash>77DB67FCF6467DC4</Hash>
+  </FileItem>
+  <FileItem Name="Main#INT_TO_BIT.bin" Library="IEC61499.exe" BuildSnapshot="{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" BaseSnapshot="{72ED4DD0-C12C-476B-A044-B72A9D2E05C7}">
+    <Modified>2022-06-21T20:03:42</Modified>
+    <Hash>172E8312C3765FB94</Hash>
+  </FileItem>
+  <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
+  <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppCommonProcess" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppConveying" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppLiquidFood" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppSequence" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppStateManagement" Version="21.2.0.10" />
+  <LibraryItem Name="SE.DPAC" Version="21.2.0.35" />
+  <LibraryItem Name="SE.FieldDevice" Version="21.2.0.35" />
+  <LibraryItem Name="SE.HwCommon" Version="21.2.0.20" />
+  <LibraryItem Name="SE.IoATV" Version="21.2.0.35" />
+  <LibraryItem Name="SE.IoNet" Version="21.2.0.3" />
+  <LibraryItem Name="SE.IoTMx" Version="21.2.0.22" />
+  <LibraryItem Name="SE.IoX80" Version="21.2.0.23" />
+  <LibraryItem Name="SE.ModbusGateway" Version="21.2.0.12" />
+  <LibraryItem Name="SE.Standard" Version="21.2.0.4" />
+  <LibraryItem Name="Standard.HMIExtensions" Version="21.2.0.1" />
+  <LibraryItem Name="Standard.IoEtherNetIP" Version="21.2.0.13" />
+  <LibraryItem Name="Standard.IoModbus" Version="21.2.0.17" />
+  <LibraryItem Name="Standard.IoModbusSlave" Version="21.2.0.16" />
+  <LibraryItem Name="Standard.OPCUAClient" Version="21.2.0.11" />
+  <LibraryItem Name="IEC61131.Standard" Version="21.2.0.1" />
+  <LibraryItem Name="SE.AppAsset" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppFunctional" Version="21.2.0.10" />
+</CompileFileList>

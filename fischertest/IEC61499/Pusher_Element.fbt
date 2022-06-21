@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="0cdd20ee-50c5-406d-9ff5-f9ef65f4555e" Name="Pusher_Element" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="Lernfabrik" Date="21/06/2022" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="SetDistanceToBarrier" />
+        <With Var="SetMyColorResponsibility" />
+        <With Var="SetRetractDelay" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="CurrentColor" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="DoPush" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="DoPush" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="CurrentColor" Type="STRING" Comment="Color of the Element Currently at the last Barrier" />
+      <VarDeclaration Name="SetDistanceToBarrier" Type="INT" />
+      <VarDeclaration Name="SetMyColorResponsibility" Type="STRING" InitialValue="'Green'" Comment="Setup the Color I am responsible for" />
+      <VarDeclaration Name="SetRetractDelay" Type="INT" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="DoPush" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <InternalVars>
+      <VarDeclaration Name="DistanceToBarrier" Type="INT" Comment="Distance in Ticks to the Exit Barrier (Nr. 2)" />
+      <VarDeclaration Name="RetractDelay" Type="INT" Comment="Time until the Pusher retrackts after pushing our thing away" />
+      <VarDeclaration Name="MyColorResponsibility" Type="STRING" InitialValue="'Green'" Comment="Elements of which color should I push out?" />
+      <VarDeclaration Name="InOutState" Type="BOOL" InitialValue="FALSE" Comment="0 = Back 1 = Pusher out" />
+      <VarDeclaration Name="RemainingTicks" Type="INT" />
+      <VarDeclaration Name="Activated" Type="BOOL" InitialValue="FALSE" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="&#xD;&#xA;InOutState := 0;&#xD;&#xA;RetractDelay := 1;&#xD;&#xA;MyColorResponsibility := SetMyColorResponsibility;&#xD;&#xA;DistanceToBarrier := SetDistanceToBarrier;&#xD;&#xA;(* ToDo: Retract Once *)" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="&#xD;&#xA;IF MyColorResponsibility = CurrentColor THEN&#xD;&#xA;	RemainingTicks := DistanceToBarrier;&#xD;&#xA;	Activated := 1;&#xD;&#xA;	(* What happens if the same color comes twice in a cycle? -&gt; Oh, oh*)&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;RemainingTicks := RemainingTicks - 1;&#xD;&#xA;IF RemainingTicks &lt; 1 AND RemainingTicks &gt; -10 THEN&#xD;&#xA;		DoPush := 1;&#xD;&#xA;		Activated := 0;&#xD;&#xA;		RemainingTicks := -10;&#xD;&#xA;				&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

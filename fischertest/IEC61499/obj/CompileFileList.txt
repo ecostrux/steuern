@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CompileFileList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/DeploySnapshot.xsd">
-  <FileItem Name="Main#BIT_TO_INT.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T20:50:56</Modified>
+  <FileItem Name="Main#BIT_TO_INT.bin" Library="IEC61499.exe" BuildSnapshot="{A5C932F3-6A28-4D68-9256-916F828A12E6}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:04:52</Modified>
     <Hash>77DB67FCF6467DC4</Hash>
   </FileItem>
   <FileItem Name="Main#CAT1_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
@@ -52,9 +52,9 @@
     <Modified>2022-06-21T20:50:56</Modified>
     <Hash>18300D1D869767C0D</Hash>
   </FileItem>
-  <FileItem Name="Main#IsMotorTick.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T20:50:56</Modified>
-    <Hash>2187336C6F5DF7F3</Hash>
+  <FileItem Name="Main#IsMotorTick.bin" Library="IEC61499.exe" BuildSnapshot="{A5C932F3-6A28-4D68-9256-916F828A12E6}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:04:52</Modified>
+    <Hash>880AC1F8B0D55FCE</Hash>
   </FileItem>
   <FileItem Name="Main#LightBarrier.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
     <Modified>2022-06-21T20:50:56</Modified>
@@ -64,9 +64,21 @@
     <Modified>2022-06-21T20:50:56</Modified>
     <Hash>115A1C512400B461</Hash>
   </FileItem>
-  <FileItem Name="Main#Pusher.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T20:50:56</Modified>
-    <Hash>63671368EB26759D</Hash>
+  <FileItem Name="Main#Pusher.bin" Library="IEC61499.exe" BuildSnapshot="{B25469FC-B5B5-4534-9C6E-51A85FC079CA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:25:50</Modified>
+    <Hash>16037B52A22F950C3</Hash>
+  </FileItem>
+  <FileItem Name="Main#Channels.bin" Library="IEC61499.exe" BuildSnapshot="{309D1170-0894-4FE1-AFA5-82B589D804C0}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:06:34</Modified>
+    <Hash>2155F3F1EEC4CB5D8</Hash>
+  </FileItem>
+  <FileItem Name="Main#Pusher_Element.bin" Library="IEC61499.exe" BuildSnapshot="{7F1AB16E-20A0-4E75-8A38-E10EE6DD589E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T23:23:34</Modified>
+    <Hash>1626EA98A3B8B7CE3</Hash>
+  </FileItem>
+  <FileItem Name="Main#Setup.bin" Library="IEC61499.exe" BuildSnapshot="{B25469FC-B5B5-4534-9C6E-51A85FC079CA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:25:50</Modified>
+    <Hash>70DC90D477E36203</Hash>
   </FileItem>
   <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
   <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />

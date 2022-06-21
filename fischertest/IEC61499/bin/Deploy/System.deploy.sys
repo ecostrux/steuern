@@ -21,11 +21,17 @@
           <Parameter Name="NAME1" Value="'$${PATH}Input'" />
         </FB>
         <FB ID="385274E2B7D5D15A" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="3020" y="220" Namespace="Main" />
-        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="BIT_TO_INT" x="800" y="1280" Namespace="Main">
-          <Parameter Name="IN1" Value="FALSE" />
-          <Parameter Name="IN4" Value="TRUE" />
+        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="Channels" x="800" y="1280" Namespace="Main">
+          <Parameter Name="Pusher3" Value="TRUE" />
+          <Parameter Name="Kompressor" Value="TRUE" />
         </FB>
         <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" x="3120" y="180" Namespace="Main" />
+        <FB ID="990D70359659816" Name="PusherGreen" Type="Pusher_Element" x="3260" y="880" Namespace="Main">
+          <Parameter Name="SetDistanceToBarrier" Value="5" />
+          <Parameter Name="SetRetractDelay" Value="1" />
+          <Parameter Name="SetMyColorResponsibility" Value="'Green'" />
+          <Parameter Name="CurrentColor" Value="'Blue'" />
+        </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -47,23 +53,25 @@
         <FB ID="A7DFDF1A1FD7E1AA" Name="MODBUSSLAVEND" Type="MODBUSSLAVEND" x="0" y="0" Namespace="Standard.IoModbus" />
         <EventConnections>
           <Connection Source="START.COLD" Destination="FB1.INIT" />
-          <Connection Source="START.WARM" Destination="FB1.INIT" dx1="70" />
-          <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" dx1="90" />
+          <Connection Source="START.WARM" Destination="FB1.INIT" />
+          <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" />
           <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="50" />
           <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
           <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
           <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
           <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
           <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" />
-          <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" dx1="70" />
+          <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" />
           <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="55.20837" />
           <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="97.54175" dx2="130" dy="-150" />
           <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
+          <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="1508" />
         </EventConnections>
         <DataConnections>
-          <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
+          <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
           <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="50.41687" />
           <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="97.54175" dx2="130" dy="-350" />
+          <Connection Source="PusherGreen.DoPush" Destination="MATH_BIT_TO_INT.Pusher1" dx1="40" dx2="70" dy="1308" />
         </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />

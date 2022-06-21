@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 18:54:07Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{120FA743-555B-48C8-AC79-75071A0A4880}">
+<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 21:23:35Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{7F1AB16E-20A0-4E75-8A38-E10EE6DD589E}">
   <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
     <Resource ID="6654357727DAC531" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
       <FBNetwork>
@@ -20,11 +20,17 @@
           <Parameter Name="NAME1" Value="'$${PATH}Input'" />
         </FB>
         <FB ID="385274E2B7D5D15A" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" Namespace="Main" />
-        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="BIT_TO_INT" Namespace="Main">
-          <Parameter Name="IN1" Value="FALSE" />
-          <Parameter Name="IN4" Value="TRUE" />
+        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="Channels" Namespace="Main">
+          <Parameter Name="Pusher3" Value="TRUE" />
+          <Parameter Name="Kompressor" Value="TRUE" />
         </FB>
         <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" Namespace="Main" />
+        <FB ID="990D70359659816" Name="PusherGreen" Type="Pusher_Element" Namespace="Main">
+          <Parameter Name="SetDistanceToBarrier" Value="5" />
+          <Parameter Name="SetRetractDelay" Value="1" />
+          <Parameter Name="SetMyColorResponsibility" Value="'Green'" />
+          <Parameter Name="CurrentColor" Value="'Blue'" />
+        </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -59,11 +65,13 @@
           <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" />
           <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" />
           <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" />
+          <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
           <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" />
           <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" />
+          <Connection Source="PusherGreen.DoPush" Destination="MATH_BIT_TO_INT.Pusher1" />
         </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />
