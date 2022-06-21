@@ -4,8 +4,8 @@
     <Interface Identifier="Ethernet Interface">
       <PhysicalAddress />
       <Endpoint Identifier="IP Address">
-        <IPAddress>192.168.0.10</IPAddress>
-        <Domain>b02c09ef-19d4-4ce6-b3dc-feb8cebf3af0</Domain>
+        <IPAddress>10.10.226.10</IPAddress>
+        <Domain>00000000-0000-0000-0000-000000000000</Domain>
       </Endpoint>
     </Interface>
     <Port Identifier="Port1" Side="Default" />
@@ -14,8 +14,8 @@
     <Interface Identifier="Ethernet Interface">
       <PhysicalAddress />
       <Endpoint Identifier="IP Address">
-        <IPAddress>192.168.0.11</IPAddress>
-        <Domain>b02c09ef-19d4-4ce6-b3dc-feb8cebf3af0</Domain>
+        <IPAddress>10.10.226.11</IPAddress>
+        <Domain>00000000-0000-0000-0000-000000000000</Domain>
       </Endpoint>
     </Interface>
     <Port Identifier="Port1" Side="Default" />

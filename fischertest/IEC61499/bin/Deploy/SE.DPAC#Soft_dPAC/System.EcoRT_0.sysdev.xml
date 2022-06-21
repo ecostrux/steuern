@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 12:52:18Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}">
+<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 16:00:57Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{51A81432-8CD4-4CC4-9300-5F536144AC5E}">
   <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
     <Resource ID="6654357727DAC531" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
       <FBNetwork>
@@ -8,16 +8,16 @@
           <Parameter Name="Prio" Value="10" />
           <Parameter Name="Delay" Value="T#0ms" />
         </FB>
-        <FB ID="A37B8C67DFE0672F" Name="DST_modbua" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" Namespace="Main">
+        <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
           <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
+          <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
         </FB>
         <FB ID="1335227D6FE2C7BD" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+          <Parameter Name="NAME1" Value="'$${PATH}var2'" />
         </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
@@ -28,10 +28,10 @@
           <Parameter Name="SLAVE_BUS_ID" Value="'MB_EA_01'" />
         </FB>
         <FB ID="831B0C4BF4D96EB4" Name="DigInputs" Type="MODBUSRREG1" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="'Input'" />
+          <Parameter Name="r0LinkName" Value="'var_0'" />
         </FB>
         <FB ID="CFA1642A1CB2A3A5" Name="DigOutputs" Type="MODBUSWREG1" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="'Input'" />
+          <Parameter Name="r0LinkName" Value="'var2'" />
         </FB>
         <FB ID="9162C9E795E548BE" Name="AnlInput" Type="MODBUSRREG1" Namespace="Standard.IoModbus">
           <Parameter Name="r0LinkName" Value="'var_1'" />
@@ -43,9 +43,9 @@
           <Connection Source="START.COLD" Destination="FB1.INIT" />
           <Connection Source="START.WARM" Destination="FB1.INIT" />
           <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" />
-          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbua.INIT" />
-          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbua.INIT" />
-          <Connection Source="DST_modbua.INITO" Destination="PLC_start.ACK_FIRST" />
+          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" />
+          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" />
+          <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" />
           <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" />
           <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" />
           <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" />

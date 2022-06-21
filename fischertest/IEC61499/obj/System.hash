@@ -13,13 +13,13 @@
       <FB ID="5259483AAA7C2FE9" UID="77AA2A9EA65B0D3F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="1480" y="280" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
         <Parameter Name="QI" Value="TRUE" />
-        <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+        <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
         <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
       </FB>
       <FB ID="DFF32D51810E4321" UID="A9BA477FDFA12739" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1480" y="940" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
         <Parameter Name="QI" Value="TRUE" />
-        <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+        <Parameter Name="NAME1" Value="'$${PATH}var2'" />
       </FB>
       <FB ID="BE9931CD106798B4" Name="CAT1" Type="CAT1" x="280" y="1040" Namespace="Main" />
       <EventConnections>
@@ -43,13 +43,13 @@
         <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="2180" y="220" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
           <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
+          <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
         </FB>
         <FB ID="1335227D6FE2C7BD" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1960" y="940" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+          <Parameter Name="NAME1" Value="'$${PATH}var2'" />
         </FB>
         <EventConnections>
           <Connection Source="START.COLD" Destination="FB1.INIT" />

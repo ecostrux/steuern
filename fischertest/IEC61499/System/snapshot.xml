@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <baseline xmlns:xsd="http://www.nxtControl.com/Snapshot" xmlns="http://tempuri.org/XMLSchema1.xsd">
-  <snapshot guid="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" compiler="Default" created="2022-06-21T14:51:35" base="{00000000-0000-0000-0000-000000000000}">
+  <snapshot guid="{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}" compiler="Default" created="2022-06-21T17:57:36" base="{00000000-0000-0000-0000-000000000000}">
     <DeployInformation Type="Working">
       <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
         <FileItem Name="Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin" Library="IEC61499.exe" BuildSnapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
@@ -10,6 +10,30 @@
         <FileItem Name="Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin" Library="IEC61499.exe" BuildSnapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
           <Modified>2022-06-21T14:48:15</Modified>
           <Hash>5A03F112CD5D470</Hash>
+        </FileItem>
+        <FileItem Name="Main#CAT1_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>151414C05DD57C523</Hash>
+        </FileItem>
+        <FileItem Name="Main#farbzuordnung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>18588463D3CAC05A8</Hash>
+        </FileItem>
+        <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>30D7EBA4D3DA247E</Hash>
+        </FileItem>
+        <FileItem Name="Main#Farbe.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>1859A88563D313015</Hash>
+        </FileItem>
+        <FileItem Name="Main#farberkennung_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>218271C2AC741A2FF</Hash>
+        </FileItem>
+        <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>166046908DAB8B15D</Hash>
         </FileItem>
         <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
         <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />
@@ -35,7 +59,76 @@
         <LibraryItem Name="IEC61131.Standard" Version="21.2.0.1" />
         <LibraryItem Name="SE.AppAsset" Version="21.2.0.10" />
         <LibraryItem Name="SE.AppFunctional" Version="21.2.0.10" />
-        <DeviceItem ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Hash="715339505270B284" />
+      </FileGroup>
+    </DeployInformation>
+    <DeployInformation Type="HWConfig">
+      <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="EcoRT_0\HWConfig\MODBUS.xml">
+          <Modified>2022-06-21T17:57:36</Modified>
+        </FileItem>
+      </FileGroup>
+    </DeployInformation>
+  </snapshot>
+  <snapshot guid="{51A81432-8CD4-4CC4-9300-5F536144AC5E}" compiler="Default" created="2022-06-21T18:00:57" base="{00000000-0000-0000-0000-000000000000}">
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin" Library="IEC61499.exe" BuildSnapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T14:48:15</Modified>
+          <Hash>245F63E78A1EAB7B1</Hash>
+        </FileItem>
+        <FileItem Name="Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin" Library="IEC61499.exe" BuildSnapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T14:48:15</Modified>
+          <Hash>5A03F112CD5D470</Hash>
+        </FileItem>
+        <FileItem Name="Main#CAT1_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>151414C05DD57C523</Hash>
+        </FileItem>
+        <FileItem Name="Main#farbzuordnung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>18588463D3CAC05A8</Hash>
+        </FileItem>
+        <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>30D7EBA4D3DA247E</Hash>
+        </FileItem>
+        <FileItem Name="Main#Farbe.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>1859A88563D313015</Hash>
+        </FileItem>
+        <FileItem Name="Main#farberkennung_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>218271C2AC741A2FF</Hash>
+        </FileItem>
+        <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T15:53:30</Modified>
+          <Hash>166046908DAB8B15D</Hash>
+        </FileItem>
+        <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
+        <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppCommonProcess" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppConveying" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppLiquidFood" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppSequence" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppStateManagement" Version="21.2.0.10" />
+        <LibraryItem Name="SE.DPAC" Version="21.2.0.35" />
+        <LibraryItem Name="SE.FieldDevice" Version="21.2.0.35" />
+        <LibraryItem Name="SE.HwCommon" Version="21.2.0.20" />
+        <LibraryItem Name="SE.IoATV" Version="21.2.0.35" />
+        <LibraryItem Name="SE.IoNet" Version="21.2.0.3" />
+        <LibraryItem Name="SE.IoTMx" Version="21.2.0.22" />
+        <LibraryItem Name="SE.IoX80" Version="21.2.0.23" />
+        <LibraryItem Name="SE.ModbusGateway" Version="21.2.0.12" />
+        <LibraryItem Name="SE.Standard" Version="21.2.0.4" />
+        <LibraryItem Name="Standard.HMIExtensions" Version="21.2.0.1" />
+        <LibraryItem Name="Standard.IoEtherNetIP" Version="21.2.0.13" />
+        <LibraryItem Name="Standard.IoModbus" Version="21.2.0.17" />
+        <LibraryItem Name="Standard.IoModbusSlave" Version="21.2.0.16" />
+        <LibraryItem Name="Standard.OPCUAClient" Version="21.2.0.11" />
+        <LibraryItem Name="IEC61131.Standard" Version="21.2.0.1" />
+        <LibraryItem Name="SE.AppAsset" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppFunctional" Version="21.2.0.10" />
+        <DeviceItem ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Hash="196A5719A7CD1048A" />
       </FileGroup>
       <Device Name="EcoRT_0" ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" xmlns="http://tempuri.org/DeploySnapshot.xsd">
         <FileItem Name="Basics/SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin" />
@@ -66,9 +159,9 @@
     <DeployInformation Type="HWConfig">
       <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
         <FileItem Name="EcoRT_0\HWConfig\MODBUS.xml">
-          <Modified>2022-06-21T14:52:17</Modified>
+          <Modified>2022-06-21T18:00:57</Modified>
         </FileItem>
-        <DeviceItem ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Hash="715339505270B284" />
+        <DeviceItem ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Hash="196A5719A7CD1048A" />
       </FileGroup>
       <Device Name="EcoRT_0" ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" xmlns="http://tempuri.org/DeploySnapshot.xsd">
         <FileItem Name="EcoRT_0\HWConfig\MODBUS.xml" />
@@ -81,7 +174,7 @@
     </network_profile>
     <network_profile name="(Local Test)">
       <device id="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A">
-        <sref snapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" state="ACTIVE_MODIFIED" />
+        <sref snapshot="{51A81432-8CD4-4CC4-9300-5F536144AC5E}" state="ACTIVE" />
       </device>
     </network_profile>
   </deployment>

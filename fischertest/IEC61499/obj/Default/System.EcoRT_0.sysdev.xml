@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 13:53:32Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{E7000AA4-6B20-4E76-9B21-B7C8095E3031}">
+<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 15:11:47Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{A265F5FA-DE62-4E50-9EC1-4550C20F8344}">
   <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
     <Resource ID="6654357727DAC531" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
       <FBNetwork>
@@ -11,13 +11,13 @@
         <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
           <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
+          <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
         </FB>
         <FB ID="1335227D6FE2C7BD" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+          <Parameter Name="NAME1" Value="'$${PATH}var2'" />
         </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
@@ -28,13 +28,13 @@
           <Parameter Name="SLAVE_BUS_ID" Value="'MB_EA_01'" />
         </FB>
         <FB ID="831B0C4BF4D96EB4" Name="DigInputs" Type="MODBUSRREG1" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="'Input'" />
+          <Parameter Name="r0LinkName" Value="''" />
         </FB>
         <FB ID="CFA1642A1CB2A3A5" Name="DigOutputs" Type="MODBUSWREG1" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="'Input'" />
+          <Parameter Name="r0LinkName" Value="''" />
         </FB>
         <FB ID="9162C9E795E548BE" Name="AnlInput" Type="MODBUSRREG1" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="'var_1'" />
+          <Parameter Name="r0LinkName" Value="''" />
         </FB>
         <FB ID="342CA7F8B138E20D" Name="MODBUSSLOTEND" Type="MODBUSSLOTEND" Namespace="Standard.IoModbus" />
         <FB ID="A7DFDF1A1FD7E1AA" Name="MODBUSSLAVEND" Type="MODBUSSLAVEND" Namespace="Standard.IoModbus" />

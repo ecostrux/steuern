@@ -114,7 +114,8 @@
     <None Include="IEC61499.iecproj" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
     <None Include="Project.doc.xml" />
-    <None Include="SnapshotCompiles\{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}\Default\IEC61499.snapshot" />
+    <None Include="SnapshotCompiles\{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}\Default\IEC61499.snapshot" />
+    <None Include="SnapshotCompiles\{51A81432-8CD4-4CC4-9300-5F536144AC5E}\Default\IEC61499.snapshot" />
     <None Include="System\BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A.hcf">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
@@ -196,6 +197,9 @@
     <Compile Include="farbzuordnung.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
+    <Compile Include="IntToBin.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
     <Compile Include="System\System.sys">
       <IEC61499Type>System</IEC61499Type>
     </Compile>
@@ -206,8 +210,10 @@
     <Folder Include="License" />
     <Folder Include="Log" />
     <Folder Include="SnapshotCompiles" />
-    <Folder Include="SnapshotCompiles\{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" />
-    <Folder Include="SnapshotCompiles\{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}\Default" />
+    <Folder Include="SnapshotCompiles\{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}" />
+    <Folder Include="SnapshotCompiles\{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}\Default" />
+    <Folder Include="SnapshotCompiles\{51A81432-8CD4-4CC4-9300-5F536144AC5E}" />
+    <Folder Include="SnapshotCompiles\{51A81432-8CD4-4CC4-9300-5F536144AC5E}\Default" />
     <Folder Include="System\Topology">
       <DependentUpon>System.sys</DependentUpon>
     </Folder>
