@@ -27,11 +27,12 @@
         </FB>
         <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" x="3120" y="180" Namespace="Main" />
         <FB ID="990D70359659816" Name="PusherGreen" Type="Pusher_Element" x="3260" y="880" Namespace="Main">
-          <Parameter Name="SetDistance" Value="5" />
+          <Parameter Name="SetDistanceToBarrier" Value="5" />
           <Parameter Name="SetRetractDelay" Value="1" />
-          <Parameter Name="SetMyColor" Value="'Green'" />
-          <Parameter Name="CurrentColor" Value="'Green'" />
+          <Parameter Name="SetMyColorResponsibility" Value="'Green'" />
+          <Parameter Name="CurrentColor" Value="" />
         </FB>
+        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1580" y="1400" Namespace="Main" />
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -111,6 +112,7 @@
           <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="97.54175" dx2="130" dy="-150" />
           <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
           <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="1508" />
+          <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" dx1="458.4583" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />

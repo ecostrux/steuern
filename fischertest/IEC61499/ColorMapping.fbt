@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
-<FBType GUID="95637c11-76a1-4fc2-a741-408fb428c119" Name="farbzuordnung" Comment="Basic Function Block Type" Namespace="Main">
+<FBType GUID="95637c11-76a1-4fc2-a741-408fb428c119" Name="ColorMapping" Comment="Basic Function Block Type" Namespace="Main">
   <Identification Standard="61499-2" />
   <VersionInfo Organization="Schneider Electric" Version="0.0" Author="SESA56976" Date="19/08/2021" Remarks="Template" />
   <InterfaceList>

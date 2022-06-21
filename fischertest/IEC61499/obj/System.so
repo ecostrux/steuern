@@ -6,34 +6,36 @@
   <VersionInfo Organization="WBK hackaton" Version="0.0" Author="david" Date="21.06.2022" />
   <Application ID="1D0C8937064F6F78" Name="APP1">
     <SubAppNetwork>
-      <FB ID="88F79D23CEC84016" Name="PLC_start" Type="plcStart" x="2100" y="500" Namespace="SE.AppBase">
+      <FB ID="88F79D23CEC84016" Name="PLC_start" Type="plcStart" x="3220" y="360" Namespace="SE.AppBase">
         <Parameter Name="Prio" Value="10" />
         <Parameter Name="Delay" Value="T#0ms" />
       </FB>
-      <FB ID="CC2F1BD613B92566" UID="77AA2A9EA65B0D3F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="3340" y="340" Namespace="Main">
+      <FB ID="CC2F1BD613B92566" UID="77AA2A9EA65B0D3F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="4460" y="200" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
         <Parameter Name="QI" Value="TRUE" />
         <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
         <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
       </FB>
-      <FB ID="DFF32D51810E4321" UID="A9BA477FDFA12739" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="3420" y="1040" Namespace="Main">
+      <FB ID="DFF32D51810E4321" UID="A9BA477FDFA12739" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="4540" y="900" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
         <Parameter Name="QI" Value="TRUE" />
         <Parameter Name="NAME1" Value="'$${PATH}var2'" />
       </FB>
-      <FB ID="BE9931CD106798B4" Name="CAT1" Type="CAT1" x="2040" y="1100" Namespace="Main" />
-      <FB ID="4363F87BCBBA2926" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="4280" y="320" Namespace="Main" />
-      <FB ID="BCBEA7EA410B5279" Name="MATH_BIT_TO_INT" Type="Channels" x="2700" y="1280" Namespace="Main">
+      <FB ID="BE9931CD106798B4" Name="CAT1" Type="CAT1" x="3160" y="960" Namespace="Main" />
+      <FB ID="4363F87BCBBA2926" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="5400" y="180" Namespace="Main" />
+      <FB ID="BCBEA7EA410B5279" Name="MATH_BIT_TO_INT" Type="Channels" x="3820" y="1140" Namespace="Main">
         <Parameter Name="Kompressor" Value="TRUE" />
         <Parameter Name="Pusher3" Value="TRUE" />
       </FB>
-      <FB ID="19FF33EA765C057A" Name="MotorTickCheck" Type="IsMotorTick" x="5080" y="220" Namespace="Main" />
-      <FB ID="BE42C056E2DB54D8" Name="PusherGreen" Type="Pusher_Element" x="1760" y="1680" Namespace="Main">
+      <FB ID="19FF33EA765C057A" Name="MotorTickCheck" Type="IsMotorTick" x="6200" y="80" Namespace="Main" />
+      <FB ID="BE42C056E2DB54D8" Name="PusherGreen" Type="Pusher_Element" x="2700" y="1440" Namespace="Main">
         <Parameter Name="SetRetractDelay" Value="1" />
         <Parameter Name="SetMyColorResponsibility" Value="'Green'" />
         <Parameter Name="SetDistanceToBarrier" Value="5" />
-        <Parameter Name="CurrentColor" Value="'Blue'" />
+        <Parameter Name="CurrentColor" Value="" />
       </FB>
+      <FB ID="A35984FB56205D6E" Name="LightSensor_2" Type="LightSensor" x="1580" y="1400" Namespace="Main" />
+      <FB ID="3B5D6E6390DFA274" Name="FB1" Type="ColorDetection" x="1480" y="860" Namespace="Main" />
       <EventConnections>
         <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="198.0835">
           <AvoidsNodes>false</AvoidsNodes>
@@ -46,43 +48,44 @@
         <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="50" />
         <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="81.625" dx2="50" dy="-110" />
         <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" dx1="70" />
-        <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="57.66675" />
+        <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="57.66699" />
         <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="57.5415" />
         <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT">
           <Points>
             <Points>
-              <X>972.09375</X>
-              <Y>95</Y>
+              <X>1252.09375</X>
+              <Y>60</Y>
             </Points>
             <Points>
-              <X>984.59375</X>
-              <Y>95</Y>
+              <X>1264.59375</X>
+              <Y>60</Y>
             </Points>
             <Points>
-              <X>984.59375</X>
-              <Y>62.5</Y>
+              <X>1264.59375</X>
+              <Y>27.5</Y>
             </Points>
             <Points>
-              <X>1182.5</X>
-              <Y>62.5</Y>
+              <X>1462.5</X>
+              <Y>27.5</Y>
             </Points>
             <Points>
-              <X>1182.5</X>
-              <Y>65</Y>
+              <X>1462.5</X>
+              <Y>30</Y>
             </Points>
             <Points>
-              <X>1265</X>
-              <Y>65</Y>
+              <X>1545</X>
+              <Y>30</Y>
             </Points>
           </Points>
         </Connection>
-        <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="40" />
+        <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="130.8545" />
+        <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" dx1="40" />
       </EventConnections>
       <DataConnections>
         <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
-        <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="77.66675" />
+        <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="77.66699" />
         <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="40" />
-        <Connection Source="PusherGreen.DoPush" Destination="MATH_BIT_TO_INT.Pusher1" dx1="70" />
+        <Connection Source="PusherGreen.DoPush" Destination="MATH_BIT_TO_INT.Pusher1" dx1="70.85449" />
       </DataConnections>
     </SubAppNetwork>
   </Application>
@@ -115,8 +118,9 @@
           <Parameter Name="SetDistanceToBarrier" Value="5" />
           <Parameter Name="SetRetractDelay" Value="1" />
           <Parameter Name="SetMyColorResponsibility" Value="'Green'" />
-          <Parameter Name="CurrentColor" Value="'Blue'" />
+          <Parameter Name="CurrentColor" Value="" />
         </FB>
+        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1580" y="1400" Namespace="Main" />
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -195,6 +199,7 @@
           <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="97.54175" dx2="130" dy="-150" />
           <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
           <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="1508" />
+          <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" dx1="458.4583" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
@@ -223,4 +228,5 @@
   <Mapping From="APP1.MATH_BIT_TO_INT" To="EcoRT_0.RES0" />
   <Mapping From="APP1.MotorTickCheck" To="EcoRT_0.RES0" />
   <Mapping From="APP1.PusherGreen" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.LightSensor_2" To="EcoRT_0.RES0" />
 </System>

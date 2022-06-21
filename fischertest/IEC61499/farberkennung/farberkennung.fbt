@@ -26,7 +26,7 @@
       <Parameter Name="Prio" Value="15" />
       <Parameter Name="Delay" Value="T#15ms" />
     </FB>
-    <FB ID="4" Name="farbsensor" Type="farbzuordnung" x="1600" y="820" Namespace="Main" />
+    <FB ID="4" Name="farbsensor" Type="ColorMapping" x="1600" y="820" Namespace="Main" />
     <Input Name="REQ" x="160" y="832" Type="Event" />
     <Input Name="farbensor" x="860" y="912" Type="Data" />
     <Output Name="CNF" x="3340" y="312" Type="Event" />

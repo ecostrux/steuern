@@ -310,7 +310,7 @@
     </network_profile>
     <network_profile name="(Local Test)">
       <device id="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A">
-        <sref snapshot="{7F1AB16E-20A0-4E75-8A38-E10EE6DD589E}" state="ACTIVE" />
+        <sref snapshot="{7F1AB16E-20A0-4E75-8A38-E10EE6DD589E}" state="ACTIVE_MODIFIED" />
       </device>
     </network_profile>
   </deployment>

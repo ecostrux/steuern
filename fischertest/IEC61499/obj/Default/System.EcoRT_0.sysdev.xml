@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 21:14:10Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{4660E866-96B7-4748-A5F1-29861B222720}">
+<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 21:51:19Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022">
   <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
     <Resource ID="6654357727DAC531" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
       <FBNetwork>
@@ -26,11 +26,12 @@
         </FB>
         <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" Namespace="Main" />
         <FB ID="990D70359659816" Name="PusherGreen" Type="Pusher_Element" Namespace="Main">
-          <Parameter Name="SetDistance" Value="5" />
+          <Parameter Name="SetDistanceToBarrier" Value="5" />
           <Parameter Name="SetRetractDelay" Value="1" />
-          <Parameter Name="SetMyColor" Value="'Green'" />
-          <Parameter Name="CurrentColor" Value="'Green'" />
+          <Parameter Name="SetMyColorResponsibility" Value="'Green'" />
+          <Parameter Name="CurrentColor" Value="" />
         </FB>
+        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" Namespace="Main" />
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -66,6 +67,7 @@
           <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" />
           <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" />
           <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" />
+          <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
