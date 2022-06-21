@@ -18,7 +18,7 @@
       </Event>
     </EventOutputs>
     <InputVars>
-      <VarDeclaration Name="SetCurrentColor" Type="INT" />
+      <VarDeclaration Name="SetCurrentColor" Type="STRING" />
       <VarDeclaration Name="QI" Type="BOOL" />
     </InputVars>
     <OutputVars>
@@ -29,7 +29,7 @@
     </OutputVars>
   </InterfaceList>
   <BasicFB>
-    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,Freeing,Loading" />
     <InternalVars>
       <VarDeclaration Name="CurrentPiecesColor" Type="STRING" />
       <VarDeclaration Name="PieceIsIn" Type="BOOL" />
@@ -39,19 +39,35 @@
       <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
         <ECAction Algorithm="INIT" Output="INITO" />
       </ECState>
-      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+      <ECState Name="REQ" Comment="Normal execution" x="469.647" y="928.9412">
         <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECState Name="IsFree" x="944" y="732">
+        <ECAction Algorithm="Loading" />
+      </ECState>
+      <ECState Name="IsLoaded" x="964" y="532">
+        <ECAction Algorithm="Freeing" />
       </ECState>
       <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
       <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
-      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
-      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="592.5223" y="691.5121">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="155.2285,157.4408,149.7376,190.3712" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="509.6147" y="604.1764">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="125.078,161.2593,130.569,128.3289" />
+      </ECTransition>
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
       <ST Text=";" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
-      <ST Text="IF PieceIsIn = FALSE AND QI = FALSE THEN &#xD;&#xA;	PieceIsIn := TRUE;&#xD;&#xA;	PieceEnters := TRUE;&#xD;&#xA;ELSIF PieceIsIn = TRUE AND QI = TRUE THEN &#xD;&#xA;	PieceIsIn := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;ELSIF PieceIsIn = FALSE AND QI = FALSE THEN&#xD;&#xA;	PieceIsIn := FALSE;&#xD;&#xA;ELSIF PieceIsIn = TRUE AND QI = TRUE THEN&#xD;&#xA;	PieceIsIn := TRUE;&#xD;&#xA;END_IF;&#xD;&#xA;" />
+      <ST Text="IF IsFree = TRUE AND QI = FALSE THEN &#xD;&#xA;	PieceEnters := TRUE;&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN &#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := TRUE;&#xD;&#xA;ELSIF IsFree = TRUE AND QI = FALSE THEN&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;" />
+    </Algorithm>
+    <Algorithm Name="Freeing">
+      <ST Text=";" />
+    </Algorithm>
+    <Algorithm Name="Loading">
+      <ST Text=";" />
     </Algorithm>
   </BasicFB>
 </FBType>

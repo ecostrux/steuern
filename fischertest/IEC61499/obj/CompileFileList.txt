@@ -12,9 +12,9 @@
     <Modified>2022-06-21T20:03:16</Modified>
     <Hash>18588463D3CAC05A8</Hash>
   </FileItem>
-  <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T20:03:16</Modified>
-    <Hash>30D7EBA4D3DA247E</Hash>
+  <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>22012625BBD0F1BF6</Hash>
   </FileItem>
   <FileItem Name="Main#Farbe.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
     <Modified>2022-06-21T20:03:16</Modified>
@@ -24,9 +24,9 @@
     <Modified>2022-06-21T20:03:16</Modified>
     <Hash>218271C2AC741A2FF</Hash>
   </FileItem>
-  <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T20:03:16</Modified>
-    <Hash>166046908DAB8B15D</Hash>
+  <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>1185043DA782A05E7</Hash>
   </FileItem>
   <FileItem Name="Main#IntToBin.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
     <Modified>2022-06-21T20:03:16</Modified>
@@ -73,16 +73,36 @@
     <Hash>2155F3F1EEC4CB5D8</Hash>
   </FileItem>
   <FileItem Name="Main#Pusher_Element.bin" Library="IEC61499.exe" BuildSnapshot="{EEB75934-1952-4AE9-93CF-0B746690EB46}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T23:23:34</Modified>
+    <Modified>2022-06-21T23:51:16</Modified>
     <Hash>1626EA98A3B8B7CE3</Hash>
   </FileItem>
   <FileItem Name="Main#Setup.bin" Library="IEC61499.exe" BuildSnapshot="{B25469FC-B5B5-4534-9C6E-51A85FC079CA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
     <Modified>2022-06-21T22:25:50</Modified>
     <Hash>70DC90D477E36203</Hash>
   </FileItem>
-  <FileItem Name="Main#LightSensor.bin" Library="IEC61499.exe" BuildSnapshot="{A871AEB2-A282-4C64-A777-9108424421C9}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
-    <Modified>2022-06-21T23:47:58</Modified>
-    <Hash>1124BE91C0448A31A</Hash>
+  <FileItem Name="Main#LightSensor.bin" Library="IEC61499.exe" BuildSnapshot="{E555F77E-7253-43A4-BD3E-407609E8D88C}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:45:16</Modified>
+    <Hash>36336280EDEC4ED9</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorMapping.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>137978B7243DC01F</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorSensor.bin" Library="IEC61499.exe" BuildSnapshot="{FFD57385-A3E4-4A6D-9D88-A8ED5AE4CC02}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:57:02</Modified>
+    <Hash>26833257893011F7</Hash>
+  </FileItem>
+  <FileItem Name="Main#tickDelay.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>129731DDC6F5083A</Hash>
+  </FileItem>
+  <FileItem Name="Main#Timer.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>479874618282C2CE</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorDebug.bin" Library="IEC61499.exe" BuildSnapshot="{1E4B39A2-BC62-4207-84E2-A8F4F5A1341D}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T01:12:24</Modified>
+    <Hash>188306A4CE5CD0377</Hash>
   </FileItem>
   <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
   <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />

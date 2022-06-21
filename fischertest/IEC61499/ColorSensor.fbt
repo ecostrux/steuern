@@ -44,7 +44,7 @@
       <ST Text=";" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
-      <ST Text="&#xD;&#xA;&#xD;&#xA;BUFFER := 300;&#xD;&#xA;&#xD;&#xA;IF ColorInt &lt; GREENCOLOR + BUFFER AND ColorInt &gt; BLUECOLOR - BUFFER THEN&#xD;&#xA;	CurrentColor := BLUE;" />
+      <ST Text="&#xD;&#xA;&#xD;&#xA;(*BUFFER := 300;&#xD;&#xA;&#xD;&#xA;IF ColorInt &lt; GREENCOLOR + BUFFER AND ColorInt &gt; BLUECOLOR - BUFFER THEN&#xD;&#xA;	CurrentColor := BLUE;&#xD;&#xA;END_IF; *)&#xD;&#xA;;" />
     </Algorithm>
   </BasicFB>
 </FBType>

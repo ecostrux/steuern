@@ -1,9 +1,9 @@
 {
   "snapshot": {
-    "guid": "7f1ab16e-20a0-4e75-8a38-e10ee6dd589e",
-    "hash": "59F8035A9A6EBEBFFAE79A3C75B429746F0FF5D94713EAA9711D0C4DE7B25DD1",
+    "guid": "7e4635fe-e64e-413e-849f-fe5e109d28f9",
+    "hash": "B43A1D70DF139BCA0A15FD4E4E3C7D849E7EC54F2D63439690C4F51CBF8B0D91",
     "app": {
-      "hash": "84F9E80E5CFD99E25A126C089C335CED7967248103B54136F58E5604DDBB48E7",
+      "hash": "CAA487C3AFFE5778EF1340CEEE5CCCC98994A8CE2AB38E324478764217E851B3",
       "items": [
         "SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin",
         "SE.DPAC#DPAC_FULLINIT.bin",
@@ -14,6 +14,9 @@
         "Main#Channels.bin",
         "Main#IsMotorTick.bin",
         "Main#Pusher_Element.bin",
+        "Main#LightSensor.bin",
+        "Main#ColorDebug.bin",
+        "Standard.IoEtherNetIP#VTQ_to_INT.bin",
         "Standard.IoModbus#MODBUS_HMI.bin",
         "Standard.IoModbus#IHwSlaveConfig.bin",
         "Standard.IoModbus#MODBUS.bin",
