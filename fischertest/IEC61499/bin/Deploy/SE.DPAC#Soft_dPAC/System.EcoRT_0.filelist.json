@@ -1,15 +1,18 @@
 {
   "snapshot": {
-    "guid": "51a81432-8cd4-4cc4-9300-5f536144ac5e",
-    "hash": "B57CAC1456FA323A3298C3D6C7C689158A891B2AA1A2C2822D6BC8543C48A7C4",
+    "guid": "120fa743-555b-48c8-ac79-75071a0a4880",
+    "hash": "2164215DBF265830A097D2C23D318495BCC489B1D3719776EEBD3A42DCF7EF6F",
     "app": {
-      "hash": "CD734D148C54B4BBEA41ED4107D7B6D1FF5836F5339B75B1EC035585AB3C2CAD",
+      "hash": "09D0E0AD5E9CFA6DD9722B59568A7DDD2F819AB583E5EEE97EB9FE5C606E047D",
       "items": [
         "SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin",
         "SE.DPAC#DPAC_FULLINIT.bin",
         "SE.AppBase#plcStart.bin",
         "Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin",
         "Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin",
+        "Main#INT_TO_BIT.bin",
+        "Main#BIT_TO_INT.bin",
+        "Main#IsMotorTick.bin",
         "Standard.IoModbus#MODBUS_HMI.bin",
         "Standard.IoModbus#IHwSlaveConfig.bin",
         "Standard.IoModbus#MODBUS.bin",

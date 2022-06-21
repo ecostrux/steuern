@@ -114,8 +114,7 @@
     <None Include="IEC61499.iecproj" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
     <None Include="Project.doc.xml" />
-    <None Include="SnapshotCompiles\{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}\Default\IEC61499.snapshot" />
-    <None Include="SnapshotCompiles\{51A81432-8CD4-4CC4-9300-5F536144AC5E}\Default\IEC61499.snapshot" />
+    <None Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}\Default\IEC61499.snapshot" />
     <None Include="System\BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A.hcf">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
@@ -175,6 +174,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BIT_TO_INT.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
     <Compile Include="CAT1\CAT1.fbt">
       <IEC61499Type>CAT</IEC61499Type>
     </Compile>
@@ -182,6 +184,15 @@
       <IEC61499Type>CAT</IEC61499Type>
       <DependentUpon>CAT1\CAT1.fbt</DependentUpon>
       <Usage>Private</Usage>
+    </Compile>
+    <Compile Include="Channels.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="ColorDetection.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Counter.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
     </Compile>
     <Compile Include="Farbe.fbt">
       <IEC61499Type>Basic</IEC61499Type>
@@ -200,6 +211,21 @@
     <Compile Include="IntToBin.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
+    <Compile Include="INT_TO_BIT.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="IsMotorTick.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
+    <Compile Include="LightBarrier.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Motor.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
+    <Compile Include="Pusher.fbt">
+      <IEC61499Type>Composite</IEC61499Type>
+    </Compile>
     <Compile Include="System\System.sys">
       <IEC61499Type>System</IEC61499Type>
     </Compile>
@@ -210,10 +236,9 @@
     <Folder Include="License" />
     <Folder Include="Log" />
     <Folder Include="SnapshotCompiles" />
-    <Folder Include="SnapshotCompiles\{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}" />
-    <Folder Include="SnapshotCompiles\{4CC32CC4-6BDB-42BC-BC6E-FA0AAF3979E7}\Default" />
-    <Folder Include="SnapshotCompiles\{51A81432-8CD4-4CC4-9300-5F536144AC5E}" />
-    <Folder Include="SnapshotCompiles\{51A81432-8CD4-4CC4-9300-5F536144AC5E}\Default" />
+    <Folder Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}" />
+    <Folder Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}\Default" />
+    <Folder Include="SnapshotCompiles\{120FA743-555B-48C8-AC79-75071A0A4880}\Default\{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" />
     <Folder Include="System\Topology">
       <DependentUpon>System.sys</DependentUpon>
     </Folder>

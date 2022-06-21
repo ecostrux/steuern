@@ -40,11 +40,6 @@ C:\Users\Lernfabrik\steuern\fischertest\HMI\bin\Windows\Debug\Standard.IoEtherNe
 C:\Users\Lernfabrik\steuern\fischertest\HMI\bin\Windows\Debug\Standard.IoModbus.HMI.imgstore
 C:\Users\Lernfabrik\steuern\fischertest\HMI\bin\Windows\Debug\Standard.IoModbusSlave.HMI.imgstore
 C:\Users\Lernfabrik\steuern\fischertest\HMI\bin\Windows\Debug\SE.AppFunctional.HMI.imgstore
-C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csprojAssemblyReference.cache
-C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.CoreCompileInputs.cache
-C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.CopyComplete
-C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.dll
-C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.pdb
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.Main.Canvases.Canvas1.resources
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.Main.Symbols.CAT1.mitEvent.resources
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.Main.Symbols.CAT1.sDefault.resources
@@ -52,3 +47,7 @@ C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.Main.Symbols.f
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.Main.Symbols.farberkennung.sDefault.resources
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.Main.Canvases.StartCanvas_1.resources
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.GenerateResource.cache
+C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.CoreCompileInputs.cache
+C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.CopyComplete
+C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.dll
+C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.pdb

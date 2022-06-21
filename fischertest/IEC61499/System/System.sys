@@ -6,30 +6,76 @@
   <VersionInfo Organization="WBK hackaton" Version="0.0" Author="david" Date="21.06.2022" />
   <Application ID="1D0C8937064F6F78" Name="APP1">
     <SubAppNetwork>
-      <FB ID="88F79D23CEC84016" Name="PLC_start" Type="plcStart" x="420" y="300" Namespace="SE.AppBase">
+      <FB ID="88F79D23CEC84016" Name="PLC_start" Type="plcStart" x="220" y="380" Namespace="SE.AppBase">
         <Parameter Name="Prio" Value="10" />
         <Parameter Name="Delay" Value="T#0ms" />
       </FB>
-      <FB ID="5259483AAA7C2FE9" UID="77AA2A9EA65B0D3F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="1480" y="280" Namespace="Main">
+      <FB ID="CC2F1BD613B92566" UID="77AA2A9EA65B0D3F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="1460" y="220" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
         <Parameter Name="QI" Value="TRUE" />
         <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
         <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
       </FB>
-      <FB ID="DFF32D51810E4321" UID="A9BA477FDFA12739" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1480" y="940" Namespace="Main">
+      <FB ID="DFF32D51810E4321" UID="A9BA477FDFA12739" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1540" y="920" Namespace="Main">
         <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
         <Parameter Name="QI" Value="TRUE" />
         <Parameter Name="NAME1" Value="'$${PATH}var2'" />
       </FB>
       <FB ID="BE9931CD106798B4" Name="CAT1" Type="CAT1" x="280" y="1040" Namespace="Main" />
+      <FB ID="4363F87BCBBA2926" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="2400" y="200" Namespace="Main" />
+      <FB ID="BCBEA7EA410B5279" Name="MATH_BIT_TO_INT" Type="Channels" x="820" y="1160" Namespace="Main">
+        <Parameter Name="IN1" Value="FALSE" />
+        <Parameter Name="IN4" Value="TRUE" />
+      </FB>
+      <FB ID="19FF33EA765C057A" Name="MotorTickCheck" Type="IsMotorTick" x="3200" y="100" Namespace="Main" />
       <EventConnections>
-        <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="48.08337" />
-        <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="70" />
-        <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="41.625" dx2="50" dy="-110" />
-        <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="68.08337" />
+        <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="198.0834">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
         <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="48.08337" />
         <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="70" dy="-110" />
+        <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="98.08337">
+          <AvoidsNodes>false</AvoidsNodes>
+        </Connection>
+        <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="50" />
+        <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="81.625" dx2="50" dy="-110" />
+        <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" dx1="70" />
+        <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="55.20837" />
+        <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="57.54175" />
+        <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT">
+          <Points>
+            <Points>
+              <X>502.09375</X>
+              <Y>65</Y>
+            </Points>
+            <Points>
+              <X>514.59375</X>
+              <Y>65</Y>
+            </Points>
+            <Points>
+              <X>514.59375</X>
+              <Y>32.5</Y>
+            </Points>
+            <Points>
+              <X>712.5</X>
+              <Y>32.5</Y>
+            </Points>
+            <Points>
+              <X>712.5</X>
+              <Y>35</Y>
+            </Points>
+            <Points>
+              <X>795</X>
+              <Y>35</Y>
+            </Points>
+          </Points>
+        </Connection>
       </EventConnections>
+      <DataConnections>
+        <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
+        <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="75.20837" />
+        <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="77.54175" />
+      </DataConnections>
     </SubAppNetwork>
   </Application>
   <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" x="700" y="700" Namespace="SE.DPAC">
@@ -43,47 +89,29 @@
         <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="2180" y="220" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
           <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
+          <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
         </FB>
         <FB ID="1335227D6FE2C7BD" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1960" y="940" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}var2'" />
+          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
         </FB>
+        <FB ID="385274E2B7D5D15A" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="3020" y="220" Namespace="Main" />
+        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="Channels" x="800" y="1280" Namespace="Main">
+          <Parameter Name="IN1" Value="FALSE" />
+          <Parameter Name="IN4" Value="TRUE" />
+        </FB>
+        <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" x="3120" y="180" Namespace="Main" />
         <EventConnections>
           <Connection Source="START.COLD" Destination="FB1.INIT" />
           <Connection Source="START.WARM" Destination="FB1.INIT" dx1="70" />
           <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" dx1="90" />
-          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT">
-            <Points>
-              <Points>
-                <X>200.479156</X>
-                <Y>255</Y>
-              </Points>
-              <Points>
-                <X>212.979156</X>
-                <Y>255</Y>
-              </Points>
-              <Points>
-                <X>212.979156</X>
-                <Y>132.5</Y>
-              </Points>
-              <Points>
-                <X>457.5</X>
-                <Y>132.5</Y>
-              </Points>
-              <Points>
-                <X>457.5</X>
-                <Y>65</Y>
-              </Points>
-              <Points>
-                <X>540</X>
-                <Y>65</Y>
-              </Points>
-            </Points>
-          </Connection>
+          <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="50" />
+          <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
+          <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
           <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
+          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
           <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST">
             <Points>
               <Points>
@@ -127,11 +155,20 @@
                 <Y>255</Y>
               </Points>
             </Points>
+            <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="50" />
-          <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
-          <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
+          <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" dx1="70" />
+          <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="55.20837" />
+          <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="97.54175" dx2="130" dy="-150" />
+          <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
         </EventConnections>
+        <DataConnections>
+          <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
+          <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="50.41687">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="97.54175" dx2="130" dy="-350" />
+        </DataConnections>
       </FBNetwork>
     </Resource>
     <FBNetwork />
@@ -139,4 +176,7 @@
   <Mapping From="APP1.PLC_start" To="EcoRT_0.RES0" />
   <Mapping From="APP1.DST_modbus" To="EcoRT_0.RES0" />
   <Mapping From="APP1.SRC_modbus" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.MATH_INT_TO_BIT" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.MATH_BIT_TO_INT" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.MotorTickCheck" To="EcoRT_0.RES0" />
 </System>

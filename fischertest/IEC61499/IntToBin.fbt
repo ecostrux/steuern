@@ -59,7 +59,7 @@
       <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
-      <ST Text=";" />
+      <ST Text="&#xD;&#xA;;&#xD;&#xA;" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
       <ST Text=";" />

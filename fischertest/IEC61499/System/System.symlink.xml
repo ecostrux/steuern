@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SymbLinks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<SymbLinks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Symblink SymblinkName="EcoRT_0.RES0.var_0" IsExposed="true" IOConnected="DigInputs.r0LinkName" />
+  <Symblink SymblinkName="EcoRT_0.RES0.Input" IsExposed="true" IOConnected="DigOutputs.r0LinkName" />
+  <Symblink SymblinkName="EcoRT_0.RES0.var_1" IsExposed="true" IOConnected="AnlInput.r0LinkName" />
+</SymbLinks>

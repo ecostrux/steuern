@@ -151,7 +151,7 @@
                 </ItemProperty>
               </ItemProperties>
               <ParameterValues>
-                <ParameterValue Name="r0LinkName" Value="'var2'" />
+                <ParameterValue Name="r0LinkName" Value="'Input'" />
               </ParameterValues>
               <PreviousItem>
                 <Name>DigInputs</Name>

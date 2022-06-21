@@ -12,13 +12,18 @@
         <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="2180" y="220" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
           <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
+          <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
         </FB>
         <FB ID="1335227D6FE2C7BD" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1960" y="940" Namespace="Main">
           <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
           <Parameter Name="QI" Value="TRUE" />
-          <Parameter Name="NAME1" Value="'$${PATH}var2'" />
+          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+        </FB>
+        <FB ID="385274E2B7D5D15A" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="3020" y="220" Namespace="Main" />
+        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="BIT_TO_INT" x="800" y="1280" Namespace="Main">
+          <Parameter Name="IN1" Value="FALSE" />
+          <Parameter Name="IN4" Value="TRUE" />
         </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
@@ -29,21 +34,25 @@
           <Parameter Name="SLAVE_BUS_ID" Value="'MB_EA_01'" />
         </FB>
         <FB ID="831B0C4BF4D96EB4" Name="DigInputs" Type="MODBUSRREG1" x="0" y="0" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="''" />
+          <Parameter Name="r0LinkName" Value="'var_0'" />
         </FB>
         <FB ID="CFA1642A1CB2A3A5" Name="DigOutputs" Type="MODBUSWREG1" x="0" y="0" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="''" />
+          <Parameter Name="r0LinkName" Value="'Input'" />
         </FB>
         <FB ID="9162C9E795E548BE" Name="AnlInput" Type="MODBUSRREG1" x="0" y="0" Namespace="Standard.IoModbus">
-          <Parameter Name="r0LinkName" Value="''" />
+          <Parameter Name="r0LinkName" Value="'var_1'" />
         </FB>
         <FB ID="342CA7F8B138E20D" Name="MODBUSSLOTEND" Type="MODBUSSLOTEND" x="0" y="0" Namespace="Standard.IoModbus" />
         <FB ID="A7DFDF1A1FD7E1AA" Name="MODBUSSLAVEND" Type="MODBUSSLAVEND" x="0" y="0" Namespace="Standard.IoModbus" />
         <FB Name="START" Type="E_RESTART" x="80" y="100" Namespace="IEC61499.Standard" />
         <EventConnections>
           <Connection Source="START.COLD" Destination="FB1.INIT" />
-          <Connection Source="START.WARM" Destination="FB1.INIT" dx1="70" />
-          <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" dx1="90" />
+          <Connection Source="START.WARM" Destination="FB1.INIT" />
+          <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" />
+          <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="50" />
+          <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
+          <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
+          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
           <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT">
             <Points>
               <Points>
@@ -72,7 +81,6 @@
               </Points>
             </Points>
           </Connection>
-          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
           <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST">
             <Points>
               <Points>
@@ -116,12 +124,17 @@
                 <Y>255</Y>
               </Points>
             </Points>
+            <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="50" />
-          <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
-          <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
+          <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" />
+          <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="55.20837" />
         </EventConnections>
-        <DataConnections />
+        <DataConnections>
+          <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
+          <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="45.2085">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+        </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />
           <Connection Source="MB_EA_01.slotBus" Destination="DigInputs.BUSIN" />
