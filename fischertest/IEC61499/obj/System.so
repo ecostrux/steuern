@@ -50,6 +50,25 @@
           <Parameter Name="QI" Value="TRUE" />
           <Parameter Name="NAME1" Value="'$${PATH}Input'" />
         </FB>
+        <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="autoStart" Value="TRUE" />
+          <Parameter Name="BUS_ID" Value="'MODBUS'" />
+          <Parameter Name="busCycleTime" Value="T#50ms" />
+        </FB>
+        <FB ID="67297C3362F8481D" Name="MB_EA_01" Type="MODBUSGENTCPS" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="SLAVE_BUS_ID" Value="'MB_EA_01'" />
+        </FB>
+        <FB ID="831B0C4BF4D96EB4" Name="DigInputs" Type="MODBUSRREG1" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="r0LinkName" Value="'Input'" />
+        </FB>
+        <FB ID="CFA1642A1CB2A3A5" Name="DigOutputs" Type="MODBUSWREG1" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="r0LinkName" Value="'Input'" />
+        </FB>
+        <FB ID="9162C9E795E548BE" Name="AnlInput" Type="MODBUSRREG1" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="r0LinkName" Value="'var_1'" />
+        </FB>
+        <FB ID="342CA7F8B138E20D" Name="MODBUSSLOTEND" Type="MODBUSSLOTEND" x="0" y="0" Namespace="Standard.IoModbus" />
+        <FB ID="A7DFDF1A1FD7E1AA" Name="MODBUSSLAVEND" Type="MODBUSSLAVEND" x="0" y="0" Namespace="Standard.IoModbus" />
         <EventConnections>
           <Connection Source="START.COLD" Destination="FB1.INIT" />
           <Connection Source="START.WARM" Destination="FB1.INIT" dx1="70" />
@@ -131,6 +150,14 @@
           <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
           <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
         </EventConnections>
+        <AdapterConnections>
+          <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />
+          <Connection Source="MB_EA_01.slotBus" Destination="DigInputs.BUSIN" />
+          <Connection Source="DigInputs.BUSOUT" Destination="DigOutputs.BUSIN" />
+          <Connection Source="DigOutputs.BUSOUT" Destination="AnlInput.BUSIN" />
+          <Connection Source="AnlInput.BUSOUT" Destination="MODBUSSLOTEND.BusIn" />
+          <Connection Source="MB_EA_01.busOut" Destination="MODBUSSLAVEND.BusIn" />
+        </AdapterConnections>
       </FBNetwork>
     </Resource>
     <FBNetwork />

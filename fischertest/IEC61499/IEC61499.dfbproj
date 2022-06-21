@@ -110,6 +110,13 @@
     <None Include="IEC61499.iecproj" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
     <None Include="Project.doc.xml" />
+    <None Include="System\BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A.hcf">
+      <DependentUpon>System.sys</DependentUpon>
+      <IEC61499Type>System</IEC61499Type>
+    </None>
+    <None Include="System\snapshot.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
     <None Include="System\System.cfg">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
@@ -117,6 +124,48 @@
     <None Include="System\System.Device.Properties.xml">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
+    </None>
+    <None Include="System\System.opcuaclient.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\System.Topology.Binding.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\BroadcastDomain.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\DockerContainer.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\Equipment.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\Ethernet.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\ExchangeManifest.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\PhysicalView.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\Rstp.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\Runtime.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\SoftdpacEquipment.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\SoftdpacEthernet.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\SoftdpacManager.xml">
+      <DependentUpon>System.sys</DependentUpon>
+    </None>
+    <None Include="System\Topology\Wire.xml">
+      <DependentUpon>System.sys</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -129,8 +178,16 @@
     <Folder Include="Configuration\Certificates" />
     <Folder Include="License" />
     <Folder Include="Log" />
+    <Folder Include="System\Topology">
+      <DependentUpon>System.sys</DependentUpon>
+    </Folder>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="System\System.opcua.xml">
+      <DependentUpon>System.sys</DependentUpon>
+      <Plugin>OPCUAConfigurator</Plugin>
+      <IEC61499Type>CAT_OPCUA</IEC61499Type>
+    </Content>
     <Content Include="System\System.symlink.xml" />
   </ItemGroup>
   <Import Project="$(SharpDevelopBinPath)\NxtControl.Build.61499.Targets" />

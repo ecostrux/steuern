@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EthernetList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Ethernet EquipmentGuid="06ff38c4-7837-4e5b-b2d0-daf97b97960c">
+    <Interface Identifier="Ethernet Interface">
+      <PhysicalAddress />
+      <Endpoint Identifier="IP Address">
+        <IPAddress>192.168.0.1</IPAddress>
+        <Domain>b02c09ef-19d4-4ce6-b3dc-feb8cebf3af0</Domain>
+      </Endpoint>
+    </Interface>
+    <Port Identifier="Port1" Side="Default" />
+  </Ethernet>
+  <Ethernet EquipmentGuid="343ec187-70de-4dde-b834-1dd11e7a69b8">
+    <Interface Identifier="Ethernet Interface">
+      <PhysicalAddress />
+      <Endpoint Identifier="IP Address">
+        <IPAddress>192.168.0.2</IPAddress>
+        <Domain>b02c09ef-19d4-4ce6-b3dc-feb8cebf3af0</Domain>
+      </Endpoint>
+    </Interface>
+    <Port Identifier="Port1" Side="Default" />
+  </Ethernet>
+</EthernetList>

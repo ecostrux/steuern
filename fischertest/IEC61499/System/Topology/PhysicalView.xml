@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PhysicalViewList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Identifier="Physical Views">
+  <PhysicalView Identifier="Default Physical View">
+    <Reference EquipmentGuid="730cb031-56a9-4ea4-b2e9-72b1afe5fab9">
+      <Position>
+        <X>68.358272159944732</X>
+        <Y>-30.202568586123505</Y>
+      </Position>
+    </Reference>
+  </PhysicalView>
+</PhysicalViewList>

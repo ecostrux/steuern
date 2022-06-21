@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baseline xmlns:xsd="http://www.nxtControl.com/Snapshot" xmlns="http://tempuri.org/XMLSchema1.xsd">
+  <snapshot guid="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" compiler="Default" created="2022-06-21T14:51:35" base="{00000000-0000-0000-0000-000000000000}">
+    <DeployInformation Type="Working">
+      <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin" Library="IEC61499.exe" BuildSnapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T14:48:15</Modified>
+          <Hash>245F63E78A1EAB7B1</Hash>
+        </FileItem>
+        <FileItem Name="Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin" Library="IEC61499.exe" BuildSnapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+          <Modified>2022-06-21T14:48:15</Modified>
+          <Hash>5A03F112CD5D470</Hash>
+        </FileItem>
+        <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
+        <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppCommonProcess" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppConveying" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppLiquidFood" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppSequence" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppStateManagement" Version="21.2.0.10" />
+        <LibraryItem Name="SE.DPAC" Version="21.2.0.35" />
+        <LibraryItem Name="SE.FieldDevice" Version="21.2.0.35" />
+        <LibraryItem Name="SE.HwCommon" Version="21.2.0.20" />
+        <LibraryItem Name="SE.IoATV" Version="21.2.0.35" />
+        <LibraryItem Name="SE.IoNet" Version="21.2.0.3" />
+        <LibraryItem Name="SE.IoTMx" Version="21.2.0.22" />
+        <LibraryItem Name="SE.IoX80" Version="21.2.0.23" />
+        <LibraryItem Name="SE.ModbusGateway" Version="21.2.0.12" />
+        <LibraryItem Name="SE.Standard" Version="21.2.0.4" />
+        <LibraryItem Name="Standard.HMIExtensions" Version="21.2.0.1" />
+        <LibraryItem Name="Standard.IoEtherNetIP" Version="21.2.0.13" />
+        <LibraryItem Name="Standard.IoModbus" Version="21.2.0.17" />
+        <LibraryItem Name="Standard.IoModbusSlave" Version="21.2.0.16" />
+        <LibraryItem Name="Standard.OPCUAClient" Version="21.2.0.11" />
+        <LibraryItem Name="IEC61131.Standard" Version="21.2.0.1" />
+        <LibraryItem Name="SE.AppAsset" Version="21.2.0.10" />
+        <LibraryItem Name="SE.AppFunctional" Version="21.2.0.10" />
+        <DeviceItem ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Hash="715339505270B284" />
+      </FileGroup>
+      <Device Name="EcoRT_0" ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="Basics/SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin" />
+        <FileItem Name="Composites/SE.DPAC#DPAC_FULLINIT.bin" />
+        <FileItem Name="Composites/SE.AppBase#plcStart.bin" />
+        <FileItem Name="Basics/Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin" />
+        <FileItem Name="Basics/Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUS_HMI.bin" />
+        <FileItem Name="Adapters/Standard.IoModbus#IHwSlaveConfig.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUS.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSGENTCPS_HMI.bin" />
+        <FileItem Name="Adapters/Standard.IoModbus#IHwGenSlot.bin" />
+        <FileItem Name="Basics/Standard.IoModbus#ADD_2449E3A5F7EE2D347.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSGENTCPS.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSRREG1_HMI.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#OCINIT.bin" />
+        <FileItem Name="Basics/Standard.IoModbus#SYMLINKMULTIVARSRC_18556BCA74EA878F1.bin" />
+        <FileItem Name="Basics/Standard.IoModbus#PD_ANY_IN_842F42743DE0B99A.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSRREG1.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSWREG1_HMI.bin" />
+        <FileItem Name="Basics/Standard.IoModbus#SYMLINKMULTIVARDST_5A03F112CD5D470.bin" />
+        <FileItem Name="Basics/Standard.IoModbus#PD_ANY_OUT_179B9F9364EF1EA9C.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSWREG1.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSSLOTEND.bin" />
+        <FileItem Name="Composites/Standard.IoModbus#MODBUSSLAVEND.bin" />
+      </Device>
+    </DeployInformation>
+    <DeployInformation Type="HWConfig">
+      <FileGroup Name="FileList" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="EcoRT_0\HWConfig\MODBUS.xml">
+          <Modified>2022-06-21T14:52:17</Modified>
+        </FileItem>
+        <DeviceItem ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Hash="715339505270B284" />
+      </FileGroup>
+      <Device Name="EcoRT_0" ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+        <FileItem Name="EcoRT_0\HWConfig\MODBUS.xml" />
+      </Device>
+    </DeployInformation>
+  </snapshot>
+  <deployment>
+    <network_profile name="(Default)">
+      <device id="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" />
+    </network_profile>
+    <network_profile name="(Local Test)">
+      <device id="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A">
+        <sref snapshot="{6D5B1EC3-B76C-494D-837F-DBCF1582DF2E}" state="ACTIVE" />
+      </device>
+    </network_profile>
+  </deployment>
+</baseline>

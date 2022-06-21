@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topology xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Identifier="Topology">
+  <Equipment Identifier="Server_1" CatalogReference="Server_V01.00_01.00" Uuid="730cb031-56a9-4ea4-b2e9-72b1afe5fab9">
+    <Property PropertyName="IsUnderConstruction" PropertyValue="False" />
+    <Property PropertyName="CommCardReference" PropertyValue="NIC_V01.00_01.00" />
+    <Equipment Identifier="NIC_1" CatalogReference="NIC_V01.00_01.00" Uuid="06ff38c4-7837-4e5b-b2d0-daf97b97960c" />
+    <Equipment Identifier="NIC_2" CatalogReference="NIC_V01.00_01.00" Uuid="343ec187-70de-4dde-b834-1dd11e7a69b8" />
+  </Equipment>
+</Topology>

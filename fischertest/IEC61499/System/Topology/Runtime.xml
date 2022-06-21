@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuntimeList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Runtime Uuid="87f444cd-2a76-4859-933f-618f6e59a4b9" EquipmentGuid="730cb031-56a9-4ea4-b2e9-72b1afe5fab9" TypeId="29797a55-a6b8-47c4-9c06-e8a42b1a38b5" Identifier="Runtime_1">
+    <RuntimeService>
+      <Identifier>Deployment</Identifier>
+      <BindToAny>True</BindToAny>
+      <LogicalPort>51499</LogicalPort>
+      <LogicalPortSecured>0</LogicalPortSecured>
+    </RuntimeService>
+    <RuntimeService>
+      <Identifier>Archive Service</Identifier>
+      <LogicalPort>51496</LogicalPort>
+      <LogicalPortSecured>0</LogicalPortSecured>
+    </RuntimeService>
+  </Runtime>
+</RuntimeList>

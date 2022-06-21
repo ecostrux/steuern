@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DeviceHwConfigurationItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DeviceHwConfigurationItem ResourceId="6654357727DAC531">
+    <ConfigurationBaseItem>
+      <Name>MODBUS</Name>
+      <ID>B785EA98ED62CEC</ID>
+      <Type>
+        <Name>MODBUS</Name>
+        <Namespace>Standard.IoModbus</Namespace>
+      </Type>
+      <ItemProperties>
+        <ItemProperty>
+          <Name>busid</Name>
+          <Value xsi:type="xsd:string">MODBUS</Value>
+          <HWParameters>
+            <string>BUS_ID</string>
+          </HWParameters>
+        </ItemProperty>
+        <ItemProperty>
+          <Name>protocol</Name>
+          <Value xsi:type="xsd:string">modbus</Value>
+        </ItemProperty>
+        <ItemProperty>
+          <Name>connectinfo.mastertype</Name>
+          <Value xsi:type="xsd:string">master</Value>
+        </ItemProperty>
+        <ItemProperty>
+          <Name>connectinfo.transportprotocol</Name>
+          <Value xsi:type="xsd:string">tcp</Value>
+        </ItemProperty>
+        <ItemProperty>
+          <Name>logging.enabled</Name>
+          <Value xsi:type="xsd:boolean">false</Value>
+        </ItemProperty>
+        <ItemProperty>
+          <Name>logging.filename</Name>
+          <Value xsi:type="xsd:string">modbus.log</Value>
+        </ItemProperty>
+      </ItemProperties>
+      <ParameterValues>
+        <ParameterValue Name="autoStart" Value="TRUE" />
+        <ParameterValue Name="BUS_ID" Value="'MODBUS'" />
+        <ParameterValue Name="busCycleTime" Value="T#50ms" />
+      </ParameterValues>
+      <MasterConfigFileName>${ProjectDir}\${SystemName}\RuntimeData\${DeviceName}\boot\${busid}.xml</MasterConfigFileName>
+      <Items>
+        <ConfigurationBaseItem>
+          <Name>MB_EA_01</Name>
+          <ID>67297C3362F8481D</ID>
+          <Type>
+            <Name>MODBUSGENTCPS</Name>
+            <Namespace>Standard.IoModbus</Namespace>
+          </Type>
+          <ItemProperties>
+            <ItemProperty>
+              <Name>connectinfo.transportprotocol</Name>
+              <Value xsi:type="xsd:string">tcp</Value>
+            </ItemProperty>
+            <ItemProperty>
+              <Name>connectinfo.stationid</Name>
+              <Value xsi:type="xsd:unsignedShort">255</Value>
+            </ItemProperty>
+            <ItemProperty>
+              <Name>connectinfo.tcp.ipaddress</Name>
+              <Value xsi:type="xsd:string">192.168.5.101</Value>
+            </ItemProperty>
+            <ItemProperty>
+              <Name>connectinfo.tcp.port</Name>
+              <Value xsi:type="xsd:unsignedShort">502</Value>
+            </ItemProperty>
+          </ItemProperties>
+          <ParameterValues>
+            <ParameterValue Name="SLAVE_BUS_ID" Value="'MB_EA_01'" />
+          </ParameterValues>
+          <MasterConfigFileName />
+          <PreviousItem>
+            <Name>MODBUS</Name>
+            <PortName>busOut</PortName>
+          </PreviousItem>
+          <Items>
+            <ConfigurationBaseItem>
+              <Name>DigInputs</Name>
+              <ID>831B0C4BF4D96EB4</ID>
+              <Type>
+                <Name>MODBUSRREG1</Name>
+                <Namespace>Standard.IoModbus</Namespace>
+              </Type>
+              <ItemProperties>
+                <ItemProperty>
+                  <Name>input.addresstype</Name>
+                  <Value xsi:type="xsd:string">register</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.datatype</Name>
+                  <Value xsi:type="xsd:string">inonly23</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.length</Name>
+                  <Value xsi:type="xsd:unsignedByte">1</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.address</Name>
+                  <Value xsi:type="xsd:unsignedShort">5391</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.ioevent</Name>
+                  <Value xsi:type="xsd:string">cyclic</Value>
+                </ItemProperty>
+              </ItemProperties>
+              <ParameterValues>
+                <ParameterValue Name="r0LinkName" Value="'Input'" />
+              </ParameterValues>
+              <MasterConfigFileName />
+              <PreviousItem>
+                <Name>MB_EA_01</Name>
+                <PortName>slotBus</PortName>
+              </PreviousItem>
+              <Items />
+            </ConfigurationBaseItem>
+            <ConfigurationBaseItem>
+              <Name>DigOutputs</Name>
+              <ID>CFA1642A1CB2A3A5</ID>
+              <Type>
+                <Name>MODBUSWREG1</Name>
+                <Namespace>Standard.IoModbus</Namespace>
+              </Type>
+              <ItemProperties>
+                <ItemProperty>
+                  <Name>output.addresstype</Name>
+                  <Value xsi:type="xsd:string">register</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>output.datatype</Name>
+                  <Value xsi:type="xsd:string">output</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>output.length</Name>
+                  <Value xsi:type="xsd:unsignedByte">1</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>output.address</Name>
+                  <Value xsi:type="xsd:unsignedShort">0</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>output.ioevent</Name>
+                  <Value xsi:type="xsd:string">cyclic</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>output.modbusfunction</Name>
+                  <Value xsi:type="xsd:string">RW Multiple Registers (FC23)</Value>
+                </ItemProperty>
+              </ItemProperties>
+              <ParameterValues>
+                <ParameterValue Name="r0LinkName" Value="'Input'" />
+              </ParameterValues>
+              <PreviousItem>
+                <Name>DigInputs</Name>
+                <PortName>BUSOUT</PortName>
+              </PreviousItem>
+              <Items />
+            </ConfigurationBaseItem>
+            <ConfigurationBaseItem>
+              <Name>AnlInput</Name>
+              <ID>9162C9E795E548BE</ID>
+              <Type>
+                <Name>MODBUSRREG1</Name>
+                <Namespace>Standard.IoModbus</Namespace>
+              </Type>
+              <ItemProperties>
+                <ItemProperty>
+                  <Name>input.addresstype</Name>
+                  <Value xsi:type="xsd:string">register</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.datatype</Name>
+                  <Value xsi:type="xsd:string">inonly23</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.length</Name>
+                  <Value xsi:type="xsd:unsignedByte">1</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.address</Name>
+                  <Value xsi:type="xsd:unsignedShort">5392</Value>
+                </ItemProperty>
+                <ItemProperty>
+                  <Name>input.ioevent</Name>
+                  <Value xsi:type="xsd:string">cyclic</Value>
+                </ItemProperty>
+              </ItemProperties>
+              <ParameterValues>
+                <ParameterValue Name="r0LinkName" Value="'var_1'" />
+              </ParameterValues>
+              <MasterConfigFileName />
+              <PreviousItem>
+                <Name>DigOutputs</Name>
+                <PortName>BUSOUT</PortName>
+              </PreviousItem>
+              <Items />
+            </ConfigurationBaseItem>
+            <ConfigurationBaseItem>
+              <Name>MODBUSSLOTEND</Name>
+              <ID>342CA7F8B138E20D</ID>
+              <Type>
+                <Name>MODBUSSLOTEND</Name>
+                <Namespace>Standard.IoModbus</Namespace>
+              </Type>
+              <ParameterValues />
+              <PreviousItem>
+                <Name>AnlInput</Name>
+                <PortName>BUSOUT</PortName>
+              </PreviousItem>
+              <Items />
+            </ConfigurationBaseItem>
+          </Items>
+        </ConfigurationBaseItem>
+        <ConfigurationBaseItem>
+          <Name>MODBUSSLAVEND</Name>
+          <ID>A7DFDF1A1FD7E1AA</ID>
+          <Type>
+            <Name>MODBUSSLAVEND</Name>
+            <Namespace>Standard.IoModbus</Namespace>
+          </Type>
+          <ParameterValues />
+          <PreviousItem>
+            <Name>MB_EA_01</Name>
+            <PortName>busOut</PortName>
+          </PreviousItem>
+          <Items />
+        </ConfigurationBaseItem>
+      </Items>
+    </ConfigurationBaseItem>
+  </DeviceHwConfigurationItem>
+</DeviceHwConfigurationItems>
