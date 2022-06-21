@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE System SYSTEM "../LibraryElement.dtd" >
+<System Name="System" Comment="System Configuration">
+  <Identification Standard="61499-1" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="david" Date="21.06.2022" />
+  <Application Name="APP1">
+    <SubAppNetwork />
+  </Application>
+  <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" x="700" y="700" Namespace="SE.DPAC">
+    <Resource Name="RES0" Type="EMB_RES_ECO" x="800" y="800" Namespace="Runtime.Management" />
+    <FBNetwork />
+  </Device>
+</System>

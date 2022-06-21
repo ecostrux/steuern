@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.2
+Project("{EAD1E85F-CEF5-4861-AFF8-597F2DDE70FC}") = "IEC61499", "IEC61499\IEC61499.dfbproj", "{81216E18-307E-4B09-9A2F-02EB75ADB333}"
+EndProject
+Project("{E25C2A81-DD87-490C-A304-820B0BA163F2}") = "AssetLinkData", "AssetLinkData\AssetLinkData.assetLinkDataproj", "{5B11EC29-DF0A-4004-9029-EB029C5874C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMI", "HMI\HMI.csproj", "{04E46A7F-C413-4886-B38A-A767265D423F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows = Debug|Windows
+		Release|Windows = Release|Windows
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81216E18-307E-4B09-9A2F-02EB75ADB333}.Debug|Windows.ActiveCfg = Debug|Windows
+		{81216E18-307E-4B09-9A2F-02EB75ADB333}.Debug|Windows.Build.0 = Debug|Windows
+		{81216E18-307E-4B09-9A2F-02EB75ADB333}.Release|Windows.ActiveCfg = Release|Windows
+		{81216E18-307E-4B09-9A2F-02EB75ADB333}.Release|Windows.Build.0 = Release|Windows
+		{5B11EC29-DF0A-4004-9029-EB029C5874C6}.Debug|Windows.ActiveCfg = Debug|Windows
+		{5B11EC29-DF0A-4004-9029-EB029C5874C6}.Debug|Windows.Build.0 = Debug|Windows
+		{5B11EC29-DF0A-4004-9029-EB029C5874C6}.Release|Windows.ActiveCfg = Release|Windows
+		{5B11EC29-DF0A-4004-9029-EB029C5874C6}.Release|Windows.Build.0 = Release|Windows
+		{04E46A7F-C413-4886-B38A-A767265D423F}.Debug|Windows.ActiveCfg = Debug|Windows
+		{04E46A7F-C413-4886-B38A-A767265D423F}.Debug|Windows.Build.0 = Debug|Windows
+		{04E46A7F-C413-4886-B38A-A767265D423F}.Release|Windows.ActiveCfg = Release|Windows
+		{04E46A7F-C413-4886-B38A-A767265D423F}.Release|Windows.Build.0 = Release|Windows
+	EndGlobalSection
+EndGlobal
