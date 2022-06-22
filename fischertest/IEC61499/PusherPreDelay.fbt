@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="872bd30e-86ba-4726-8217-d98acc95b4f3" Name="PusherPreDelay" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="david" Date="21.06.2022" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="getPush" Comment="Normal Execution Request">
+        <With Var="delay" />
+        <With Var="iPush" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="relPush" Comment="Execution Confirmation">
+        <With Var="Out" />
+        <With Var="oPush" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="delay" Type="INT" Comment="Numer ob ticks to delay event activation" />
+      <VarDeclaration Name="iPush" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Out" Type="BOOL" Comment="Output event qualifier" />
+      <VarDeclaration Name="oPush" Type="BOOL" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <InternalVars>
+      <VarDeclaration Name="tickCounter" Type="INT" InitialValue="0" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="getPush" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="relPush" />
+      </ECState>
+      <ECTransition Source="START" Destination="getPush" Condition="getPush" x="452.8569" y="646.996">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.1467,156.6527,104.2188,174.9165" />
+      </ECTransition>
+      <ECTransition Source="getPush" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="&#xD;&#xA;&#xD;&#xA;;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF tickCounter&lt;delay THEN&#xD;&#xA;	tickCounter:=tickCounter+1;&#xD;&#xA;	Out:=0;&#xD;&#xA;ELSE&#xD;&#xA;	tickCounter:=0;&#xD;&#xA;	Out:=1;&#xD;&#xA;END_IF&#xD;&#xA;;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

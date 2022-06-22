@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<busmaster xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MODBUS" busId="MODBUS" protocol="modbus">
+  <connectinfo mastertype="master" transportprotocol="tcp" />
+  <logging enable="false" filename="modbus.log" />
+  <buscoupler name="MB_EA_01">
+    <connectinfo transportprotocol="tcp" stationid="255">
+      <tcp ipaddress="10.10.200.100" port="502" />
+    </connectinfo>
+    <busdevice name="DigInputs">
+      <parameter addresstype="register" length="1" address="5391" datatype="inonly23" ioevent="cyclic" />
+    </busdevice>
+    <busdevice name="DigOutputs">
+      <parameter addresstype="register" length="1" address="0" datatype="output" ioevent="cyclic" modbusfunction="23" />
+    </busdevice>
+    <busdevice name="AnlInput">
+      <parameter addresstype="register" length="1" address="5392" datatype="inonly23" ioevent="cyclic" />
+    </busdevice>
+  </buscoupler>
+</busmaster>

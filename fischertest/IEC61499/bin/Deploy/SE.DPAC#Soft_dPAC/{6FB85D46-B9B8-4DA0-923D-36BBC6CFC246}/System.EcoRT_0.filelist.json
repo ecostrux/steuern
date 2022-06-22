@@ -1,0 +1,49 @@
+{
+  "snapshot": {
+    "guid": "6fb85d46-b9b8-4da0-923d-36bbc6cfc246",
+    "hash": "16290117F2269EC28E84E8AD6874E36415E282F2170117AF4120F9C03E851D50",
+    "app": {
+      "hash": "3D0E72476C906471ED8849865FD6B7E815013210AAEC48A1C2D29DC3506BB83B",
+      "items": [
+        "SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin",
+        "SE.DPAC#DPAC_FULLINIT.bin",
+        "SE.AppBase#plcStart.bin",
+        "Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin",
+        "Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin",
+        "Main#INT_TO_BIT.bin",
+        "Main#Channels.bin",
+        "Main#IsMotorTick.bin",
+        "Main#Pusher_Element.bin",
+        "Main#LightSensor.bin",
+        "Main#ColorDebug.bin",
+        "Standard.IoEtherNetIP#VTQ_to_INT.bin",
+        "Main#ColorMap.bin",
+        "Standard.IoModbus#MODBUS_HMI.bin",
+        "Standard.IoModbus#IHwSlaveConfig.bin",
+        "Standard.IoModbus#MODBUS.bin",
+        "Standard.IoModbus#MODBUSGENTCPS_HMI.bin",
+        "Standard.IoModbus#IHwGenSlot.bin",
+        "Standard.IoModbus#ADD_2449E3A5F7EE2D347.bin",
+        "Standard.IoModbus#MODBUSGENTCPS.bin",
+        "Standard.IoModbus#MODBUSRREG1_HMI.bin",
+        "Standard.IoModbus#OCINIT.bin",
+        "Standard.IoModbus#SYMLINKMULTIVARSRC_18556BCA74EA878F1.bin",
+        "Standard.IoModbus#PD_ANY_IN_842F42743DE0B99A.bin",
+        "Standard.IoModbus#MODBUSRREG1.bin",
+        "Standard.IoModbus#MODBUSWREG1_HMI.bin",
+        "Standard.IoModbus#SYMLINKMULTIVARDST_5A03F112CD5D470.bin",
+        "Standard.IoModbus#PD_ANY_OUT_179B9F9364EF1EA9C.bin",
+        "Standard.IoModbus#MODBUSWREG1.bin",
+        "Standard.IoModbus#MODBUSSLOTEND.bin",
+        "Standard.IoModbus#MODBUSSLAVEND.bin",
+        "Device.bin"
+      ]
+    },
+    "hwconfig": [
+      {
+        "path": "MODBUS.xml",
+        "location": "HWConfig"
+      }
+    ]
+  }
+}

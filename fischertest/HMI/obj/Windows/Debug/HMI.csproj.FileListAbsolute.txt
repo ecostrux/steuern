@@ -51,3 +51,4 @@ C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.CoreCom
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csproj.CopyComplete
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.dll
 C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.pdb
+C:\Users\Lernfabrik\steuern\fischertest\HMI\obj\Windows\Debug\HMI.csprojAssemblyReference.cache

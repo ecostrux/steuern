@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CompileFileList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/DeploySnapshot.xsd">
+  <FileItem Name="Main#BIT_TO_INT.bin" Library="IEC61499.exe" BuildSnapshot="{A5C932F3-6A28-4D68-9256-916F828A12E6}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:04:52</Modified>
+    <Hash>77DB67FCF6467DC4</Hash>
+  </FileItem>
+  <FileItem Name="Main#CAT1_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>151414C05DD57C523</Hash>
+  </FileItem>
+  <FileItem Name="Main#farbzuordnung.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>18588463D3CAC05A8</Hash>
+  </FileItem>
+  <FileItem Name="Main#CAT1.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>22012625BBD0F1BF6</Hash>
+  </FileItem>
+  <FileItem Name="Main#Farbe.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>1859A88563D313015</Hash>
+  </FileItem>
+  <FileItem Name="Main#farberkennung_HMI.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>218271C2AC741A2FF</Hash>
+  </FileItem>
+  <FileItem Name="Main#farberkennung.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>1185043DA782A05E7</Hash>
+  </FileItem>
+  <FileItem Name="Main#IntToBin.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>1775DDE9B8B1D8F81</Hash>
+  </FileItem>
+  <FileItem Name="Main#INT_TO_BIT.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>172E8312C3765FB94</Hash>
+  </FileItem>
+  <FileItem Name="Main#SYMLINKMULTIVARDST_245F63E78A1EAB7B1.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>245F63E78A1EAB7B1</Hash>
+  </FileItem>
+  <FileItem Name="Main#SYMLINKMULTIVARSRC_5A03F112CD5D470.bin" Library="IEC61499.exe" BuildSnapshot="{08AF7A9D-341F-46FE-82E9-67699E8CF592}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:03:16</Modified>
+    <Hash>5A03F112CD5D470</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorDetection.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:50:56</Modified>
+    <Hash>89521737E9876CD6</Hash>
+  </FileItem>
+  <FileItem Name="Main#Counter.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:50:56</Modified>
+    <Hash>18300D1D869767C0D</Hash>
+  </FileItem>
+  <FileItem Name="Main#IsMotorTick.bin" Library="IEC61499.exe" BuildSnapshot="{A5C932F3-6A28-4D68-9256-916F828A12E6}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:04:52</Modified>
+    <Hash>880AC1F8B0D55FCE</Hash>
+  </FileItem>
+  <FileItem Name="Main#LightBarrier.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:50:56</Modified>
+    <Hash>18256F10E8699380</Hash>
+  </FileItem>
+  <FileItem Name="Main#Motor.bin" Library="IEC61499.exe" BuildSnapshot="{1F520D58-50AB-4617-ADF8-8EEFD3EBA027}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T20:50:56</Modified>
+    <Hash>115A1C512400B461</Hash>
+  </FileItem>
+  <FileItem Name="Main#Pusher.bin" Library="IEC61499.exe" BuildSnapshot="{B25469FC-B5B5-4534-9C6E-51A85FC079CA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:25:50</Modified>
+    <Hash>16037B52A22F950C3</Hash>
+  </FileItem>
+  <FileItem Name="Main#Channels.bin" Library="IEC61499.exe" BuildSnapshot="{309D1170-0894-4FE1-AFA5-82B589D804C0}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:06:34</Modified>
+    <Hash>2155F3F1EEC4CB5D8</Hash>
+  </FileItem>
+  <FileItem Name="Main#Pusher_Element.bin" Library="IEC61499.exe" BuildSnapshot="{6FB85D46-B9B8-4DA0-923D-36BBC6CFC246}" BaseSnapshot="{EEB75934-1952-4AE9-93CF-0B746690EB46}">
+    <Modified>2022-06-22T01:40:46</Modified>
+    <Hash>1626EA98A3B8B7CE3</Hash>
+  </FileItem>
+  <FileItem Name="Main#Setup.bin" Library="IEC61499.exe" BuildSnapshot="{B25469FC-B5B5-4534-9C6E-51A85FC079CA}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-21T22:25:50</Modified>
+    <Hash>70DC90D477E36203</Hash>
+  </FileItem>
+  <FileItem Name="Main#LightSensor.bin" Library="IEC61499.exe" BuildSnapshot="{6223EFBC-BE2E-46CA-804B-2F08ACF67688}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T01:39:14</Modified>
+    <Hash>2241958A982038193</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorMapping.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>137978B7243DC01F</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorSensor.bin" Library="IEC61499.exe" BuildSnapshot="{FFD57385-A3E4-4A6D-9D88-A8ED5AE4CC02}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:57:02</Modified>
+    <Hash>26833257893011F7</Hash>
+  </FileItem>
+  <FileItem Name="Main#tickDelay.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>129731DDC6F5083A</Hash>
+  </FileItem>
+  <FileItem Name="Main#Timer.bin" Library="IEC61499.exe" BuildSnapshot="{B8D83EA1-EB9B-4129-9E6E-D08A0361452E}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T00:19:38</Modified>
+    <Hash>479874618282C2CE</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorDebug.bin" Library="IEC61499.exe" BuildSnapshot="{B847EEFB-6164-4D02-8CD6-F360DD8532B1}" BaseSnapshot="{00000000-0000-0000-0000-000000000000}">
+    <Modified>2022-06-22T01:37:06</Modified>
+    <Hash>5325977A384E490F</Hash>
+  </FileItem>
+  <FileItem Name="Main#ColorMap.bin" Library="IEC61499.exe" BuildSnapshot="{6FB85D46-B9B8-4DA0-923D-36BBC6CFC246}" BaseSnapshot="{DCDCC461-F565-4D80-9967-6D819FC4A8AB}">
+    <Modified>2022-06-22T01:40:46</Modified>
+    <Hash>1779D6DB44E897A07</Hash>
+  </FileItem>
+  <LibraryItem Name="Runtime.Base" Version="21.2.0.17" />
+  <LibraryItem Name="SE.AppBase" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppCommonProcess" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppConveying" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppLiquidFood" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppSequence" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppStateManagement" Version="21.2.0.10" />
+  <LibraryItem Name="SE.DPAC" Version="21.2.0.35" />
+  <LibraryItem Name="SE.FieldDevice" Version="21.2.0.35" />
+  <LibraryItem Name="SE.HwCommon" Version="21.2.0.20" />
+  <LibraryItem Name="SE.IoATV" Version="21.2.0.35" />
+  <LibraryItem Name="SE.IoNet" Version="21.2.0.3" />
+  <LibraryItem Name="SE.IoTMx" Version="21.2.0.22" />
+  <LibraryItem Name="SE.IoX80" Version="21.2.0.23" />
+  <LibraryItem Name="SE.ModbusGateway" Version="21.2.0.12" />
+  <LibraryItem Name="SE.Standard" Version="21.2.0.4" />
+  <LibraryItem Name="Standard.HMIExtensions" Version="21.2.0.1" />
+  <LibraryItem Name="Standard.IoEtherNetIP" Version="21.2.0.13" />
+  <LibraryItem Name="Standard.IoModbus" Version="21.2.0.17" />
+  <LibraryItem Name="Standard.IoModbusSlave" Version="21.2.0.16" />
+  <LibraryItem Name="Standard.OPCUAClient" Version="21.2.0.11" />
+  <LibraryItem Name="IEC61131.Standard" Version="21.2.0.1" />
+  <LibraryItem Name="SE.AppAsset" Version="21.2.0.10" />
+  <LibraryItem Name="SE.AppFunctional" Version="21.2.0.10" />
+</CompileFileList>

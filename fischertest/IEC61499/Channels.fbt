@@ -32,9 +32,9 @@
     <InputVars>
       <VarDeclaration Name="Motor" Type="BOOL" Comment="Input event qualifier" />
       <VarDeclaration Name="Kompressor" Type="BOOL" />
-      <VarDeclaration Name="Pusher1" Type="BOOL" />
-      <VarDeclaration Name="Pusher2" Type="BOOL" />
-      <VarDeclaration Name="Pusher3" Type="BOOL" />
+      <VarDeclaration Name="Pusher1" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="Pusher2" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="Pusher3" Type="BOOL" InitialValue="FALSE" />
       <VarDeclaration Name="IN5" Type="BOOL" />
       <VarDeclaration Name="IN6" Type="BOOL" />
       <VarDeclaration Name="IN7" Type="BOOL" />

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="7ecce773-aab7-412f-91ca-7d1422885ad1" Name="ColorMap" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="Lernfabrik" Date="22/06/2022" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request">
+        <With Var="QI" />
+      </Event>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="QI" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="QO" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="QO" />
+        <With Var="farbe" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="QI" Type="INT" Comment="Input event qualifier" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="QO" Type="INT" Comment="Output event qualifier" />
+      <VarDeclaration Name="farbe" Type="STRING" Comment="olo" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,Samplen" />
+    <InternalVars>
+      <VarDeclaration Name="Minimum" Type="INT" />
+      <VarDeclaration Name="SAMPLECOUNT" Type="INT" InitialValue="0" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="647.9412" y="494.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" Output="INITO" />
+      </ECState>
+      <ECState Name="REQ" Comment="Normal execution" x="229.647" y="726.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECState Name="Sampling" x="1388" y="748">
+        <ECAction Algorithm="Samplen" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="777.1144" y="240.1193">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="188.3436,64.81814,204.524,44.07892" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="860.1618" y="363.9879">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="224.2348,84.45696,208.0544,105.1962" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="Sampling" Condition="REQ" x="975.8798" y="540.8441">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="227.0726,126.7581,251.0226,134.092" />
+      </ECTransition>
+      <ECTransition Source="Sampling" Destination="Sampling" Condition="REQ AND SAMPLECOUNT &gt; 0" x="1388" y="930.0861" />
+      <ECTransition Source="Sampling" Destination="REQ" Condition="REQ AND SAMPLECOUNT &lt;= 0" x="845.4559" y="807.9645">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="251.5684,206.2586,181.7398,205.413" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="INIT" Condition="1" x="570.298" y="357.6992">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="120.3864,103.5731,167.9077,63.45638" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="&#xD;&#xA;Minimum := 32000;&#xD;&#xA;QO := Minimum;&#xD;&#xA;farbe := 'NONE';&#xD;&#xA;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;farbe := 'NONE';&#xD;&#xA;&#xD;&#xA;IF  Minimum &lt;20300  &#xD;&#xA;THEN&#xD;&#xA;farbe := 'WHITE';&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF  Minimum &gt; 20850 AND Minimum &lt;21450  &#xD;&#xA;THEN&#xD;&#xA;farbe := 'RED';&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF  Minimum &gt; 26650 AND Minimum &lt; 27300  &#xD;&#xA;	THEN&#xD;&#xA;	farbe := 'BLUE';&#xD;&#xA;END_IF;&#xD;&#xA;" />
+    </Algorithm>
+    <Algorithm Name="Samplen">
+      <ST Text="&#xD;&#xA;IF QI &lt; 27400 THEN&#xD;&#xA;	(* Starte Sampling, weil eine Farbe erkannt wurde *)&#xD;&#xA;	SAMPLECOUNT := 1;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF SAMPLECOUNT &gt; 0 AND QI &gt; 27400 THEN&#xD;&#xA;	(* Warte, ob nur ein Ausreißer war, sonst stoppen *)&#xD;&#xA;	SAMPLECOUNT := SAMPLECOUNT - 1;&#xD;&#xA;ELSIF SAMPLECOUNT &gt; 0 AND QI &lt; 27400 THEN&#xD;&#xA;	(* Reset: Doch weiter samplen, war wohl nur ein Ausreißer *)&#xD;&#xA;	SAMPLECOUNT := 1;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF SAMPLECOUNT &gt; 0 AND QI &lt; Minimum THEN&#xD;&#xA;	Minimum := QI;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;QO := Minimum;&#xD;&#xA;;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

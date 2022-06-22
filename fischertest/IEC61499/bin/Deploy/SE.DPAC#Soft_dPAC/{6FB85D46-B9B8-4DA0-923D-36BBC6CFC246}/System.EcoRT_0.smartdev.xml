@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE System SYSTEM "../LibraryElement.dtd">
+<System Name="System">
+  <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" x="700" y="700" Namespace="SE.DPAC">
+    <Resource ID="6654357727DAC531" Name="RES0" Type="EMB_RES_ECO" x="800" y="800" Namespace="Runtime.Management">
+      <FBNetwork>
+        <FB ID="1B253FD0B9BB037E" Name="FB1" Type="DPAC_FULLINIT" x="1100" y="100" Namespace="SE.DPAC" Loaded="true" />
+        <FB ID="959FC674CA16C1E0" Name="PLC_start" Type="plcStart" x="200" y="980" Namespace="SE.AppBase">
+          <Parameter Name="Prio" Value="10" />
+          <Parameter Name="Delay" Value="T#0ms" />
+        </FB>
+        <FB ID="A37B8C67DFE0672F" Name="DST_modbus" Type="SYMLINKMULTIVARDST_245F63E78A1EAB7B1" x="2180" y="220" Namespace="Main">
+          <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=2;VALUE${I}:VTQINT,VTQINT" />
+          <Parameter Name="QI" Value="TRUE" />
+          <Parameter Name="NAME1" Value="'$${PATH}var_0'" />
+          <Parameter Name="NAME2" Value="'$${PATH}var_1'" />
+        </FB>
+        <FB ID="1335227D6FE2C7BD" Name="SRC_modbus" Type="SYMLINKMULTIVARSRC_5A03F112CD5D470" x="1960" y="940" Namespace="Main">
+          <Attribute Name="Configuration.GenericFBType.InterfaceParams" Value="Runtime.System#I:=1;VALUE${I}:INT" />
+          <Parameter Name="QI" Value="TRUE" />
+          <Parameter Name="NAME1" Value="'$${PATH}Input'" />
+        </FB>
+        <FB ID="385274E2B7D5D15A" Name="MATH_INT_TO_BIT" Type="INT_TO_BIT" x="3020" y="220" Namespace="Main" />
+        <FB ID="D9AEAF6E3479D55C" Name="MATH_BIT_TO_INT" Type="Channels" x="800" y="1280" Namespace="Main">
+          <Parameter Name="Pusher3" Value="TRUE" />
+          <Parameter Name="Kompressor" Value="TRUE" />
+        </FB>
+        <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" x="3120" y="180" Namespace="Main" />
+        <FB ID="990D70359659816" Name="PusherGreen" Type="Pusher_Element" x="3260" y="880" Namespace="Main" />
+        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1580" y="1400" Namespace="Main" />
+        <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" x="6140" y="760" Namespace="Main" />
+        <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" x="6100" y="1340" Namespace="Standard.IoEtherNetIP" />
+        <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" x="6320" y="1480" Namespace="Main" />
+        <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="autoStart" Value="TRUE" />
+          <Parameter Name="BUS_ID" Value="'MODBUS'" />
+          <Parameter Name="busCycleTime" Value="T#50ms" />
+        </FB>
+        <FB ID="67297C3362F8481D" Name="MB_EA_01" Type="MODBUSGENTCPS" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="SLAVE_BUS_ID" Value="'MB_EA_01'" />
+        </FB>
+        <FB ID="831B0C4BF4D96EB4" Name="DigInputs" Type="MODBUSRREG1" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="r0LinkName" Value="'var_0'" />
+        </FB>
+        <FB ID="CFA1642A1CB2A3A5" Name="DigOutputs" Type="MODBUSWREG1" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="r0LinkName" Value="'Input'" />
+        </FB>
+        <FB ID="9162C9E795E548BE" Name="AnlInput" Type="MODBUSRREG1" x="0" y="0" Namespace="Standard.IoModbus">
+          <Parameter Name="r0LinkName" Value="'var_1'" />
+        </FB>
+        <FB ID="342CA7F8B138E20D" Name="MODBUSSLOTEND" Type="MODBUSSLOTEND" x="0" y="0" Namespace="Standard.IoModbus" />
+        <FB ID="A7DFDF1A1FD7E1AA" Name="MODBUSSLAVEND" Type="MODBUSSLAVEND" x="0" y="0" Namespace="Standard.IoModbus" />
+        <FB Name="START" Type="E_RESTART" x="80" y="100" Namespace="IEC61499.Standard" />
+        <EventConnections>
+          <Connection Source="START.COLD" Destination="FB1.INIT" />
+          <Connection Source="START.WARM" Destination="FB1.INIT" />
+          <Connection Source="START.ONLINECHANGE" Destination="FB1.OC_RETRIGGER" />
+          <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="50" />
+          <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="70" />
+          <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="50" dy="-110" />
+          <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
+          <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="1028.083" />
+          <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST">
+            <Points>
+              <Points>
+                <X>682.09375</X>
+                <Y>65</Y>
+              </Points>
+              <Points>
+                <X>692.5</X>
+                <Y>65</Y>
+              </Points>
+              <Points>
+                <X>692.5</X>
+                <Y>37.5</Y>
+              </Points>
+              <Points>
+                <X>532.5</X>
+                <Y>37.5</Y>
+              </Points>
+              <Points>
+                <X>532.5</X>
+                <Y>107.5</Y>
+              </Points>
+              <Points>
+                <X>212.5</X>
+                <Y>107.5</Y>
+              </Points>
+              <Points>
+                <X>212.5</X>
+                <Y>137.5</Y>
+              </Points>
+              <Points>
+                <X>32.5</X>
+                <Y>137.5</Y>
+              </Points>
+              <Points>
+                <X>32.5</X>
+                <Y>255</Y>
+              </Points>
+              <Points>
+                <X>45</X>
+                <Y>255</Y>
+              </Points>
+            </Points>
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" />
+          <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="55.20837" />
+          <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="97.54175" dx2="130" dy="-150" />
+          <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
+          <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="1508" />
+          <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" dx1="458.4583" />
+          <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" dx1="1740" />
+          <Connection Source="VTQTOINT.CNF" Destination="DEBUG_COLOR.REQ" dx1="50" dx2="60" dy="-180.1458" />
+          <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" dx1="69.854" dx2="250" dy="-110" />
+          <Connection Source="ColorMap.CNF" Destination="LightSensor_2.REQ" dx1="50" dx2="60" dy="-248.2916" />
+        </EventConnections>
+        <DataConnections>
+          <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
+          <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="50.41687">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="97.54175" dx2="130" dy="-350" />
+          <Connection Source="PusherGreen.DoPush" Destination="MATH_BIT_TO_INT.Pusher1" dx1="40" dx2="70" dy="1308" />
+          <Connection Source="LightSensor_2.CurrentColor" Destination="PusherGreen.CurrentColor" dx1="498.4583" />
+          <Connection Source="DST_modbus.VALUE2" Destination="VTQTOINT.VTQ" dx1="121.625" />
+          <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="49.854" dx2="30" dy="-310" />
+          <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="289.854" dx2="70" dy="350" />
+          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor" dx1="40" dx2="40" dy="-508.2916" />
+        </DataConnections>
+        <AdapterConnections>
+          <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />
+          <Connection Source="MB_EA_01.slotBus" Destination="DigInputs.BUSIN" />
+          <Connection Source="DigInputs.BUSOUT" Destination="DigOutputs.BUSIN" />
+          <Connection Source="DigOutputs.BUSOUT" Destination="AnlInput.BUSIN" />
+          <Connection Source="AnlInput.BUSOUT" Destination="MODBUSSLOTEND.BusIn" />
+          <Connection Source="MB_EA_01.busOut" Destination="MODBUSSLAVEND.BusIn" />
+        </AdapterConnections>
+      </FBNetwork>
+    </Resource>
+    <FBNetwork />
+  </Device>
+</System>

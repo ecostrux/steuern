@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DeployInformation ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" System="System" DeviceName="EcoRT_0" DeviceID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A">
+  <UsedDll>IEC61499.exe</UsedDll>
+  <FileName>C:\Users\Lernfabrik\steuern\fischertest\IEC61499\System\System.sys</FileName>
+  <BuildTime>2022-06-21 23:40:47Z</BuildTime>
+  <StudioVersion>IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022</StudioVersion>
+  <StudioInfo>V1;4E1DD4704B9EEAFB29372FAF7683A1CE660E24A67C93D4FF790473A57694F9F671133AA66C93A1CE660E24A67C93DDEB7D0573B827D6A8AF22247FFB32D4AAA9514C7A812FDEB7A7555308EE2FD5DFDC23540F875DD4A9AD695A;</StudioInfo>
+  <ConfigFolder>C:\Users\Lernfabrik\steuern\fischertest\IEC61499\bin\Deploy\SE.DPAC#Soft_dPAC\{6FB85D46-B9B8-4DA0-923D-36BBC6CFC246}\Configuration</ConfigFolder>
+  <Actions />
+  <DeviceFileName>System.EcoRT_0.smartdev.xml</DeviceFileName>
+  <DependenciesFileName>System.EcoRT_0.fbdep.txt</DependenciesFileName>
+  <SnapshotGuid>{6FB85D46-B9B8-4DA0-923D-36BBC6CFC246}</SnapshotGuid>
+  <ExpectedSnapshotGuid>{6223EFBC-BE2E-46CA-804B-2F08ACF67688}</ExpectedSnapshotGuid>
+</DeployInformation>

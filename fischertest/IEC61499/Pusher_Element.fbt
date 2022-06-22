@@ -12,7 +12,14 @@
       </Event>
       <Event Name="REQ" Comment="Normal Execution Request">
         <With Var="CurrentColor" />
+        <With Var="LightBarrierPassed" />
+        <With Var="PiecesSize" />
       </Event>
+      <Event Name="LB_Passed">
+        <With Var="CurrentColor" />
+        <With Var="LightBarrierPassed" />
+      </Event>
+      <Event Name="RESET" />
     </EventInputs>
     <EventOutputs>
       <Event Name="INITO" Comment="Initialization Confirm">
@@ -20,48 +27,98 @@
       </Event>
       <Event Name="CNF" Comment="Execution Confirmation">
         <With Var="DoPush" />
+        <With Var="IsMyColor" />
+        <With Var="PreActivated" />
       </Event>
+      <Event Name="DOPUSH" />
     </EventOutputs>
     <InputVars>
       <VarDeclaration Name="CurrentColor" Type="STRING" Comment="Color of the Element Currently at the last Barrier" />
       <VarDeclaration Name="SetDistanceToBarrier" Type="INT" />
-      <VarDeclaration Name="SetMyColorResponsibility" Type="STRING" InitialValue="'Green'" Comment="Setup the Color I am responsible for" />
+      <VarDeclaration Name="SetMyColorResponsibility" Type="STRING" InitialValue="'BLUE'" Comment="Setup the Color I am responsible for" />
       <VarDeclaration Name="SetRetractDelay" Type="INT" />
+      <VarDeclaration Name="LightBarrierPassed" Type="BOOL" />
+      <VarDeclaration Name="PiecesSize" Type="INT" />
     </InputVars>
     <OutputVars>
       <VarDeclaration Name="DoPush" Type="BOOL" InitialValue="FALSE" Comment="Output event qualifier" />
+      <VarDeclaration Name="IsMyColor" Type="STRING" />
+      <VarDeclaration Name="PreActivated" Type="BOOL" InitialValue="FALSE" />
     </OutputVars>
   </InterfaceList>
   <BasicFB>
-    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,TogDelay,demo,RESET_PUSHER,doPush" />
     <InternalVars>
-      <VarDeclaration Name="DistanceToBarrier" Type="INT" Comment="Distance in Ticks to the Exit Barrier (Nr. 2)" />
+      <VarDeclaration Name="DistanceToBarrier" Type="INT" InitialValue="2" Comment="Distance in Ticks to the Exit Barrier (Nr. 2)" />
       <VarDeclaration Name="RetractDelay" Type="INT" Comment="Time until the Pusher retrackts after pushing our thing away" />
-      <VarDeclaration Name="MyColorResponsibility" Type="STRING" InitialValue="'Green'" Comment="Elements of which color should I push out?" />
+      <VarDeclaration Name="MyColorResponsibility" Type="STRING" Comment="Elements of which color should I push out?" />
       <VarDeclaration Name="InOutState" Type="BOOL" InitialValue="FALSE" Comment="0 = Back 1 = Pusher out" />
       <VarDeclaration Name="RemainingTicks" Type="INT" />
-      <VarDeclaration Name="Activated" Type="BOOL" InitialValue="FALSE" />
       <VarDeclaration Name="tickCounter" Type="INT" />
-      <VarDeclaration Name="delay" Type="INT" InitialValue="5" />
+      <VarDeclaration Name="delay" Type="INT" InitialValue="3" />
+      <VarDeclaration Name="LastColor" Type="STRING" />
+      <VarDeclaration Name="DELAYON" Type="BOOL" />
+      <VarDeclaration Name="hasPassedBarrier" Type="BOOL" />
+      <VarDeclaration Name="WithDrawCountdown" Type="INT" />
+      <VarDeclaration Name="DELAY_ON" Type="BOOL" InitialValue="FALSE" />
+      <VarDeclaration Name="PushBool" Type="BOOL" />
     </InternalVars>
     <ECC>
-      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="START" Comment="Initial State" x="560.9412" y="461.4117" />
       <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
         <ECAction Algorithm="INIT" Output="INITO" />
       </ECState>
       <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
         <ECAction Algorithm="REQ" Output="CNF" />
       </ECState>
-      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
-      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
-      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
-      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+      <ECState Name="SetHasPassed" x="2588.889" y="535.1111">
+        <ECAction Algorithm="demo" />
+      </ECState>
+      <ECState Name="RESET" x="1248" y="696">
+        <ECAction Algorithm="RESET_PUSHER" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="728.7433" y="220.3474">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="174.5607,57.94316,192.6593,41.78155" />
+      </ECTransition>
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="802.7612" y="357.3243">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="210.1827,85.47364,192.2953,101.1255" />
+      </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="411.9611" y="555.6917">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="96.36557,140.8561,117.2109,128.4089" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ AND NOT hasPassedBarrier" x="449.0489" y="669.1799">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.8572,162.635,103.8171,179.4235" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="SetHasPassed" Condition="LB_Passed" x="1575.897" y="392.1458">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="327.737,89.75578,467.7904,94.04622" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="RESET" Condition="RESET" x="854.3248" y="713.2059">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="-291.5913,17.97776,711.7844,359.1234" />
+      </ECTransition>
+      <ECTransition Source="RESET" Destination="START" Condition="1" x="908.2704" y="654.3827">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="245.4392,173.7208,211.8482,162.3437" />
+      </ECTransition>
+      <ECTransition Source="SetHasPassed" Destination="REQ" Condition="1" x="1798.533" y="1189.033">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="564.8677,330.7047,393.7791,346.4214" />
+      </ECTransition>
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
-      <ST Text="&#xD;&#xA;InOutState := 0;&#xD;&#xA;RetractDelay := 1;&#xD;&#xA;MyColorResponsibility := SetMyColorResponsibility;&#xD;&#xA;DistanceToBarrier := SetDistanceToBarrier;&#xD;&#xA;(* ToDo: Retract Once *)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;;&#xD;&#xA;" />
+      <ST Text="&#xD;&#xA;InOutState := 0;&#xD;&#xA;RetractDelay := 1;&#xD;&#xA;RemainingTicks := 0;&#xD;&#xA;MyColorResponsibility := SetMyColorResponsibility;&#xD;&#xA;DistanceToBarrier := SetDistanceToBarrier;&#xD;&#xA;hasPassedBarrier := FALSE;&#xD;&#xA;(* ToDo: Retract Once *)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;;&#xD;&#xA;" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
-      <ST Text="&#xD;&#xA;IF MyColorResponsibility = CurrentColor THEN&#xD;&#xA;	RemainingTicks := DistanceToBarrier;&#xD;&#xA;	Activated := 1;&#xD;&#xA;	(* What happens if the same color comes twice in a cycle? -&gt; Oh, oh*)&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;RemainingTicks := RemainingTicks - 1;&#xD;&#xA;IF RemainingTicks &lt; 1 AND RemainingTicks &gt; -10 THEN&#xD;&#xA;		DoPush := 1;&#xD;&#xA;		Activated := 0;&#xD;&#xA;		RemainingTicks := -10;&#xD;&#xA;		delay := 5;		&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF delay &gt; 0 AND tickCounter&lt;delay THEN&#xD;&#xA;	tickCounter:=tickCounter+1;&#xD;&#xA;ELSE&#xD;&#xA;	tickCounter:=0;&#xD;&#xA;	DoPush :=0;&#xD;&#xA;	CurrentColor := '';&#xD;&#xA;	delay := 0;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;" />
+      <ST Text="&#xD;&#xA;(* Checkt, ob die eigene Farbe getroffen ist *)&#xD;&#xA;&#xD;&#xA;IF MyColorResponsibility = CurrentColor THEN&#xD;&#xA;	PreActivated := 1;&#xD;&#xA;	(* What happens if the same color comes twice in a cycle? -&gt; Oh, oh*)&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF PreActivated = 1 AND hasPassedBarrier = TRUE THEN&#xD;&#xA;		DoPush := 1;&#xD;&#xA;		PreActivated := 0;	&#xD;&#xA;		hasPassedBarrier := FALSE;&#xD;&#xA;		WithDrawCountdown := 5;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+    </Algorithm>
+    <Algorithm Name="TogDelay">
+      <ST Text="&#xD;&#xA;DELAY_ON := NOT DELAY_ON;&#xD;&#xA;;" />
+    </Algorithm>
+    <Algorithm Name="demo">
+      <ST Text="hasPassedBarrier := 1;" />
+    </Algorithm>
+    <Algorithm Name="RESET_PUSHER">
+      <ST Text="DoPush := 0;" />
+    </Algorithm>
+    <Algorithm Name="doPush">
+      <ST Text="PushBool := 1;" />
     </Algorithm>
   </BasicFB>
 </FBType>

@@ -9,7 +9,7 @@
     </ExcludeDir>
   </Archive>
   <References />
-  <CanvasResolution StartCanvasClass="HMI.Main.Canvases.StartCanvas_1" Width="1024" Height="768" WorkAreaWidth="1024" WorkAreaHeight="688" Template="Default" Login="true" NavigationControl="2" CurrentUser="true" LanguageButton="true" RuntimeConnection="true" Logger="false" NavigationBar="true" NewVersionDeployed="true" Exit="false" ShowWarningMessage="false" SiblingButtonCount="0" ChildButtonCount="0" IsCanvasTopologyPanel="true" ResizeBehaviour="Zoom">
+  <CanvasResolution StartCanvasClass="HMI.Main.Canvases.StartCanvas_1" Width="1024" Height="768" WorkAreaWidth="1024" WorkAreaHeight="688" Template="Default" Login="true" NavigationControl="2" CurrentUser="true" LanguageButton="true" RuntimeConnection="true" Logger="false" NavigationBar="true" NewVersionDeployed="true" Exit="false" ShowWarningMessage="false" WarningText="" SiblingButtonCount="0" ChildButtonCount="0" IsCanvasTopologyPanel="true" ResizeBehaviour="Zoom">
     <Topology Name="Default">
       <Canvases>
         <Canvas Name="Canvas1" Title="" Tooltip="" Instance="HMI.Main.Canvases.Canvas1" />

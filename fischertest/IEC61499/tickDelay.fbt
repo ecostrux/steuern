@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="f6ae8f18-1a9a-40d4-8eb9-0d164cdbae75" Name="tickDelay" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="david" Date="21.06.2022" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="delay" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="INITO" Comment="Initialization Confirm">
+        <With Var="Out" />
+      </Event>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="Out" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="delay" Type="INT" Comment="Numer ob ticks to delay event activation" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="Out" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ" />
+    <InternalVars>
+      <VarDeclaration Name="tickCounter" Type="INT" InitialValue="0" />
+    </InternalVars>
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="REQ" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="REQ" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="447.8488" y="648.3352" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="&#xD;&#xA;&#xD;&#xA;;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text="IF tickCounter&lt;delay THEN&#xD;&#xA;	tickCounter:=tickCounter+1;&#xD;&#xA;	Out:=0;&#xD;&#xA;ELSE&#xD;&#xA;	tickCounter:=0;&#xD;&#xA;	Out:=1;&#xD;&#xA;END_IF&#xD;&#xA;;&#xD;&#xA;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>

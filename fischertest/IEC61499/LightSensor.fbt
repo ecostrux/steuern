@@ -19,6 +19,10 @@
         <With Var="IsFree" />
         <With Var="CurrentColor" />
       </Event>
+      <Event Name="PASSED_LIGHTBARRIER">
+        <With Var="PieceLeaves" />
+        <With Var="CurrentColor" />
+      </Event>
     </EventOutputs>
     <InputVars>
       <VarDeclaration Name="SetCurrentColor" Type="STRING" />
@@ -32,45 +36,72 @@
     </OutputVars>
   </InterfaceList>
   <BasicFB>
-    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,Freeing,Loading" />
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,Freeing,Loading,LB_Passed" />
     <InternalVars>
       <VarDeclaration Name="CurrentPiecesColor" Type="STRING" />
       <VarDeclaration Name="PieceIsIn" Type="BOOL" />
+      <VarDeclaration Name="ColorIntegralTime" Type="INT" />
+      <VarDeclaration Name="WasIn" Type="BOOL" />
+      <VarDeclaration Name="PieceWasInDelay" Type="INT" />
     </InternalVars>
     <ECC>
-      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="START" Comment="Initial State" x="544.9412" y="373.4117" />
       <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
         <ECAction Algorithm="INIT" Output="INITO" />
       </ECState>
       <ECState Name="REQ" Comment="Normal execution" x="469.647" y="928.9412">
         <ECAction Algorithm="REQ" Output="CNF" />
       </ECState>
-      <ECState Name="IsFree" x="944" y="732">
-        <ECAction Algorithm="Loading" />
+      <ECState Name="IsInSensor" x="2488" y="452">
+        <ECAction Algorithm="REQ" />
       </ECState>
-      <ECState Name="IsLoaded" x="964" y="532">
-        <ECAction Algorithm="Freeing" />
+      <ECState Name="BarrierIsEmpty" x="1460" y="776">
+        <ECAction Algorithm="REQ" />
       </ECState>
-      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
-      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
-      <ECTransition Source="START" Destination="REQ" Condition="REQ" x="592.5223" y="691.5121">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="155.2285,157.4408,149.7376,190.3712" />
+      <ECState Name="HasLeftBarrier" x="2208" y="1176">
+        <ECAction Algorithm="LB_Passed" Output="PASSED_LIGHTBARRIER" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="727.8647" y="175.3833">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="174.8733,44.65147,192.2444,33.99559" />
       </ECTransition>
-      <ECTransition Source="REQ" Destination="START" Condition="1" x="509.6146" y="604.1764">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="125.078,161.2593,130.569,128.3289" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="785.923" y="326.9991">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="205.3165,80.30566,187.9454,90.96155" />
       </ECTransition>
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="506.2162" y="565.8226">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="124.3199,153.1551,129.5412,115.5306" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="IsInSensor" Condition="(REQ AND (QI = FALSE))" x="1547.716" y="328.5181">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="350.3862,74.46017,432.018,79.16544" />
+      </ECTransition>
+      <ECTransition Source="IsInSensor" Destination="HasLeftBarrier" Condition="1" x="2827.006" y="891.5071">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="741.5976,205.4108,728.7361,253.2607" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="BarrierIsEmpty" Condition="(REQ AND (QI = TRUE))" x="1017.432" y="503.2367">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="227.2117,109.9209,279.2896,132.13" />
+      </ECTransition>
+      <ECTransition Source="BarrierIsEmpty" Destination="IsInSensor" Condition="(REQ AND (QI = FALSE))" x="1967.69" y="534.6224">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="466.6585,137.6478,522.3527,119.7775" />
+      </ECTransition>
+      <ECTransition Source="HasLeftBarrier" Destination="REQ" Condition="1" x="1566.077" y="1340.635">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="475.2881,362.2674,342.2053,347.4323" />
+      </ECTransition>
+      <ECTransition Source="IsInSensor" Destination="IsInSensor" Condition="(REQ AND (QI = FALSE))" x="2488" y="634.0861" />
+      <ECTransition Source="BarrierIsEmpty" Destination="BarrierIsEmpty" Condition="(REQ AND (QI = TRUE))" x="1460" y="958.0861" />
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
-      <ST Text=";" />
+      <ST Text="&#xD;&#xA;;" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
-      <ST Text="IF IsFree = TRUE AND QI = FALSE THEN &#xD;&#xA;	PieceEnters := TRUE;&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN &#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := TRUE;&#xD;&#xA;ELSIF IsFree = TRUE AND QI = FALSE THEN&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF SetCurrentColor &lt;&gt; '' THEN&#xD;&#xA;	CurrentColor := SetCurrentColor;&#xD;&#xA;	END_IF;&#xD;&#xA;" />
+      <ST Text="(*IF IsFree = TRUE AND QI = FALSE THEN &#xD;&#xA;	PieceEnters := TRUE;&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN &#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := TRUE;&#xD;&#xA;ELSIF IsFree = TRUE AND QI = FALSE THEN&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;*)&#xD;&#xA;(*&#xD;&#xA;IF WasIn = TRUE THEN&#xD;&#xA;	PieceLeaves := TRUE;&#xD;&#xA;	PieceWasInDelay := 3;&#xD;&#xA;ELSE&#xD;&#xA;	PieceWasInDelay := PieceWasInDelay - 1;&#xD;&#xA;	IF PieceWasInDelay &lt; 1 THEN&#xD;&#xA;		PieceLeaves := FALSE;&#xD;&#xA;	END_IF;&#xD;&#xA;END_IF;*)&#xD;&#xA;&#xD;&#xA;IF NE(SetCurrentColor, 'NONE') THEN&#xD;&#xA;	&#xD;&#xA;	CurrentColor := SetCurrentColor;&#xD;&#xA;END_IF;&#xD;&#xA;" />
     </Algorithm>
     <Algorithm Name="Freeing">
       <ST Text=";" />
     </Algorithm>
     <Algorithm Name="Loading">
       <ST Text=";" />
+    </Algorithm>
+    <Algorithm Name="LB_Passed">
+      <ST Text="&#xD;&#xA;PieceLeaves := 1;" />
     </Algorithm>
   </BasicFB>
 </FBType>

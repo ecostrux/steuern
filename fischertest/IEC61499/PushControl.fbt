@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE FBType SYSTEM "../LibraryElement.dtd">
+<FBType GUID="0935075b-f12b-4c81-9314-73d9571dc135" Name="PushControl" Comment="Basic Function Block Type" Namespace="Main">
+  <Identification Standard="61499-2" />
+  <VersionInfo Organization="WBK hackaton" Version="0.0" Author="Lernfabrik" Date="22/06/2022" Remarks="Template" />
+  <InterfaceList>
+    <EventInputs>
+      <Event Name="INIT" Comment="Initialization Request" />
+      <Event Name="SwitchOff">
+        <With Var="WhichState" />
+      </Event>
+      <Event Name="SwitchOn">
+        <With Var="WhichState" />
+      </Event>
+    </EventInputs>
+    <EventOutputs>
+      <Event Name="CNF" Comment="Execution Confirmation">
+        <With Var="OnOff" />
+      </Event>
+    </EventOutputs>
+    <InputVars>
+      <VarDeclaration Name="WhichState" Type="BOOL" />
+    </InputVars>
+    <OutputVars>
+      <VarDeclaration Name="OnOff" Type="BOOL" Comment="Output event qualifier" />
+    </OutputVars>
+  </InterfaceList>
+  <BasicFB>
+    <Attribute Name="FBType.Basic.Algorithm.Order" Value="INIT,REQ,Switch_Off,Switch_On" />
+    <ECC>
+      <ECState Name="START" Comment="Initial State" x="552.9412" y="429.4117" />
+      <ECState Name="INIT" Comment="Initialization" x="923.5294" y="141.1765">
+        <ECAction Algorithm="INIT" />
+      </ECState>
+      <ECState Name="SWITCH_OFF" Comment="Normal execution" x="217.647" y="752.9412">
+        <ECAction Algorithm="Switch_Off" Output="CNF" />
+      </ECState>
+      <ECState Name="SWITCH_ON" x="1364" y="504">
+        <ECAction Algorithm="Switch_On" Output="CNF" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
+      <ECTransition Source="START" Destination="SWITCH_OFF" Condition="SwitchOff" x="459.7681" y="645.1478">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.1467,156.6527,104.2188,174.9165" />
+      </ECTransition>
+      <ECTransition Source="SWITCH_OFF" Destination="START" Condition="1" x="372.8767" y="512.7991" />
+      <ECTransition Source="START" Destination="SWITCH_ON" Condition="SwitchOn" x="993.2687" y="608.1885">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="222.6631,153.996,279.0077,164.9816" />
+      </ECTransition>
+      <ECTransition Source="SWITCH_ON" Destination="START" Condition="1" x="920.9637" y="550.3834">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="250.5487,142.6817,210.5681,139.0049" />
+      </ECTransition>
+    </ECC>
+    <Algorithm Name="INIT" Comment="Initialization algorithm">
+      <ST Text="OnOff := WhichState;" />
+    </Algorithm>
+    <Algorithm Name="REQ" Comment="Normally executed algorithm">
+      <ST Text=";" />
+    </Algorithm>
+    <Algorithm Name="Switch_Off">
+      <ST Text="OnOff := 0;" />
+    </Algorithm>
+    <Algorithm Name="Switch_On">
+      <ST Text="OnOff := 1;" />
+    </Algorithm>
+  </BasicFB>
+</FBType>
