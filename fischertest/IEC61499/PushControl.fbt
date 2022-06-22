@@ -40,19 +40,19 @@
       </ECState>
       <ECTransition Source="START" Destination="INIT" Condition="INIT" x="731.1476" y="204.8375" />
       <ECTransition Source="INIT" Destination="START" Condition="1" x="797.5924" y="348.3232" />
-      <ECTransition Source="START" Destination="SWITCH_OFF" Condition="SwitchOff" x="459.7681" y="645.1478">
+      <ECTransition Source="START" Destination="SWITCH_OFF" Condition="SwitchOff" x="459.7681" y="645.1479">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.1467,156.6527,104.2188,174.9165" />
       </ECTransition>
       <ECTransition Source="SWITCH_OFF" Destination="START" Condition="1" x="372.8767" y="512.7991" />
-      <ECTransition Source="START" Destination="SWITCH_ON" Condition="SwitchOn" x="993.2687" y="608.1885">
+      <ECTransition Source="START" Destination="SWITCH_ON" Condition="SwitchOn" x="993.5574" y="608.1884">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="222.6631,153.996,279.0077,164.9816" />
       </ECTransition>
-      <ECTransition Source="SWITCH_ON" Destination="START" Condition="1" x="920.9637" y="550.3834">
+      <ECTransition Source="SWITCH_ON" Destination="START" Condition="1" x="920.9637" y="550.3832">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="250.5487,142.6817,210.5681,139.0049" />
       </ECTransition>
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
-      <ST Text="OnOff := WhichState;" />
+      <ST Text="OnOff := 0;" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
       <ST Text=";" />

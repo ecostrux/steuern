@@ -30,8 +30,7 @@
         <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" x="6400" y="760" Namespace="Main" />
         <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" x="6120" y="1400" Namespace="Standard.IoEtherNetIP" />
         <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" x="6740" y="1520" Namespace="Main" />
-        <FB ID="3CF6434B32DF890C" Name="Pusher_blue" Type="Pusher_Element" x="4100" y="1880" Namespace="Main" />
-        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1620" y="1620" Namespace="Main" />
+        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1680" y="1620" Namespace="Main" />
         <FB ID="749ADD71C921E94A" Name="PushDelay" Type="E_DELAY" x="3020" y="2420" Namespace="IEC61499.Standard">
           <Parameter Name="DT" Value="TIME#200ms" />
         </FB>
@@ -40,13 +39,13 @@
         </FB>
         <FB ID="272F36C167E728EC" Name="WITHDRAW" Type="PushControl" x="5640" y="280" Namespace="Main" />
         <FB ID="2D4279C6D800B675" Name="FB3" Type="E_SPLIT" x="3340" y="1840" Namespace="IEC61499.Standard" />
-        <FB ID="3A59ECACDB64B2ED" Name="Pusher_White" Type="Pusher_Comp" x="1940" y="2820" Namespace="Main">
+        <FB ID="3A59ECACDB64B2ED" Name="Pusher_White" Type="Pusher_Comp" x="1740" y="2940" Namespace="Main">
           <Parameter Name="SetColour" Value="'WHITE'" />
-          <Parameter Name="PrePushDelay" Value="T#3000ms" />
+          <Parameter Name="PrePushDelay" Value="T#500ms" />
         </FB>
         <FB ID="C8C2C175799F6574" Name="Pusher_Red" Type="Pusher_Comp" x="2900" y="2980" Namespace="Main">
           <Parameter Name="SetColour" Value="'RED'" />
-          <Parameter Name="PrePushDelay" Value="T#5000ms" />
+          <Parameter Name="PrePushDelay" Value="T#9000ms" />
         </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
@@ -90,19 +89,19 @@
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Blue.LB_Passed" />
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="PushDelay.START" dx1="89.521" />
           <Connection Source="FB3.EO1" Destination="Pusher_Blue.RESET" dx1="50" />
-          <Connection Source="Pusher_Blue.DOPUSH" Destination="DELAYPrePush.START" dx1="50" />
+          <Connection Source="Pusher_Blue.ACTIVATE" Destination="DELAYPrePush.START" dx1="40" />
           <Connection Source="WITHDRAW.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="639.8542" />
           <Connection Source="DELAYPrePush.EO" Destination="WITHDRAW.SwitchOn" dx1="48.5" />
           <Connection Source="PushDelay.EO" Destination="FB3.EI" dx1="48.5" dx2="30" dy="-110" />
           <Connection Source="FB3.EO2" Destination="WITHDRAW.SwitchOff" />
-          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.START" dx1="89.521" dx2="70" dy="470" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.START" dx1="89.521" dx2="80" dy="470" />
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Red.START" dx1="89.521" />
-          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.PASSEDLB" dx1="89.521" dx2="90" dy="470" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.PASSEDLB" dx1="89.521" dx2="80" dy="470" />
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Red.PASSEDLB" dx1="89.521" />
           <Connection Source="LightSensor_2.INITO" Destination="Pusher_White.INIT" dx1="109.521" dx2="50" dy="590" />
           <Connection Source="LightSensor_2.INITO" Destination="Pusher_Red.INIT" dx1="109.521" />
-          <Connection Source="Pusher_White.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="140" dy="-300.146" />
-          <Connection Source="Pusher_Red.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="140" dy="-380.146" />
+          <Connection Source="Pusher_White.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="40" dx2="140" dy="-360.146" />
+          <Connection Source="Pusher_Red.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="40" dx2="140" dy="-380.146" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
@@ -112,12 +111,12 @@
           <Connection Source="DST_modbus.VALUE2" Destination="VTQTOINT.VTQ" />
           <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="70" dx2="30" dy="-310" />
           <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="49.854" />
-          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor" />
+          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor" dx1="43.771" dx2="90" dy="370" />
           <Connection Source="MATH_INT_TO_BIT.OUT2" Destination="LightSensor_2.QI" dx1="40" dx2="110" dy="870" />
           <Connection Source="LightSensor_2.PieceLeaves" Destination="Pusher_Blue.LightBarrierPassed" />
           <Connection Source="WITHDRAW.OnOff" Destination="MATH_BIT_TO_INT.Pusher1" />
           <Connection Source="Pusher_Blue.DoPush" Destination="WITHDRAW.WhichState" />
-          <Connection Source="Pusher_White.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher2" dx1="71.771" dx2="50" dy="-490" />
+          <Connection Source="Pusher_White.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher2" dx1="71.77075" dx2="50" dy="-490" />
           <Connection Source="Pusher_Red.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher3" />
           <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_White.CurrentColour" dx1="49.521" dx2="150" dy="90" />
           <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_Red.CurrentColour" dx1="49.521" />

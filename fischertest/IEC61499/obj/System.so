@@ -111,7 +111,7 @@
         <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="PushDelay.START" dx1="90" />
         <Connection Source="Pusher_Blue.CNF" Destination="DelayPrePush1.getPush" dx1="50" />
         <Connection Source="DelayPrePush1.relPush" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="90" dy="-50" />
-        <Connection Source="Pusher_Blue.DOPUSH" Destination="DELAYPrePush.START" dx1="70" />
+        <Connection Source="Pusher_Blue.ACTIVATE" Destination="DELAYPrePush.START" dx1="70" />
       </EventConnections>
       <DataConnections>
         <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
@@ -201,8 +201,7 @@
         <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" x="6400" y="760" Namespace="Main" />
         <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" x="6120" y="1400" Namespace="Standard.IoEtherNetIP" />
         <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" x="6740" y="1520" Namespace="Main" />
-        <FB ID="3CF6434B32DF890C" Name="Pusher_blue" Type="Pusher_Element" x="4100" y="1880" Namespace="Main" />
-        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1620" y="1620" Namespace="Main" />
+        <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1680" y="1620" Namespace="Main" />
         <FB ID="749ADD71C921E94A" Name="PushDelay" Type="E_DELAY" x="3020" y="2420" Namespace="IEC61499.Standard">
           <Parameter Name="DT" Value="TIME#200ms" />
         </FB>
@@ -211,13 +210,13 @@
         </FB>
         <FB ID="272F36C167E728EC" Name="WITHDRAW" Type="PushControl" x="5640" y="280" Namespace="Main" Loaded="true" />
         <FB ID="2D4279C6D800B675" Name="FB3" Type="E_SPLIT" x="3340" y="1840" Namespace="IEC61499.Standard" Loaded="true" />
-        <FB ID="3A59ECACDB64B2ED" Name="Pusher_White" Type="Pusher_Comp" x="1940" y="2820" Namespace="Main" Loaded="true">
+        <FB ID="3A59ECACDB64B2ED" Name="Pusher_White" Type="Pusher_Comp" x="1740" y="2940" Namespace="Main" Loaded="true">
           <Parameter Name="SetColour" Value="'WHITE'" />
-          <Parameter Name="PrePushDelay" Value="T#2000ms" />
+          <Parameter Name="PrePushDelay" Value="T#500ms" />
         </FB>
         <FB ID="C8C2C175799F6574" Name="Pusher_Red" Type="Pusher_Comp" x="2900" y="2980" Namespace="Main" Loaded="true">
           <Parameter Name="SetColour" Value="'RED'" />
-          <Parameter Name="PrePushDelay" Value="T#1000ms" />
+          <Parameter Name="PrePushDelay" Value="T#9000ms" />
         </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
@@ -314,32 +313,31 @@
                 <Y>492.5</Y>
               </Points>
               <Points>
-                <X>1512.5</X>
+                <X>1517.5</X>
                 <Y>492.5</Y>
               </Points>
               <Points>
-                <X>1512.5</X>
+                <X>1517.5</X>
                 <Y>382.5</Y>
               </Points>
               <Points>
-                <X>382.5</X>
+                <X>397.5</X>
                 <Y>382.5</Y>
               </Points>
               <Points>
-                <X>382.5</X>
+                <X>397.5</X>
                 <Y>430</Y>
               </Points>
               <Points>
-                <X>400</X>
+                <X>415</X>
                 <Y>430</Y>
               </Points>
             </Points>
-            <AvoidsNodes>false</AvoidsNodes>
           </Connection>
           <Connection Source="LightSensor_2.INITO" Destination="Pusher_Blue.INIT">
             <Points>
               <Points>
-                <X>645.119751</X>
+                <X>660.119751</X>
                 <Y>415</Y>
               </Points>
               <Points>
@@ -369,7 +367,7 @@
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Blue.LB_Passed">
             <Points>
               <Points>
-                <X>645.119751</X>
+                <X>660.119751</X>
                 <Y>445</Y>
               </Points>
               <Points>
@@ -397,7 +395,7 @@
           </Connection>
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="PushDelay.START" dx1="89.521" />
           <Connection Source="FB3.EO1" Destination="Pusher_Blue.RESET" dx1="50" />
-          <Connection Source="Pusher_Blue.DOPUSH" Destination="DELAYPrePush.START" dx1="50" />
+          <Connection Source="Pusher_Blue.ACTIVATE" Destination="DELAYPrePush.START" dx1="40" />
           <Connection Source="WITHDRAW.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="639.8542" />
           <Connection Source="DELAYPrePush.EO" Destination="WITHDRAW.SwitchOn" dx1="48.5" />
           <Connection Source="PushDelay.EO" Destination="FB3.EI" dx1="48.5" dx2="30" dy="-110" />
@@ -430,14 +428,18 @@
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.START" dx1="89.521" dx2="70" dy="470" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.START" dx1="89.521" dx2="80" dy="470">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Red.START" dx1="89.521" />
-          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.PASSEDLB" dx1="89.521" dx2="90" dy="470" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.PASSEDLB" dx1="89.521" dx2="80" dy="470">
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Red.PASSEDLB" dx1="89.521" />
           <Connection Source="LightSensor_2.INITO" Destination="Pusher_White.INIT" dx1="109.521" dx2="50" dy="590" />
           <Connection Source="LightSensor_2.INITO" Destination="Pusher_Red.INIT" dx1="109.521" />
-          <Connection Source="Pusher_White.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="140" dy="-300.146" />
-          <Connection Source="Pusher_Red.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="140" dy="-380.146" />
+          <Connection Source="Pusher_White.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="40" dx2="140" dy="-360.146" />
+          <Connection Source="Pusher_Red.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="40" dx2="140" dy="-380.146" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
@@ -494,7 +496,7 @@
           <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_Blue.CurrentColor">
             <Points>
               <Points>
-                <X>645.119751</X>
+                <X>660.119751</X>
                 <Y>540</Y>
               </Points>
               <Points>
@@ -551,48 +553,12 @@
           </Connection>
           <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="70" dx2="30" dy="-310" />
           <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="49.854" />
-          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor">
-            <Points>
-              <Points>
-                <X>1771.55725</X>
-                <Y>470</Y>
-              </Points>
-              <Points>
-                <X>1782.5</X>
-                <Y>470</Y>
-              </Points>
-              <Points>
-                <X>1782.5</X>
-                <Y>492.5</Y>
-              </Points>
-              <Points>
-                <X>1512.5</X>
-                <Y>492.5</Y>
-              </Points>
-              <Points>
-                <X>1512.5</X>
-                <Y>382.5</Y>
-              </Points>
-              <Points>
-                <X>377.5</X>
-                <Y>382.5</Y>
-              </Points>
-              <Points>
-                <X>377.5</X>
-                <Y>495</Y>
-              </Points>
-              <Points>
-                <X>400</X>
-                <Y>495</Y>
-              </Points>
-            </Points>
-            <AvoidsNodes>false</AvoidsNodes>
-          </Connection>
+          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor" dx1="43.771" dx2="90" dy="370" />
           <Connection Source="MATH_INT_TO_BIT.OUT2" Destination="LightSensor_2.QI" dx1="40" dx2="110" dy="870" />
           <Connection Source="LightSensor_2.PieceLeaves" Destination="Pusher_Blue.LightBarrierPassed">
             <Points>
               <Points>
-                <X>645.119751</X>
+                <X>660.119751</X>
                 <Y>510</Y>
               </Points>
               <Points>
@@ -625,35 +591,35 @@
                 <Y>160</Y>
               </Points>
               <Points>
-                <X>1538.05725</X>
+                <X>1533.05713</X>
                 <Y>160</Y>
               </Points>
               <Points>
-                <X>1538.05725</X>
-                <Y>52.5</Y>
+                <X>1533.05713</X>
+                <Y>52</Y>
               </Points>
               <Points>
-                <X>1397.5</X>
-                <Y>52.5</Y>
+                <X>1392.49988</X>
+                <Y>52</Y>
               </Points>
               <Points>
-                <X>1397.5</X>
-                <Y>362.5</Y>
+                <X>1392.49988</X>
+                <Y>362</Y>
               </Points>
               <Points>
-                <X>742.5</X>
-                <Y>362.5</Y>
+                <X>737.4999</X>
+                <Y>362</Y>
               </Points>
               <Points>
-                <X>742.5</X>
-                <Y>627.5</Y>
+                <X>737.4999</X>
+                <Y>627</Y>
               </Points>
               <Points>
-                <X>167.5</X>
-                <Y>627.5</Y>
+                <X>162.499878</X>
+                <Y>627</Y>
               </Points>
               <Points>
-                <X>167.5</X>
+                <X>162.499878</X>
                 <Y>410</Y>
               </Points>
               <Points>
@@ -666,23 +632,23 @@
           <Connection Source="Pusher_Blue.DoPush" Destination="WITHDRAW.WhichState">
             <Points>
               <Points>
-                <X>1157.375</X>
+                <X>1163.8125</X>
                 <Y>175</Y>
               </Points>
               <Points>
-                <X>1174.875</X>
+                <X>1176.3125</X>
                 <Y>175</Y>
               </Points>
               <Points>
-                <X>1174.875</X>
-                <Y>187.5</Y>
+                <X>1176.3125</X>
+                <Y>187</Y>
               </Points>
               <Points>
-                <X>1362.5</X>
-                <Y>187.5</Y>
+                <X>1363.9375</X>
+                <Y>187</Y>
               </Points>
               <Points>
-                <X>1362.5</X>
+                <X>1363.9375</X>
                 <Y>160</Y>
               </Points>
               <Points>
@@ -692,35 +658,35 @@
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="Pusher_White.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher2" dx1="71.771" dx2="50" dy="-490" />
+          <Connection Source="Pusher_White.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher2" dx1="71.77075" dx2="50" dy="-490" />
           <Connection Source="Pusher_Red.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher3">
             <Points>
               <Points>
-                <X>884.557251</X>
+                <X>884.5573</X>
                 <Y>850</Y>
               </Points>
               <Points>
-                <X>897.499939</X>
+                <X>892.4999</X>
                 <Y>850</Y>
               </Points>
               <Points>
-                <X>897.499939</X>
-                <Y>727</Y>
+                <X>892.4999</X>
+                <Y>726.5</Y>
               </Points>
               <Points>
-                <X>737.499939</X>
-                <Y>727</Y>
+                <X>732.4999</X>
+                <Y>726.5</Y>
               </Points>
               <Points>
-                <X>737.499939</X>
-                <Y>687</Y>
+                <X>732.4999</X>
+                <Y>686.5</Y>
               </Points>
               <Points>
-                <X>182.499939</X>
-                <Y>687</Y>
+                <X>177.499878</X>
+                <Y>686.5</Y>
               </Points>
               <Points>
-                <X>182.499939</X>
+                <X>177.499878</X>
                 <Y>440</Y>
               </Points>
               <Points>
@@ -755,7 +721,6 @@
   <Mapping From="APP1.DEBUG_COLOR" To="EcoRT_0.RES0" />
   <Mapping From="APP1.VTQTOINT" To="EcoRT_0.RES0" />
   <Mapping From="APP1.ColorMap" To="EcoRT_0.RES0" />
-  <Mapping From="APP1.Pusher_blue" To="EcoRT_0.RES0" />
   <Mapping From="APP1.LightSensor_2" To="EcoRT_0.RES0" />
   <Mapping From="APP1.PushDelay" To="EcoRT_0.RES0" />
 </System>
