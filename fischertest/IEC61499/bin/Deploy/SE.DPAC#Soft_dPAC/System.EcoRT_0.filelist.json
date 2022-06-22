@@ -1,9 +1,9 @@
 {
   "snapshot": {
-    "guid": "7e4635fe-e64e-413e-849f-fe5e109d28f9",
-    "hash": "B43A1D70DF139BCA0A15FD4E4E3C7D849E7EC54F2D63439690C4F51CBF8B0D91",
+    "guid": "ca3d4633-ccaa-4a26-a6e6-a18022ef50d6",
+    "hash": "9BA9D0978899DC07286703846FB89762E55FEA19A3C07A0FAA1C37587EEE6721",
     "app": {
-      "hash": "CAA487C3AFFE5778EF1340CEEE5CCCC98994A8CE2AB38E324478764217E851B3",
+      "hash": "0907BF18F479362313ABA8A7F7652B005020F2DDCD2244A4D685E8EA018B6C12",
       "items": [
         "SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin",
         "SE.DPAC#DPAC_FULLINIT.bin",
@@ -17,6 +17,7 @@
         "Main#LightSensor.bin",
         "Main#ColorDebug.bin",
         "Standard.IoEtherNetIP#VTQ_to_INT.bin",
+        "Main#ColorMap.bin",
         "Standard.IoModbus#MODBUS_HMI.bin",
         "Standard.IoModbus#IHwSlaveConfig.bin",
         "Standard.IoModbus#MODBUS.bin",

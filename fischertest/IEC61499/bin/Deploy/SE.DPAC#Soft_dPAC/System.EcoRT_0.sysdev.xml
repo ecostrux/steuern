@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 23:05:10Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{7E4635FE-E64E-413E-849F-FE5E109D28F9}">
+<System Name="System" ProjectName="fischertest" ProjectGuid="{81216E18-307E-4B09-9A2F-02EB75ADB333}" BuildTime="2022-06-21 23:58:39Z" DeployTime="" StudioVersion="IEC 61499 IDE, Matrix v21.2 g4797 ee478cd Tue Feb 15 12:01:10 2022" SnapshotGuid="{CA3D4633-CCAA-4A26-A6E6-A18022EF50D6}">
   <Device ID="BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A" Name="EcoRT_0" Type="Soft_dPAC" Namespace="SE.DPAC">
     <Resource ID="6654357727DAC531" Name="RES0" Type="EMB_RES_ECO" Namespace="Runtime.Management">
       <FBNetwork>
@@ -29,6 +29,7 @@
         <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" Namespace="Main" />
         <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" Namespace="Main" />
         <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" Namespace="Standard.IoEtherNetIP" />
+        <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" Namespace="Main" />
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -67,6 +68,8 @@
           <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" />
           <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" />
           <Connection Source="VTQTOINT.CNF" Destination="DEBUG_COLOR.REQ" />
+          <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" />
+          <Connection Source="ColorMap.CNF" Destination="LightSensor_2.REQ" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
@@ -76,6 +79,8 @@
           <Connection Source="LightSensor_2.CurrentColor" Destination="PusherGreen.CurrentColor" />
           <Connection Source="DST_modbus.VALUE2" Destination="VTQTOINT.VTQ" />
           <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" />
+          <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" />
+          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor" />
         </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />

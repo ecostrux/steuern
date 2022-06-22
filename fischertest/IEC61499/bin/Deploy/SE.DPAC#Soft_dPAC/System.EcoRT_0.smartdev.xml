@@ -30,6 +30,7 @@
         <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1580" y="1400" Namespace="Main" />
         <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" x="6140" y="760" Namespace="Main" />
         <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" x="6100" y="1340" Namespace="Standard.IoEtherNetIP" />
+        <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" x="6320" y="1480" Namespace="Main" />
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -110,8 +111,10 @@
           <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
           <Connection Source="PusherGreen.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="1508" />
           <Connection Source="LightSensor_2.CNF" Destination="PusherGreen.REQ" dx1="458.4583" />
-          <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" />
+          <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" dx1="1740" />
           <Connection Source="VTQTOINT.CNF" Destination="DEBUG_COLOR.REQ" dx1="50" dx2="60" dy="-180.1458" />
+          <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" dx1="69.854" dx2="250" dy="-110" />
+          <Connection Source="ColorMap.CNF" Destination="LightSensor_2.REQ" dx1="50" dx2="60" dy="-248.2916" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
@@ -123,6 +126,8 @@
           <Connection Source="LightSensor_2.CurrentColor" Destination="PusherGreen.CurrentColor" dx1="498.4583" />
           <Connection Source="DST_modbus.VALUE2" Destination="VTQTOINT.VTQ" dx1="121.625" />
           <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="49.854" dx2="30" dy="-310" />
+          <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="289.854" dx2="70" dy="350" />
+          <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor" dx1="40" dx2="40" dy="-508.2916" />
         </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />

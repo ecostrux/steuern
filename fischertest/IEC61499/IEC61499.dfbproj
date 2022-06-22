@@ -114,7 +114,7 @@
     <None Include="IEC61499.iecproj" />
     <none Include="Languages\neutral\Dictionary.Resources.xml" />
     <None Include="Project.doc.xml" />
-    <None Include="SnapshotCompiles\{FFD57385-A3E4-4A6D-9D88-A8ED5AE4CC02}\Default\IEC61499.snapshot" />
+    <None Include="SnapshotCompiles\{CA4DF812-44F0-4771-A8D4-528AC992BEE8}\Default\IEC61499.snapshot" />
     <None Include="System\BA1F770F-85DE-44AE-BC6B-6DCFFC1FB97A.hcf">
       <DependentUpon>System.sys</DependentUpon>
       <IEC61499Type>System</IEC61499Type>
@@ -194,6 +194,9 @@
     <Compile Include="ColorDetection.fbt">
       <IEC61499Type>Composite</IEC61499Type>
     </Compile>
+    <Compile Include="ColorMap.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
     <Compile Include="ColorMapping.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
@@ -229,6 +232,9 @@
     <Compile Include="Motor.fbt">
       <IEC61499Type>Composite</IEC61499Type>
     </Compile>
+    <Compile Include="PusherResetDelay.fbt">
+      <IEC61499Type>Basic</IEC61499Type>
+    </Compile>
     <Compile Include="Pusher_Element.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
@@ -241,9 +247,6 @@
     <Compile Include="tickDelay.fbt">
       <IEC61499Type>Basic</IEC61499Type>
     </Compile>
-    <Compile Include="Timer.fbt">
-      <IEC61499Type>Basic</IEC61499Type>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration" />
@@ -251,9 +254,10 @@
     <Folder Include="License" />
     <Folder Include="Log" />
     <Folder Include="SnapshotCompiles" />
-    <Folder Include="SnapshotCompiles\{FFD57385-A3E4-4A6D-9D88-A8ED5AE4CC02}" />
-    <Folder Include="SnapshotCompiles\{FFD57385-A3E4-4A6D-9D88-A8ED5AE4CC02}\Default" />
-    <Folder Include="SnapshotCompiles\{FFD57385-A3E4-4A6D-9D88-A8ED5AE4CC02}\Default\{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" />
+    <Folder Include="SnapshotCompiles\{CA4DF812-44F0-4771-A8D4-528AC992BEE8}" />
+    <Folder Include="SnapshotCompiles\{CA4DF812-44F0-4771-A8D4-528AC992BEE8}\Default" />
+    <Folder Include="SnapshotCompiles\{CA4DF812-44F0-4771-A8D4-528AC992BEE8}\Default\{6FB85D46-B9B8-4DA0-923D-36BBC6CFC246}" />
+    <Folder Include="SnapshotCompiles\{CA4DF812-44F0-4771-A8D4-528AC992BEE8}\Default\{A7CFE2A5-69EF-4EFC-A2C7-AA267AAF4A48}" />
     <Folder Include="System\Topology">
       <DependentUpon>System.sys</DependentUpon>
     </Folder>

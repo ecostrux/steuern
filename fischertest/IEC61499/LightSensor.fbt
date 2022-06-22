@@ -6,7 +6,10 @@
   <InterfaceList>
     <EventInputs>
       <Event Name="INIT" Comment="Initialization Request" />
-      <Event Name="REQ" Comment="Normal Execution Request" />
+      <Event Name="REQ" Comment="Normal Execution Request">
+        <With Var="SetCurrentColor" />
+        <With Var="QI" />
+      </Event>
     </EventInputs>
     <EventOutputs>
       <Event Name="INITO" Comment="Initialization Confirm" />
@@ -53,7 +56,7 @@
       <ECTransition Source="START" Destination="REQ" Condition="REQ" x="592.5223" y="691.5121">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="155.2285,157.4408,149.7376,190.3712" />
       </ECTransition>
-      <ECTransition Source="REQ" Destination="START" Condition="1" x="509.6147" y="604.1764">
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="509.6146" y="604.1764">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="125.078,161.2593,130.569,128.3289" />
       </ECTransition>
     </ECC>
@@ -61,7 +64,7 @@
       <ST Text=";" />
     </Algorithm>
     <Algorithm Name="REQ" Comment="Normally executed algorithm">
-      <ST Text="IF IsFree = TRUE AND QI = FALSE THEN &#xD;&#xA;	PieceEnters := TRUE;&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN &#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := TRUE;&#xD;&#xA;ELSIF IsFree = TRUE AND QI = FALSE THEN&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;" />
+      <ST Text="IF IsFree = TRUE AND QI = FALSE THEN &#xD;&#xA;	PieceEnters := TRUE;&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN &#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := TRUE;&#xD;&#xA;ELSIF IsFree = TRUE AND QI = FALSE THEN&#xD;&#xA;	IsFree := TRUE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;ELSIF IsFree = FALSE AND QI = TRUE THEN&#xD;&#xA;	IsFree := FALSE;&#xD;&#xA;	PieceLeaves := FALSE;&#xD;&#xA;	PieceEnters := FALSE;&#xD;&#xA;END_IF;&#xD;&#xA;&#xD;&#xA;IF SetCurrentColor &lt;&gt; '' THEN&#xD;&#xA;	CurrentColor := SetCurrentColor;&#xD;&#xA;	END_IF;&#xD;&#xA;" />
     </Algorithm>
     <Algorithm Name="Freeing">
       <ST Text=";" />
