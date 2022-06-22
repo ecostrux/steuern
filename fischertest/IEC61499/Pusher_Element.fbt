@@ -30,7 +30,9 @@
         <With Var="IsMyColor" />
         <With Var="PreActivated" />
       </Event>
-      <Event Name="DOPUSH" />
+      <Event Name="DOPUSH">
+        <With Var="DoPush" />
+      </Event>
     </EventOutputs>
     <InputVars>
       <VarDeclaration Name="CurrentColor" Type="STRING" Comment="Color of the Element Currently at the last Barrier" />
@@ -77,29 +79,38 @@
       <ECState Name="RESET" x="1248" y="696">
         <ECAction Algorithm="RESET_PUSHER" Output="CNF" />
       </ECState>
-      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="728.7433" y="220.3474">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="174.5607,57.94316,192.6593,41.78155" />
+      <ECState Name="DOPUSH" x="1328" y="472">
+        <ECAction Algorithm="doPush" Output="DOPUSH" />
+      </ECState>
+      <ECTransition Source="START" Destination="INIT" Condition="INIT" x="722.7416" y="184.6514">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="172.6048,50.39626,191.741,30.21489" />
       </ECTransition>
-      <ECTransition Source="INIT" Destination="START" Condition="1" x="802.7612" y="357.3243">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="210.1827,85.47364,192.2953,101.1255" />
+      <ECTransition Source="INIT" Destination="START" Condition="1" x="710.6171" y="351.2095">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="188.321,84.91138,166.4554,99.01258" />
       </ECTransition>
-      <ECTransition Source="REQ" Destination="START" Condition="1" x="411.9611" y="555.6917">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="96.36557,140.8561,117.2109,128.4089" />
+      <ECTransition Source="REQ" Destination="START" Condition="1" x="445.9459" y="478.0963">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="102.951,123.9062,130.8543,102.3257" />
       </ECTransition>
-      <ECTransition Source="START" Destination="REQ" Condition="REQ AND NOT hasPassedBarrier" x="449.0489" y="669.1799">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="123.8572,162.635,103.8171,179.4235" />
+      <ECTransition Source="START" Destination="REQ" Condition="REQ AND NOT hasPassedBarrier" x="378.3521" y="626.897">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="104.3927,151.2717,89.38455,168.6958" />
       </ECTransition>
-      <ECTransition Source="START" Destination="SetHasPassed" Condition="LB_Passed" x="1575.897" y="392.1458">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="327.737,89.75578,467.7904,94.04622" />
+      <ECTransition Source="START" Destination="SetHasPassed" Condition="LB_Passed" x="1603.772" y="377.168">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="332.7651,85.12507,477.0786,91.35915" />
       </ECTransition>
-      <ECTransition Source="START" Destination="RESET" Condition="RESET" x="854.3248" y="713.2059">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="-291.5913,17.97776,711.7844,359.1234" />
+      <ECTransition Source="START" Destination="RESET" Condition="RESET" x="845.6154" y="699.7016">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="-260.6455,2.016222,675.5739,368.0005" />
       </ECTransition>
-      <ECTransition Source="RESET" Destination="START" Condition="1" x="908.2704" y="654.3827">
-        <Attribute Name="Configuration.Transaction.BezierPoints" Value="245.4392,173.7208,211.8482,162.3437" />
+      <ECTransition Source="RESET" Destination="START" Condition="1" x="926.1267" y="625.8043">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="248.4654,165.6926,218.3321,155.4211" />
       </ECTransition>
-      <ECTransition Source="SetHasPassed" Destination="REQ" Condition="1" x="1798.533" y="1189.033">
+      <ECTransition Source="SetHasPassed" Destination="REQ" Condition="1" x="1798.533" y="1189.032">
         <Attribute Name="Configuration.Transaction.BezierPoints" Value="564.8677,330.7047,393.7791,346.4214" />
+      </ECTransition>
+      <ECTransition Source="START" Destination="DOPUSH" Condition="DoPush" x="912.9097" y="382.0984">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="209.0902,92.23794,244.3278,92.18974" />
+      </ECTransition>
+      <ECTransition Source="DOPUSH" Destination="START" Condition="1" x="931.1308" y="553.2635">
+        <Attribute Name="Configuration.Transaction.BezierPoints" Value="252.8478,141.9074,212.7176,141.3535" />
       </ECTransition>
     </ECC>
     <Algorithm Name="INIT" Comment="Initialization algorithm">
@@ -115,7 +126,7 @@
       <ST Text="hasPassedBarrier := 1;" />
     </Algorithm>
     <Algorithm Name="RESET_PUSHER">
-      <ST Text="DoPush := 0;" />
+      <ST Text="DoPush := 0;&#xD;&#xA;PreActivated := 0;&#xD;&#xA;hasPassedBarrier := FALSE;" />
     </Algorithm>
     <Algorithm Name="doPush">
       <ST Text="PushBool := 1;" />

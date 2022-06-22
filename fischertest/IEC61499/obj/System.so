@@ -28,160 +28,147 @@
         <Parameter Name="Motor" Value="TRUE" />
       </FB>
       <FB ID="19FF33EA765C057A" Name="MotorTickCheck" Type="IsMotorTick" x="6200" y="80" Namespace="Main" />
-      <FB ID="BE42C056E2DB54D8" Name="Pusher_white" Type="Pusher_Element" x="2320" y="1400" Namespace="Main" />
+      <FB ID="BE42C056E2DB54D8" Name="Pusher_Blue" Type="Pusher_Element" x="2300" y="2180" Namespace="Main" />
       <FB ID="C8D3A7D30604D83E" Name="DEBUG_COLOR" Type="ColorDebug" x="6260" y="880" Namespace="Main" />
       <FB ID="81B44361BA1B04F2" Name="VTQTOINT" Type="VTQ_to_INT" x="5400" y="1560" Namespace="Standard.IoEtherNetIP" />
       <FB ID="747FEC6D7EEB2E57" Name="ColorMap" Type="ColorMap" x="6280" y="1500" Namespace="Main" />
-      <FB ID="D10823A6DC01C289" Name="Pusher_blue" Type="Pusher_Element" x="2720" y="2600" Namespace="Main" />
+      <FB ID="D10823A6DC01C289" Name="Pusher_blue" Type="Pusher_Element" x="2260" y="3060" Namespace="Main" />
       <FB ID="A35984FB56205D6E" Name="LightSensor_2" Type="LightSensor" x="640" y="1280" Namespace="Main" />
-      <FB ID="AAD5681209BCE16C" Name="PushDelay" Type="E_DELAY" x="2120" y="2240" Namespace="IEC61499.Standard">
-        <Parameter Name="DT" Value="TIME#500ms" />
+      <FB ID="AAD5681209BCE16C" Name="PushDelay" Type="E_DELAY" x="1740" y="2340" Namespace="IEC61499.Standard">
+        <Parameter Name="DT" Value="TIME#200ms" />
       </FB>
-      <FB ID="9CD68BA02AA1E952" Name="DelayPrePush1" Type="PusherPreDelay" x="3300" y="1620" Namespace="Main">
+      <FB ID="9CD68BA02AA1E952" Name="DelayPrePush1" Type="PusherPreDelay" x="3300" y="1520" Namespace="Main">
         <Parameter Name="delay" Value="TIME#150ms" />
+      </FB>
+      <FB ID="A44B375515D563B0" Name="DELAYPrePush" Type="E_DELAY" x="3500" y="2480" Namespace="IEC61499.Standard">
+        <Parameter Name="DT" Value="TIME#90ms" />
       </FB>
       <EventConnections>
         <Connection Source="PLC_start.FIRST_INIT" Destination="SRC_modbus.INIT" dx1="198.0835">
           <AvoidsNodes>false</AvoidsNodes>
         </Connection>
-        <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="48.0835" />
-        <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="40" dx2="70" dy="-110" />
+        <Connection Source="PLC_start.REDO_INIT" Destination="SRC_modbus.INIT" dx1="50" />
+        <Connection Source="SRC_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="50" dx2="70" dy="-50" />
         <Connection Source="PLC_start.REDO_INIT" Destination="DST_modbus.INIT" dx1="98.0835">
           <AvoidsNodes>false</AvoidsNodes>
         </Connection>
         <Connection Source="PLC_start.FIRST_INIT" Destination="DST_modbus.INIT" dx1="50" />
-        <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="101.625" dx2="50" dy="-110" />
-        <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" dx1="70" />
-        <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="57.6665" />
-        <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="57.5415" />
+        <Connection Source="DST_modbus.INITO" Destination="PLC_start.ACK_FIRST" dx1="110" dx2="50" dy="-50" />
+        <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" />
+        <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="50" />
+        <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="50" />
         <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
-        <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" dx1="121.625" />
-        <Connection Source="VTQTOINT.CNF" Destination="DEBUG_COLOR.REQ" dx1="189.854" />
-        <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" />
+        <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" dx1="130" />
+        <Connection Source="VTQTOINT.CNF" Destination="DEBUG_COLOR.REQ" dx1="50" />
+        <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" dx1="50" />
         <Connection Source="ColorMap.CNF" Destination="LightSensor_2.REQ">
           <Points>
             <Points>
-              <X>1656.55725</X>
-              <Y>400</Y>
+              <X>1675</X>
+              <Y>375</Y>
             </Points>
             <Points>
-              <X>1669.05725</X>
-              <Y>400</Y>
+              <X>1687.5</X>
+              <Y>375</Y>
             </Points>
             <Points>
-              <X>1669.05725</X>
-              <Y>357.5</Y>
+              <X>1687.5</X>
+              <Y>362.5</Y>
             </Points>
             <Points>
-              <X>1122.5</X>
-              <Y>357.5</Y>
+              <X>1337.5</X>
+              <Y>362.5</Y>
             </Points>
             <Points>
-              <X>1122.5</X>
-              <Y>267.5</Y>
-            </Points>
-            <Points>
-              <X>942.5</X>
-              <Y>267.5</Y>
-            </Points>
-            <Points>
-              <X>942.5</X>
-              <Y>322.5</Y>
+              <X>1337.5</X>
+              <Y>392.5</Y>
             </Points>
             <Points>
               <X>777.5</X>
-              <Y>322.5</Y>
+              <Y>392.5</Y>
             </Points>
             <Points>
               <X>777.5</X>
-              <Y>302.5</Y>
+              <Y>307.5</Y>
             </Points>
             <Points>
               <X>137.5</X>
-              <Y>302.5</Y>
+              <Y>307.5</Y>
             </Points>
             <Points>
               <X>137.5</X>
-              <Y>345</Y>
+              <Y>320</Y>
             </Points>
             <Points>
               <X>155</X>
-              <Y>345</Y>
+              <Y>320</Y>
             </Points>
           </Points>
         </Connection>
-        <Connection Source="LightSensor_2.INITO" Destination="Pusher_white.INIT" dx1="109.521" />
-        <Connection Source="PLC_start.FIRST_INIT" Destination="LightSensor_2.INIT" dx1="68.0835" dx2="50" dy="410" />
-        <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_white.LB_Passed" dx1="89.521" />
-        <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="PushDelay.START" dx1="89.521" />
-        <Connection Source="PushDelay.EO" Destination="Pusher_white.RESET" dx1="48.5" dx2="230" dy="350" />
-        <Connection Source="Pusher_white.CNF" Destination="DelayPrePush1.getPush" dx1="60.5" />
-        <Connection Source="DelayPrePush1.relPush" Destination="MATH_BIT_TO_INT.REQ" dx1="668.521" dx2="90" dy="-590" />
+        <Connection Source="LightSensor_2.INITO" Destination="Pusher_Blue.INIT" dx1="110" />
+        <Connection Source="PLC_start.FIRST_INIT" Destination="LightSensor_2.INIT" dx1="70" dx2="50" dy="430" />
+        <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Blue.LB_Passed" dx1="90" />
+        <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="PushDelay.START" dx1="90" />
+        <Connection Source="Pusher_Blue.CNF" Destination="DelayPrePush1.getPush" dx1="50" />
+        <Connection Source="DelayPrePush1.relPush" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="90" dy="-50" />
+        <Connection Source="Pusher_Blue.DOPUSH" Destination="DELAYPrePush.START" dx1="70" />
       </EventConnections>
       <DataConnections>
-        <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
-        <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="77.6665" />
-        <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" />
-        <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_white.CurrentColor" />
-        <Connection Source="DST_modbus.VALUE2" Destination="VTQTOINT.VTQ" dx1="121.625" />
-        <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="189.854" />
-        <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" />
+        <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" />
+        <Connection Source="MATH_BIT_TO_INT.OUT_INT" Destination="SRC_modbus.VALUE1" dx1="70" />
+        <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="70" />
+        <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_Blue.CurrentColor" dx1="50" />
+        <Connection Source="DST_modbus.VALUE2" Destination="VTQTOINT.VTQ" dx1="130" />
+        <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="70" />
+        <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="70" />
         <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor">
           <Points>
             <Points>
-              <X>1656.55725</X>
-              <Y>465</Y>
+              <X>1675</X>
+              <Y>375</Y>
             </Points>
             <Points>
-              <X>1674.05725</X>
-              <Y>465</Y>
+              <X>1692.5</X>
+              <Y>375</Y>
             </Points>
             <Points>
-              <X>1674.05725</X>
-              <Y>357.5</Y>
+              <X>1692.5</X>
+              <Y>362.5</Y>
             </Points>
             <Points>
-              <X>1122.5</X>
-              <Y>357.5</Y>
+              <X>1337.5</X>
+              <Y>362.5</Y>
             </Points>
             <Points>
-              <X>1122.5</X>
-              <Y>267.5</Y>
-            </Points>
-            <Points>
-              <X>942.5</X>
-              <Y>267.5</Y>
-            </Points>
-            <Points>
-              <X>942.5</X>
-              <Y>322.5</Y>
+              <X>1337.5</X>
+              <Y>392.5</Y>
             </Points>
             <Points>
               <X>777.5</X>
-              <Y>322.5</Y>
+              <Y>392.5</Y>
             </Points>
             <Points>
               <X>777.5</X>
-              <Y>302.5</Y>
+              <Y>307.5</Y>
             </Points>
             <Points>
               <X>142.5</X>
-              <Y>302.5</Y>
+              <Y>307.5</Y>
             </Points>
             <Points>
               <X>142.5</X>
-              <Y>410</Y>
+              <Y>320</Y>
             </Points>
             <Points>
               <X>155</X>
-              <Y>410</Y>
+              <Y>320</Y>
             </Points>
           </Points>
         </Connection>
-        <Connection Source="MATH_INT_TO_BIT.OUT2" Destination="LightSensor_2.QI" dx1="40" dx2="110" dy="-430" />
-        <Connection Source="LightSensor_2.PieceLeaves" Destination="Pusher_white.LightBarrierPassed" dx1="69.521" />
-        <Connection Source="DelayPrePush1.oPush" Destination="MATH_BIT_TO_INT.Pusher1" dx1="668.521" dx2="30" dy="-850" />
-        <Connection Source="Pusher_white.DoPush" Destination="DelayPrePush1.iPush" dx1="40.5" dx2="1010" dy="-490" />
+        <Connection Source="MATH_INT_TO_BIT.OUT2" Destination="LightSensor_2.QI" dx1="50" dx2="110" dy="590" />
+        <Connection Source="LightSensor_2.PieceLeaves" Destination="Pusher_Blue.LightBarrierPassed" dx1="70" />
+        <Connection Source="DelayPrePush1.oPush" Destination="MATH_BIT_TO_INT.Pusher1" dx1="570" dx2="30" dy="50" />
+        <Connection Source="Pusher_Blue.DoPush" Destination="DelayPrePush1.iPush" dx1="90" />
       </DataConnections>
     </SubAppNetwork>
   </Application>
@@ -209,20 +196,29 @@
           <Parameter Name="Kompressor" Value="TRUE" />
           <Parameter Name="Motor" Value="TRUE" />
         </FB>
-        <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" x="3120" y="180" Namespace="Main" />
-        <FB ID="990D70359659816" Name="Pusher_white" Type="Pusher_Element" x="3860" y="500" Namespace="Main" />
-        <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" x="6140" y="760" Namespace="Main" />
-        <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" x="6100" y="1340" Namespace="Standard.IoEtherNetIP" />
-        <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" x="6320" y="1480" Namespace="Main" />
+        <FB ID="D53F335554BB8D46" Name="MotorTickCheck" Type="IsMotorTick" x="5500" y="1600" Namespace="Main" />
+        <FB ID="990D70359659816" Name="Pusher_Blue" Type="Pusher_Element" x="3760" y="280" Namespace="Main" />
+        <FB ID="DD4CBB618111C675" Name="DEBUG_COLOR" Type="ColorDebug" x="6400" y="760" Namespace="Main" />
+        <FB ID="F5948DDC74D5C4A8" Name="VTQTOINT" Type="VTQ_to_INT" x="6120" y="1400" Namespace="Standard.IoEtherNetIP" />
+        <FB ID="B40CD04AB4A6B594" Name="ColorMap" Type="ColorMap" x="6740" y="1520" Namespace="Main" />
         <FB ID="3CF6434B32DF890C" Name="Pusher_blue" Type="Pusher_Element" x="4100" y="1880" Namespace="Main" />
         <FB ID="D2E9EFDC096057C" Name="LightSensor_2" Type="LightSensor" x="1620" y="1620" Namespace="Main" />
         <FB ID="749ADD71C921E94A" Name="PushDelay" Type="E_DELAY" x="3020" y="2420" Namespace="IEC61499.Standard">
-          <Parameter Name="DT" Value="TIME#500ms" />
+          <Parameter Name="DT" Value="TIME#200ms" />
         </FB>
         <FB ID="7587A5D3EEF869B8" Name="DELAYPrePush" Type="E_DELAY" x="5060" y="360" Namespace="IEC61499.Standard" Loaded="true">
-          <Parameter Name="DT" Value="TIME#3030ms" />
+          <Parameter Name="DT" Value="TIME#90ms" />
         </FB>
-        <FB ID="272F36C167E728EC" Name="WITHDRAW" Type="PushControl" x="5500" y="300" Namespace="Main" Loaded="true" />
+        <FB ID="272F36C167E728EC" Name="WITHDRAW" Type="PushControl" x="5640" y="280" Namespace="Main" Loaded="true" />
+        <FB ID="2D4279C6D800B675" Name="FB3" Type="E_SPLIT" x="3340" y="1840" Namespace="IEC61499.Standard" Loaded="true" />
+        <FB ID="3A59ECACDB64B2ED" Name="Pusher_White" Type="Pusher_Comp" x="1940" y="2820" Namespace="Main" Loaded="true">
+          <Parameter Name="SetColour" Value="'WHITE'" />
+          <Parameter Name="PrePushDelay" Value="T#3000ms" />
+        </FB>
+        <FB ID="C8C2C175799F6574" Name="Pusher_Red" Type="Pusher_Comp" x="2900" y="2980" Namespace="Main" Loaded="true">
+          <Parameter Name="SetColour" Value="'RED'" />
+          <Parameter Name="PrePushDelay" Value="T#5000ms" />
+        </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
           <Parameter Name="BUS_ID" Value="'MODBUS'" />
@@ -298,63 +294,36 @@
           </Connection>
           <Connection Source="DST_modbus.CNF" Destination="MATH_INT_TO_BIT.REQ" dx1="70" />
           <Connection Source="MATH_BIT_TO_INT.CNF" Destination="SRC_modbus.REQ" dx1="57.66675" />
-          <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="137.5417" dx2="130" dy="-150" />
-          <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="50" />
-          <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ">
-            <Points>
-              <Points>
-                <X>682.09375</X>
-                <Y>80</Y>
-              </Points>
-              <Points>
-                <X>702.5</X>
-                <Y>80</Y>
-              </Points>
-              <Points>
-                <X>702.5</X>
-                <Y>362.5</Y>
-              </Points>
-              <Points>
-                <X>867.5</X>
-                <Y>362.5</Y>
-              </Points>
-              <Points>
-                <X>867.5</X>
-                <Y>345</Y>
-              </Points>
-              <Points>
-                <X>1520</X>
-                <Y>345</Y>
-              </Points>
-            </Points>
-          </Connection>
+          <Connection Source="MATH_INT_TO_BIT.CNF" Destination="MotorTickCheck.REQ" dx1="80" />
+          <Connection Source="DST_modbus.INITO" Destination="MotorTickCheck.INIT" dx1="101.625" />
+          <Connection Source="DST_modbus.CNF" Destination="VTQTOINT.REQ" dx1="81.625" />
           <Connection Source="VTQTOINT.CNF" Destination="DEBUG_COLOR.REQ" dx1="50" dx2="50" dy="-110" />
-          <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" dx1="69.854" dx2="250" dy="-110" />
+          <Connection Source="VTQTOINT.CNF" Destination="ColorMap.REQ" dx1="69.854" />
           <Connection Source="ColorMap.CNF" Destination="LightSensor_2.REQ">
             <Points>
               <Points>
-                <X>1666.55725</X>
-                <Y>395</Y>
+                <X>1771.55725</X>
+                <Y>405</Y>
               </Points>
               <Points>
-                <X>1682.5</X>
-                <Y>395</Y>
+                <X>1787.5</X>
+                <Y>405</Y>
               </Points>
               <Points>
-                <X>1682.5</X>
-                <Y>482.5</Y>
-              </Points>
-              <Points>
-                <X>1512.5</X>
-                <Y>482.5</Y>
+                <X>1787.5</X>
+                <Y>492.5</Y>
               </Points>
               <Points>
                 <X>1512.5</X>
-                <Y>387.5</Y>
+                <Y>492.5</Y>
+              </Points>
+              <Points>
+                <X>1512.5</X>
+                <Y>382.5</Y>
               </Points>
               <Points>
                 <X>382.5</X>
-                <Y>387.5</Y>
+                <Y>382.5</Y>
               </Points>
               <Points>
                 <X>382.5</X>
@@ -367,7 +336,7 @@
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="LightSensor_2.INITO" Destination="Pusher_white.INIT">
+          <Connection Source="LightSensor_2.INITO" Destination="Pusher_Blue.INIT">
             <Points>
               <Points>
                 <X>645.119751</X>
@@ -387,17 +356,17 @@
               </Points>
               <Points>
                 <X>892.5</X>
-                <Y>135</Y>
+                <Y>80</Y>
               </Points>
               <Points>
-                <X>960</X>
-                <Y>135</Y>
+                <X>935</X>
+                <Y>80</Y>
               </Points>
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
           <Connection Source="PLC_start.FIRST_INIT" Destination="LightSensor_2.INIT" dx1="588.0834" />
-          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_white.LB_Passed">
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Blue.LB_Passed">
             <Points>
               <Points>
                 <X>645.119751</X>
@@ -409,28 +378,66 @@
               </Points>
               <Points>
                 <X>662.619751</X>
-                <Y>387.5</Y>
+                <Y>442.5</Y>
               </Points>
               <Points>
-                <X>867.5</X>
-                <Y>387.5</Y>
+                <X>892.5</X>
+                <Y>442.5</Y>
               </Points>
               <Points>
-                <X>867.5</X>
-                <Y>165</Y>
+                <X>892.5</X>
+                <Y>110</Y>
               </Points>
               <Points>
-                <X>960</X>
-                <Y>165</Y>
+                <X>935</X>
+                <Y>110</Y>
               </Points>
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
           <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="PushDelay.START" dx1="89.521" />
-          <Connection Source="PushDelay.EO" Destination="Pusher_white.RESET" dx1="108.5" />
-          <Connection Source="Pusher_white.DOPUSH" Destination="DELAYPrePush.START" dx1="40.5" />
-          <Connection Source="WITHDRAW.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="629.8542" />
+          <Connection Source="FB3.EO1" Destination="Pusher_Blue.RESET" dx1="50" />
+          <Connection Source="Pusher_Blue.DOPUSH" Destination="DELAYPrePush.START" dx1="50" />
+          <Connection Source="WITHDRAW.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="60" dx2="50" dy="639.8542" />
           <Connection Source="DELAYPrePush.EO" Destination="WITHDRAW.SwitchOn" dx1="48.5" />
+          <Connection Source="PushDelay.EO" Destination="FB3.EI" dx1="48.5" dx2="30" dy="-110" />
+          <Connection Source="FB3.EO2" Destination="WITHDRAW.SwitchOff">
+            <Points>
+              <Points>
+                <X>901.4219</X>
+                <Y>485</Y>
+              </Points>
+              <Points>
+                <X>918.9219</X>
+                <Y>485</Y>
+              </Points>
+              <Points>
+                <X>918.9219</X>
+                <Y>452.5</Y>
+              </Points>
+              <Points>
+                <X>1362.5</X>
+                <Y>452.5</Y>
+              </Points>
+              <Points>
+                <X>1362.5</X>
+                <Y>95</Y>
+              </Points>
+              <Points>
+                <X>1405</X>
+                <Y>95</Y>
+              </Points>
+            </Points>
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.START" dx1="89.521" dx2="70" dy="470" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Red.START" dx1="89.521" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_White.PASSEDLB" dx1="89.521" dx2="90" dy="470" />
+          <Connection Source="LightSensor_2.PASSED_LIGHTBARRIER" Destination="Pusher_Red.PASSEDLB" dx1="89.521" />
+          <Connection Source="LightSensor_2.INITO" Destination="Pusher_White.INIT" dx1="109.521" dx2="50" dy="590" />
+          <Connection Source="LightSensor_2.INITO" Destination="Pusher_Red.INIT" dx1="109.521" />
+          <Connection Source="Pusher_White.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="140" dy="-300.146" />
+          <Connection Source="Pusher_Red.CNF" Destination="MATH_BIT_TO_INT.REQ" dx1="50" dx2="140" dy="-380.146" />
         </EventConnections>
         <DataConnections>
           <Connection Source="DST_modbus.VALUE1" Destination="MATH_INT_TO_BIT.IN_INT" dx1="90" />
@@ -455,8 +462,36 @@
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI" dx1="137.5417" dx2="130" dy="-350" />
-          <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_white.CurrentColor">
+          <Connection Source="MATH_INT_TO_BIT.OUT0" Destination="MotorTickCheck.QI">
+            <Points>
+              <Points>
+                <X>858.114563</X>
+                <Y>115</Y>
+              </Points>
+              <Points>
+                <X>873.114563</X>
+                <Y>115</Y>
+              </Points>
+              <Points>
+                <X>873.114563</X>
+                <Y>272.5</Y>
+              </Points>
+              <Points>
+                <X>1252.5</X>
+                <Y>272.5</Y>
+              </Points>
+              <Points>
+                <X>1252.5</X>
+                <Y>490</Y>
+              </Points>
+              <Points>
+                <X>1370</X>
+                <Y>490</Y>
+              </Points>
+            </Points>
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_Blue.CurrentColor">
             <Points>
               <Points>
                 <X>645.119751</X>
@@ -476,11 +511,11 @@
               </Points>
               <Points>
                 <X>867.5</X>
-                <Y>230</Y>
+                <Y>175</Y>
               </Points>
               <Points>
-                <X>960</X>
-                <Y>230</Y>
+                <X>935</X>
+                <Y>175</Y>
               </Points>
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
@@ -497,50 +532,50 @@
               </Points>
               <Points>
                 <X>692.5</X>
-                <Y>422.5</Y>
+                <Y>362.5</Y>
               </Points>
               <Points>
-                <X>1042.5</X>
-                <Y>422.5</Y>
+                <X>1487.5</X>
+                <Y>362.5</Y>
               </Points>
               <Points>
-                <X>1042.5</X>
-                <Y>395</Y>
+                <X>1487.5</X>
+                <Y>410</Y>
               </Points>
               <Points>
-                <X>1520</X>
-                <Y>395</Y>
+                <X>1525</X>
+                <Y>410</Y>
               </Points>
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="70" dx2="40" dy="-350.1458" />
-          <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="40" dx2="70" dy="100" />
+          <Connection Source="VTQTOINT.V" Destination="DEBUG_COLOR.QI" dx1="70" dx2="30" dy="-310" />
+          <Connection Source="VTQTOINT.V" Destination="ColorMap.QI" dx1="49.854" />
           <Connection Source="ColorMap.farbe" Destination="LightSensor_2.SetCurrentColor">
             <Points>
               <Points>
-                <X>1666.55725</X>
-                <Y>460</Y>
+                <X>1771.55725</X>
+                <Y>470</Y>
               </Points>
               <Points>
-                <X>1677.5</X>
-                <Y>460</Y>
+                <X>1782.5</X>
+                <Y>470</Y>
               </Points>
               <Points>
-                <X>1677.5</X>
-                <Y>482.5</Y>
-              </Points>
-              <Points>
-                <X>1512.5</X>
-                <Y>482.5</Y>
+                <X>1782.5</X>
+                <Y>492.5</Y>
               </Points>
               <Points>
                 <X>1512.5</X>
-                <Y>387.5</Y>
+                <Y>492.5</Y>
+              </Points>
+              <Points>
+                <X>1512.5</X>
+                <Y>382.5</Y>
               </Points>
               <Points>
                 <X>377.5</X>
-                <Y>387.5</Y>
+                <Y>382.5</Y>
               </Points>
               <Points>
                 <X>377.5</X>
@@ -553,8 +588,8 @@
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
-          <Connection Source="MATH_INT_TO_BIT.OUT2" Destination="LightSensor_2.QI" dx1="40" dx2="110" dy="909.8542" />
-          <Connection Source="LightSensor_2.PieceLeaves" Destination="Pusher_white.LightBarrierPassed">
+          <Connection Source="MATH_INT_TO_BIT.OUT2" Destination="LightSensor_2.QI" dx1="40" dx2="110" dy="870" />
+          <Connection Source="LightSensor_2.PieceLeaves" Destination="Pusher_Blue.LightBarrierPassed">
             <Points>
               <Points>
                 <X>645.119751</X>
@@ -574,11 +609,11 @@
               </Points>
               <Points>
                 <X>867.5</X>
-                <Y>290</Y>
+                <Y>235</Y>
               </Points>
               <Points>
-                <X>960</X>
-                <Y>290</Y>
+                <X>935</X>
+                <Y>235</Y>
               </Points>
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
@@ -586,15 +621,23 @@
           <Connection Source="WITHDRAW.OnOff" Destination="MATH_BIT_TO_INT.Pusher1">
             <Points>
               <Points>
-                <X>1493.05725</X>
-                <Y>165</Y>
+                <X>1528.05725</X>
+                <Y>160</Y>
               </Points>
               <Points>
-                <X>1503.05725</X>
-                <Y>165</Y>
+                <X>1538.05725</X>
+                <Y>160</Y>
               </Points>
               <Points>
-                <X>1503.05725</X>
+                <X>1538.05725</X>
+                <Y>52.5</Y>
+              </Points>
+              <Points>
+                <X>1397.5</X>
+                <Y>52.5</Y>
+              </Points>
+              <Points>
+                <X>1397.5</X>
                 <Y>362.5</Y>
               </Points>
               <Points>
@@ -618,7 +661,77 @@
                 <Y>410</Y>
               </Points>
             </Points>
+            <AvoidsNodes>false</AvoidsNodes>
           </Connection>
+          <Connection Source="Pusher_Blue.DoPush" Destination="WITHDRAW.WhichState">
+            <Points>
+              <Points>
+                <X>1157.375</X>
+                <Y>175</Y>
+              </Points>
+              <Points>
+                <X>1174.875</X>
+                <Y>175</Y>
+              </Points>
+              <Points>
+                <X>1174.875</X>
+                <Y>187.5</Y>
+              </Points>
+              <Points>
+                <X>1362.5</X>
+                <Y>187.5</Y>
+              </Points>
+              <Points>
+                <X>1362.5</X>
+                <Y>160</Y>
+              </Points>
+              <Points>
+                <X>1405</X>
+                <Y>160</Y>
+              </Points>
+            </Points>
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="Pusher_White.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher2" dx1="71.771" dx2="50" dy="-490" />
+          <Connection Source="Pusher_Red.PusherOUT" Destination="MATH_BIT_TO_INT.Pusher3">
+            <Points>
+              <Points>
+                <X>884.557251</X>
+                <Y>850</Y>
+              </Points>
+              <Points>
+                <X>897.499939</X>
+                <Y>850</Y>
+              </Points>
+              <Points>
+                <X>897.499939</X>
+                <Y>727</Y>
+              </Points>
+              <Points>
+                <X>737.499939</X>
+                <Y>727</Y>
+              </Points>
+              <Points>
+                <X>737.499939</X>
+                <Y>687</Y>
+              </Points>
+              <Points>
+                <X>182.499939</X>
+                <Y>687</Y>
+              </Points>
+              <Points>
+                <X>182.499939</X>
+                <Y>440</Y>
+              </Points>
+              <Points>
+                <X>195</X>
+                <Y>440</Y>
+              </Points>
+            </Points>
+            <AvoidsNodes>false</AvoidsNodes>
+          </Connection>
+          <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_White.CurrentColour" dx1="49.521" dx2="150" dy="90" />
+          <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_Red.CurrentColour" dx1="49.521" />
         </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />
@@ -638,7 +751,7 @@
   <Mapping From="APP1.MATH_INT_TO_BIT" To="EcoRT_0.RES0" />
   <Mapping From="APP1.MATH_BIT_TO_INT" To="EcoRT_0.RES0" />
   <Mapping From="APP1.MotorTickCheck" To="EcoRT_0.RES0" />
-  <Mapping From="APP1.Pusher_white" To="EcoRT_0.RES0" />
+  <Mapping From="APP1.Pusher_Blue" To="EcoRT_0.RES0" />
   <Mapping From="APP1.DEBUG_COLOR" To="EcoRT_0.RES0" />
   <Mapping From="APP1.VTQTOINT" To="EcoRT_0.RES0" />
   <Mapping From="APP1.ColorMap" To="EcoRT_0.RES0" />

@@ -1,9 +1,9 @@
 {
   "snapshot": {
-    "guid": "b0ed1a77-2c7b-45f2-9a4c-517ddee8c906",
-    "hash": "7E8A299F11D549422AFAB1626B6A5E78A28DBC2343318E7B87786378509EB12F",
+    "guid": "ecfd0952-4bfb-4cd8-9bf4-651c49c3a061",
+    "hash": "1756DF8260A89AB4EA66F019D73FA38738B7358E686F8D2129141A93A8B3B43F",
     "app": {
-      "hash": "8D9D2C30E5996F4E10157A81C7251427A4941CAEF3360D879F112DFF361D641B",
+      "hash": "B9D71AB3EA130AE88EAE732E4D584B97DCED90A096C103B75977A958B0D8BCF1",
       "items": [
         "SE.DPAC#DS_SELECTX_2536758B411A6CE51.bin",
         "SE.DPAC#DPAC_FULLINIT.bin",
@@ -19,6 +19,7 @@
         "Main#ColorMap.bin",
         "Main#LightSensor.bin",
         "Main#PushControl.bin",
+        "Main#Pusher_Comp.bin",
         "Standard.IoModbus#MODBUS_HMI.bin",
         "Standard.IoModbus#IHwSlaveConfig.bin",
         "Standard.IoModbus#MODBUS.bin",
