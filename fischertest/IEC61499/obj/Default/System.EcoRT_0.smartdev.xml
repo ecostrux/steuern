@@ -42,11 +42,11 @@
         <FB ID="2D4279C6D800B675" Name="FB3" Type="E_SPLIT" x="3340" y="1840" Namespace="IEC61499.Standard" Loaded="true" />
         <FB ID="3A59ECACDB64B2ED" Name="Pusher_White" Type="Pusher_Comp" x="1940" y="2820" Namespace="Main" Loaded="true">
           <Parameter Name="SetColour" Value="'WHITE'" />
-          <Parameter Name="PrePushDelay" Value="T#3000ms" />
+          <Parameter Name="PrePushDelay" Value="T#2000ms" />
         </FB>
         <FB ID="C8C2C175799F6574" Name="Pusher_Red" Type="Pusher_Comp" x="2900" y="2980" Namespace="Main" Loaded="true">
           <Parameter Name="SetColour" Value="'RED'" />
-          <Parameter Name="PrePushDelay" Value="T#5000ms" />
+          <Parameter Name="PrePushDelay" Value="T#1000ms" />
         </FB>
         <FB ID="B785EA98ED62CEC" Name="MODBUS" Type="MODBUS" x="0" y="0" Namespace="Standard.IoModbus">
           <Parameter Name="autoStart" Value="TRUE" />
@@ -560,6 +560,8 @@
             </Points>
             <AvoidsNodes>false</AvoidsNodes>
           </Connection>
+          <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_White.CurrentColour" dx1="49.521" dx2="150" dy="90" />
+          <Connection Source="LightSensor_2.CurrentColor" Destination="Pusher_Red.CurrentColour" dx1="49.521" />
         </DataConnections>
         <AdapterConnections>
           <Connection Source="MODBUS.busOut" Destination="MB_EA_01.busIn" />
